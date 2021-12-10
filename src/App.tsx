@@ -1,132 +1,69 @@
-import { DragDropContext, Droppable, DropResult } from "react-beautiful-dnd";
-import { useRecoilState } from "recoil";
-import styled from "styled-components";
-import { IToDoState, toDoState } from "./components/atoms";
-import Board from "./components/Board";
-import CreateNewBoard from "./components/CreateNewBoard";
-import TrashBin from "./components/Trashcan";
+import { createGlobalStyle } from "styled-components";
+import Routers from "./Router";
 
-
-const Wrapper = styled.div`
-  display: flex;
-  max-width: 1000px;
-  width: 100%;
-  margin: 0 auto;
-  justify-content: space-evenly;
-  align-items: center;
-  min-height: 100vh;
-  flex-direction: column;
-`;
-
-const Boards = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 300px);
-  gap: 20px;
+const GlobalStyle = createGlobalStyle`
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, menu, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+main, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+article, aside, details, figcaption, figure,
+footer, header, hgroup, main, menu, nav, section {
+  display: block;
+}
+*[hidden] {
+    display: none;
+}
+menu, ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  font-weight: 300;
+  font-family: 'Source Sans Pro', sans-serif;
+  line-height: 1.2;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
 `;
 
 function App() {
-  const [toDos, setToDos] = useRecoilState(toDoState);
-  const onDragEnd = ({
-    type,
-    draggableId,
-    destination,
-    source,
-  }: DropResult) => {
-    if (!destination) return;
-    if (destination?.droppableId === "trashBin") {
-      // delete toDo
-      setToDos((oldToDos) => {
-        return {
-          ...oldToDos,
-          [source.droppableId]: [
-            ...oldToDos[source.droppableId].slice(0, source.index),
-            ...oldToDos[source.droppableId].slice(source.index + 1),
-          ],
-        };
-      });
-      return;
-    }
-
-    if (type === "board") {
-      if (destination.index === source.index) return;
-      setToDos((oldToDos) => {
-        const keyList = Object.keys(toDos);
-        let sourceKey: string, destKey: string;
-        keyList.forEach((element, index) => {
-          if (index === source.index) sourceKey = element;
-          if (index === destination.index) destKey = element;
-        });
-        const newToDos: IToDoState = {};
-        keyList.forEach((element) => {
-          if (element === sourceKey) return;
-          if (element === destKey && source.index > destination.index) {
-            newToDos[sourceKey] = [...oldToDos[sourceKey]];
-          }
-          newToDos[element] = [...oldToDos[element]];
-          if (element === destKey && source.index < destination.index) {
-            newToDos[sourceKey] = [...oldToDos[sourceKey]];
-          }
-        });
-        return newToDos;
-      });
-      return;
-    }
-
-    if (destination?.droppableId === source.droppableId) {
-      setToDos((oldToDos) => {
-        const boardCopy = [...oldToDos[source.droppableId]];
-        boardCopy.splice(
-          destination?.index,
-          0,
-          ...boardCopy.splice(source.index, 1)
-        );
-        return {
-          ...oldToDos,
-          [source.droppableId]: boardCopy,
-        };
-      });
-    }
-
-    if (destination?.droppableId !== source.droppableId) {
-      setToDos((oldToDos) => {
-        const sourceCopy = [...oldToDos[source.droppableId]];
-        const destCopy = [...oldToDos[destination.droppableId]];
-        const targetElement = sourceCopy.splice(source.index, 1);
-        destCopy.splice(destination.index, 0, ...targetElement);
-        return {
-          ...oldToDos,
-          [source.droppableId]: sourceCopy,
-          [destination.droppableId]: destCopy,
-        };
-      });
-    }
-  };
   return (
-    <DragDropContext onDragEnd={onDragEnd}>
-      <Wrapper>
-        <CreateNewBoard />
-        <Droppable
-          droppableId="droppableBoards"
-          type="board"
-          direction="horizontal"
-        >
-          {(provided, snapshot) => (
-            <Boards ref={provided.innerRef}>
-              {Object.keys(toDos).map((boardId, index) => (
-                <Board
-                  boardIndex={index}
-                  boardId={boardId}
-                  key={boardId}
-                  toDos={toDos[boardId]}
-                />
-              ))}
-              {provided.placeholder}
-            </Boards>
-          )}
-        </Droppable>
-        <TrashBin />
-      </Wrapper>
-    </DragDropContext>
+    <>
+      <GlobalStyle />
+      <Routers />
+    </>
   );
 }
 
