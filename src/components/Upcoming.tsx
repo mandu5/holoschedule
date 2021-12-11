@@ -11,7 +11,7 @@ const Length = styled.div`
   background-color: #333;
   padding: 8px;
   margin-bottom: 20px;
-  color: #fff;
+  color: #red;
 `;
 const Box = styled.div`
   height: 250px;

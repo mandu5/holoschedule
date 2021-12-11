@@ -28,14 +28,11 @@ const Search = styled.div`
       font-size: 18px;
       outline: none;
       border: none;
-      @media (max-width: 625px) {
-        width: 200px;
-      }
     }
   }
 `;
 const UserCircle = styled.div`
-  position: relative;
+  position: fixed;
   width: 57px;
   height: 57px;
   min-width: 57px;
@@ -48,6 +45,9 @@ const UserCircle = styled.div`
   cursor: pointer;
   &:hover {
     background-color: #72cde9;
+  }
+  @media (max-width: 670px) {
+    visibility: hidden;
   }
 `;
 const User = styled.div`
@@ -69,9 +69,11 @@ export function HeaderDetails() {
   return (
     <>
       <Logo>
-        <MdScheduleSend />
         <Link to="/">
-          <div>Holo Schedule</div>
+          <div>
+            <MdScheduleSend />
+            Holo Schedule
+          </div>
         </Link>
       </Logo>
       <Search>
