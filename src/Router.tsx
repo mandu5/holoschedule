@@ -12,10 +12,10 @@ function Routers() {
     <Router>
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/video/:youtubeKey" element={<Stream />} />
-        <Route path="/channel/:holoId" element={<Channel />} />
+        <Route path="/video/:yt_video" element={<Stream />} />
+        <Route path="/channel/:yt_channel_id" element={<Channel />} />
         <Route path="/multiview" element={<Multiview />} />
-        <Route path="/favorites/:loginId" element={<Favorites />} />
+        <Route path="/favorites/:id" element={<Favorites />} />
         <Route path="/setting" element={<Setting />} />
         <Route path="/about" element={<About />} />
       </Routes>

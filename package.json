@@ -26,7 +26,8 @@
     "recoil": "^0.5.2",
     "save": "^2.4.0",
     "styled-components": "^5.3.3",
-    "web-vitals": "^1.1.2"
+    "web-vitals": "^1.1.2",
+    "youtube-live-chat": "^1.0.3"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -8,10 +8,12 @@ const Upcomings = styled.div`
   background: 000;
 `;
 const Length = styled.div`
-  background-color: #333;
+  background-color: #222;
   padding: 8px;
   margin-bottom: 20px;
-  color: #red;
+  span {
+    color: red;
+  }
 `;
 const Box = styled.div`
   height: 250px;
@@ -98,7 +100,7 @@ export function Upcoming() {
   }, []);
   return (
     <Upcomings>
-      <Length>Upcoming: {upComing.length}</Length>
+      <Length><span>Upcoming: </span>{upComing.length}</Length>
       {upComing?.map((item) => (
         <Box key={item.id}>
           <Link to={`/video/${item.yt_video_key}`}>

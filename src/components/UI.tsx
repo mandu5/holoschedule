@@ -11,7 +11,7 @@ const Navigation = styled.div`
   height: 100%;
   background: #83d0e7;
   border-left: 10px solid #83d0e7;
-  transition: 0.5s;
+  transition: 0.0s;
   overflow: hidden;
   .button {
     border-radius: 50%;
@@ -59,7 +59,7 @@ const Navigation = styled.div`
       border-top-left-radius: 30px;
       border-bottom-left-radius: 30px;
       &:hover {
-        background: #fff;
+        background: #dfe5e8;
         a {
           color: #83d0e7;
         }
@@ -79,7 +79,7 @@ const Navigation = styled.div`
   }
 `;
 const Topbar = styled.div`
-  height: 60px;
+  height: 58px;
   position: relative;
   display: flex;
   justify-content: center;
@@ -89,14 +89,14 @@ const Topbar = styled.div`
   color: #fff;
   width: calc(100% - 300px);
   left: 300px;
-  transition: 0.5s;
+  transition: 0.0s;
   &.active {
     width: calc(100% - 80px);
     left: 80px;
     .toggle {
       @media (max-width: 991px) {
         visibility: hidden;
-        transition: 0.01s;
+        transition: 0.001s;
       }
     }
     @media (max-width: 991px) {

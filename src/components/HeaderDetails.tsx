@@ -6,6 +6,7 @@ import styled from "styled-components";
 const Logo = styled.div`
   font-size: 25px;
   margin-top: 5px;
+
   display: flex;
   position: relative;
   text-align: start;
@@ -46,7 +47,7 @@ const UserCircle = styled.div`
   &:hover {
     background-color: #72cde9;
   }
-  @media (max-width: 670px) {
+  @media (max-width: 850px) {
     visibility: hidden;
   }
 `;

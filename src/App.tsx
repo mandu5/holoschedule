@@ -29,7 +29,7 @@ footer, header, hgroup, main, menu, nav, section {
 *[hidden] {
     display: none;
 }
-menu, ol, ul {
+menu {
   list-style: none;
 }
 blockquote, q {

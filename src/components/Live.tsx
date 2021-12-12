@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Length = styled.div`
-  background-color: #333;
+  background-color: #222;
   padding: 8px;
   margin-bottom: 20px;
-  color: #red;
+  span {
+    color: red;
+  }
 `;
 const Box = styled.div`
   height: 250px;
@@ -89,16 +91,17 @@ export function Live() {
         "https://api.holotools.app/v1/live?max_upcoming_hours=48"
       );
       const json = await response.json();
-    //setLoading(false);
+      //setLoading(false);
       setLive(json.live);
     })();
   }, []);
-
   return (
     <>
-      <Length>Live: {live.length}</Length>
+      <Length>
+        <span>Live:</span> {live.length}
+      </Length>
       {live?.map((item) => (
-        <Box key={item.id}>
+        <Box key={item.yt_video_key}>
           <Link to={`/video/${item.yt_video_key}`}>
             <div>
               <div className="thumbnail">
@@ -108,12 +111,12 @@ export function Live() {
                 />
               </div>
               <div>
-                <Link to={`/channel/${item.channel.id}`}>
+                <Link to={`/video/${item.yt_video_key}`}>
                   <Profile src={`${item.channel.photo}`} />
                 </Link>
                 <Details>
                   <div className="title">{item.title}</div>
-                  <Link to={`/channel/${item.channel.id}`}>
+                  <Link to={`/video/${item.yt_video_key}`}>
                     <div className="channelName">{item.channel.name}</div>
                   </Link>
                   <div>
