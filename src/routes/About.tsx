@@ -8,7 +8,7 @@ const Main = styled.div`
   width: calc(100%);
   left: 300px;
   min-height: 100vh;
-  background: #000;
+  background: ${(props) =>props.theme.bgColor};
   color: rgb(255, 255, 255);
   transition: 0.3s;
   &.active {
@@ -36,7 +36,6 @@ const Head = styled.div`
   margin-top: 20px;
   margin-bottom: 20px;
 `;
-const Boxes = styled.div``;
 const Box = styled.div`
   height: 250px;
   width: 540px;
@@ -160,7 +159,7 @@ function About() {
         <UI setMain={setMain} />
         <Main className={main}>
           <Head>About</Head>
-          <Boxes className="boxes">
+          <div className="boxes">
             <Box className="box">
               <FAQ>
                 <Title>FAQ</Title>
@@ -262,7 +261,7 @@ function About() {
                 </Content>
               </Credits>
             </Box>
-          </Boxes>
+          </div>
         </Main>
       </div>
     </>

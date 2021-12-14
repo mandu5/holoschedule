@@ -9,7 +9,7 @@ const Main = styled.div`
   width: calc(100% - 300px);
   left: 300px;
   height: 0;
-  background: #000;
+  background: ${(props) =>props.theme.bgColor};
   color: white;
   transition: 0.3s;
   display: flex;
@@ -53,6 +53,9 @@ const Main = styled.div`
     left: 0;
   }
 `;
+document.cookie = "safeCookie1=foo; SameSite=Lax";
+document.cookie = "safeCookie2=foo";
+document.cookie = "crossCookie=bar; SameSite=None; Secure"
 
 function Stream() {
   const [main, setMain] = useState("main");

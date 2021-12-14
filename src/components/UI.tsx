@@ -156,7 +156,7 @@ const Icon2 = styled.span`
   justify-content: center;
   align-items: center;
   font-size: 1em;
-  color: #fff;
+  color: ${(props) =>props.theme.textColor};
 `;
 
 export function UI(props: { setMain: (arg0: string) => void; }) {

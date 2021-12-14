@@ -11,7 +11,7 @@ const Main = styled.div`
   width: calc(100% - 300px);
   left: 300px;
   min-height: 100vh;
-  background: #000;
+  background: ${(props) =>props.theme.bgColor};
   color: white;
   transition: 0.3s;
   &.active {

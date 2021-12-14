@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { UI } from "../components/UI";
+import { authService } from "../myBase";
 import "./pages.css";
 
 const Main = styled.div`
@@ -31,18 +33,21 @@ const Main = styled.div`
 `;
 const Head = styled.div``;
 
-function Favorites() {
+function AccountSetting() {
   const [main, setMain] = useState("main");
+  const onLogOutClick = () => authService.signOut();
   return (
     <>
       <div className="wrapper">
         <UI setMain={setMain} />
         <Main className={main}>
-          <Head>Favorites</Head>
-          <h1>로그인안된상태: 로그인하세요 창/로그인완료: 좋아하는 채널 미리보기</h1>
+          <Head>AccountSetting</Head>
+          <Link to="/">
+            <button onClick={onLogOutClick}>Log Out</button>
+          </Link>
         </Main>
       </div>
     </>
   );
 }
-export default Favorites;
+export default AccountSetting;

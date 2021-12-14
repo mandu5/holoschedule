@@ -1,5 +1,11 @@
+import { useEffect, useState } from "react";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { createGlobalStyle } from "styled-components";
+import { isDarkAtom, isLoggedInAtom } from "./atoms";
+import { authService } from "./myBase";
 import Routers from "./Router";
+import { lightTheme, darkTheme } from "./theme";
+import { ThemeProvider } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,
@@ -59,10 +65,26 @@ a {
 `;
 
 function App() {
+  const isLoggedIn = useRecoilValue(isLoggedInAtom);
+  const setIsLoggedIn = useSetRecoilState(isLoggedInAtom);
+  const [init, setInit] = useState(false);
+  useEffect(() => {
+    authService.onAuthStateChanged((user) => {
+      if (user) {
+        setIsLoggedIn(true);
+      } else {
+        setIsLoggedIn(false);
+      }
+      setInit(true);
+    });
+  }, [setIsLoggedIn]);
+  const isDark = useRecoilValue(isDarkAtom);
   return (
     <>
-      <GlobalStyle />
-      <Routers />
+      <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
+        <GlobalStyle />
+        {init ? <Routers isLoggedIn={isLoggedIn} /> : "Loading..."}
+      </ThemeProvider>
     </>
   );
 }

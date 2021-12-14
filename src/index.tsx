@@ -1,14 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { RecoilRoot } from "recoil";
 import App from "./App";
-// import { theme } from "./theme";
-//import { ThemeProvider } from "styled-components";
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <ThemeProvider theme={theme}> */}
-    <App />
-    {/* </ThemeProvider> */}
+    <RecoilRoot>
+      <App />
+    </RecoilRoot>
   </React.StrictMode>,
   document.getElementById("root")
 );

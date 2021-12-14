@@ -17,6 +17,7 @@ const Icon = styled.span`
   right: 7px;
   text-align: center;
   font-size: 1.75em;
+  color: ${(props) =>props.theme.textColor};
 `;
 const Title = styled.span`
   position: relative;
@@ -88,12 +89,12 @@ export function NavLi() {
         onMouseOut={onMouseOut2}
       >
         <Button className="buttons">
-          <Link to="/favorites/:loginId">
-            <Icon>
-              <MdOutlineFavoriteBorder />
-            </Icon>
-            <Title>Favorites</Title>
-          </Link>
+            <Link to="/favorites">
+              <Icon>
+                <MdOutlineFavoriteBorder />
+              </Icon>
+              <Title>Favorites</Title>
+            </Link>
         </Button>
       </li>
       <li
