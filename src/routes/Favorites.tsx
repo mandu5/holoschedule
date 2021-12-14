@@ -10,7 +10,7 @@ const Main = styled.div`
   min-height: 100vh;
   background: #000;
   color: white;
-  transition: 0.0s;
+  transition: 0.3s;
   &.active {
     width: calc(100% - 80px);
     left: 80px;
@@ -39,7 +39,7 @@ function Favorites() {
         <UI setMain={setMain} />
         <Main className={main}>
           <Head>Favorites</Head>
-          <h1>로그인후 좋아하는 채널 미리보기</h1>
+          <h1>로그인안된상태: 로그인하세요 창/로그인완료: 좋아하는 채널 미리보기</h1>
         </Main>
       </div>
     </>

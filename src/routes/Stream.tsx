@@ -5,13 +5,14 @@ import { UI } from "../components/UI";
 import "./pages.css";
 
 const Main = styled.div`
-  position: absolute;
+  position: relative;
   width: calc(100% - 300px);
   left: 300px;
-  min-height: 80vh;
+  height: 0;
   background: #000;
   color: white;
-  transition: 0s;
+  transition: 0.3s;
+  display: flex;
   &.active {
     width: calc(100% - 80px);
     left: 80px;
@@ -25,33 +26,39 @@ const Main = styled.div`
       left: 300px;
     }
   }
-  @media (max-width: 991px) {
-    width: 100%;
-    left: 0;
-  }
   .video {
-    width: 70%;
-    height: 706px;
+    width: 500px;
+    height: 400px;
     @media (max-width: 991px) {
       height: 400px;
       width: 100%;
     }
   }
+  h1 {
+    color: red;
+    height: 306px;
+    float: left;
+  }
   .chat {
-    width: 30%;
+    width: 300px;
+    height: 706px;
     @media (max-width: 991px) {
       float: left;
       width: 100%;
       height: 306px;
     }
   }
+  @media (max-width: 991px) {
+    width: 100%;
+    left: 0;
+  }
 `;
 
 function Stream() {
   const [main, setMain] = useState("main");
   const { yt_video } = useParams();
-  return (
-    <>
+  return ( 
+    <> 
       <div className="wrapper">
         <UI setMain={setMain} />
         <Main className={main}>
@@ -63,9 +70,9 @@ function Stream() {
             allowFullScreen
             title="Embedded youtube"
           />
+          <h1>title</h1>
           <iframe
             className="chat"
-            height="700"
             src={`https://www.youtube.com/live_chat?v=${yt_video}&embed_domain=localhost`}
             frameBorder="0"
             title="Embeded chat"

@@ -11,7 +11,7 @@ const Navigation = styled.div`
   height: 100%;
   background: #83d0e7;
   border-left: 10px solid #83d0e7;
-  transition: 0.0s;
+  transition: 0.3s;
   overflow: hidden;
   .button {
     border-radius: 50%;
@@ -89,7 +89,7 @@ const Topbar = styled.div`
   color: #fff;
   width: calc(100% - 300px);
   left: 300px;
-  transition: 0.0s;
+  transition: 0.3s;
   &.active {
     width: calc(100% - 80px);
     left: 80px;

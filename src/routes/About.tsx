@@ -5,22 +5,21 @@ import "./pages.css";
 
 const Main = styled.div`
   position: absolute;
-  width: calc(100% - 300px);
+  width: calc(100%);
   left: 300px;
   min-height: 100vh;
   background: #000;
   color: rgb(255, 255, 255);
-  transition: 0.0s;
+  transition: 0.3s;
   &.active {
     width: calc(100% - 80px);
     left: 80px;
     background-color: black;
-    transition: 0s;
+    transition: 0.3s;
     .boxes {
       margin-left: 110px;
       margin-right: 40px;
-      align-items: center;
-      justify-content: center;
+      transition: 0.3s;
     }
     @media (max-width: 991px) {
       left: 300px;
@@ -50,7 +49,6 @@ const Box = styled.div`
   border-radius: 5px;
   box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
   overflow: scroll;
-
 `;
 const FAQ = styled.div`
   justify-content: center;
@@ -167,7 +165,7 @@ function About() {
               <FAQ>
                 <Title>FAQ</Title>
                 <div className="accordion">
-                  <ContentBx className={accordion} onClick={changeClass}>
+                  <ContentBx id="1" className={accordion} onClick={changeClass}>
                     <div className="label">
                       My Youtube chat isn't logged in!
                     </div>
@@ -180,7 +178,11 @@ function About() {
                       </a>
                     </div>
                   </ContentBx>
-                  <ContentBx className={accordion1} onClick={changeClass1}>
+                  <ContentBx
+                    id="2"
+                    className={accordion1}
+                    onClick={changeClass1}
+                  >
                     <div className="label">
                       My favorites list disappeared / I cannot favorite
                     </div>
@@ -189,7 +191,11 @@ function About() {
                       favorites tab to force a refresh.
                     </div>
                   </ContentBx>
-                  <ContentBx className={accordion2} onClick={changeClass2}>
+                  <ContentBx
+                    id="3"
+                    className={accordion2}
+                    onClick={changeClass2}
+                  >
                     <div className="label">
                       I have feedback/want to contribute to this project
                     </div>
@@ -201,7 +207,11 @@ function About() {
                       ideas.
                     </div>
                   </ContentBx>
-                  <ContentBx className={accordion3} onClick={changeClass3}>
+                  <ContentBx
+                    id="4"
+                    className={accordion3}
+                    onClick={changeClass3}
+                  >
                     <div className="label">
                       I'm a subber and I would like to have my channel removed
                       from Holo Schedule

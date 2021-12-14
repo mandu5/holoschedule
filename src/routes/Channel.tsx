@@ -11,7 +11,7 @@ const Main = styled.div`
   min-height: 100vh;
   background: #000;
   color: white;
-  transition: 0.0s;
+  transition: 0.3s;
   &.active {
     width: calc(100% - 80px);
     left: 80px;
