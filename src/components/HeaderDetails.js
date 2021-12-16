@@ -48,7 +48,6 @@ const Icon3 = styled.span`
 `;
 const Toggle = styled.div`
   position: relative;
-  background: #ffccbc;
   border-radius: 50%;
   .profile {
     position: relative;
@@ -57,6 +56,9 @@ const Toggle = styled.div`
     border-radius: 50%;
     overflow: hidden;
     cursor: pointer;
+    &:hover {
+      opacity: 0.8;
+    }
     img {
       top: 0;
       left: 0;
@@ -69,12 +71,12 @@ const Toggle = styled.div`
 const Menu = styled.div`
   position: absolute;
   top: 100px;
-  right: 0;
+  right: -5px;
   width: 250px;
   padding: 10px 20px;
   background: #333;
   box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
-  border-radius: 15px;
+  border-radius: 5px;
   transition: 0.5s;
   visibility: hidden;
   z-index: 1;
@@ -103,6 +105,8 @@ const Menu = styled.div`
       justify-content: center;
       align-items: center;
       line-height: 24px;
+      border:0;
+      outline:0;
       span {
         margin-left: 15px;
       }

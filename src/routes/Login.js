@@ -12,6 +12,13 @@ const Main = styled.div`
   color: ${(props) =>props.theme.textColor};
   transition: 0.3s;
   background: ${(props) =>props.theme.bgColor};
+  h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 20px;
+  }
   &.active {
     width: calc(100% - 80px);
     left: 80px;
@@ -36,7 +43,6 @@ const Main = styled.div`
     width: 400px;
     padding: 40px;
     transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.5);
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
     border-radius: 10px;
@@ -164,6 +170,7 @@ function LoginPage() {
       <div className="wrapper">
         <UI setMain={setMain} />
         <Main className={main}>
+          <h1>Create a list of favorite vtubers and see their lives on this page.</h1>
           <div class="login-box">
             <h2>Login</h2>
             <form onSubmit={onSubmit}>

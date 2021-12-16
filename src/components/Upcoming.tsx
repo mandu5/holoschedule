@@ -1,7 +1,8 @@
 import moment from "moment";
-import { useEffect, useState } from "react";
+import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { fetchUpcoming } from "../routes/api";
 
 const Upcomings = styled.div`
   float: left;
@@ -88,20 +89,14 @@ interface IHoloLive {
 }
 
 export function Upcoming() {
-  const [upComing, setUpcoming] = useState<IHoloLive[]>([]);
-  useEffect(() => {
-    (async () => {
-      const response = await fetch(
-        "https://api.holotools.app/v1/live?max_upcoming_hours=48"
-      );
-      const json = await response.json();
-      setUpcoming(json.upcoming);
-    })();
-  }, []);
+  const { data } = useQuery<IHoloLive[]>("allUpcoming", fetchUpcoming);
   return (
     <Upcomings>
-      <Length><span>Upcoming: </span>{upComing.length}</Length>
-      {upComing?.map((item) => (
+      <Length>
+        <span>Upcoming: </span>
+        {data?.length}
+      </Length>
+      {data?.map((item) => (
         <Box key={item.id}>
           <Link to={`/video/${item.yt_video_key}`}>
             <div>
@@ -112,16 +107,16 @@ export function Upcoming() {
                 />
               </div>
               <div>
-                <Link to={`/channel/${item.channel.id}`}>
+                <Link to={`/channel/${item.channel.yt_channel_id}`}>
                   <Profile src={`${item.channel.photo}`} />
                 </Link>
                 <Details>
                   <div className="title">{item.title}</div>
-                  <Link to={`/channel/${item.channel.id}`}>
+                  <Link to={`/channel/${item.channel.yt_channel_id}`}>
                     <div className="channelName">{item.channel.name}</div>
                   </Link>
                   <div>
-                      <br/>
+                    <br />
                     <span>{item.status}</span>{" "}
                     {moment(`${item.live_schedule}`).fromNow()}
                   </div>

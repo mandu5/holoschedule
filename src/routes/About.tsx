@@ -8,7 +8,7 @@ const Main = styled.div`
   width: calc(100%);
   left: 300px;
   min-height: 100vh;
-  background: ${(props) =>props.theme.bgColor};
+  background: ${(props) => props.theme.bgColor};
   color: rgb(255, 255, 255);
   transition: 0.3s;
   &.active {
@@ -35,18 +35,19 @@ const Head = styled.div`
   margin-left: 20px;
   margin-top: 20px;
   margin-bottom: 20px;
+  color: ${(props) => props.theme.textColor};
 `;
 const Box = styled.div`
+  position: relative;
   height: 250px;
   width: 540px;
   float: left;
-  display: flex;
-  color: #fff;
-  background-color: #151414;
+  color: ${(props) => props.theme.textColor};
+  background: ${(props) => props.theme.tabColor};
   margin-bottom: 20px;
   margin-left: 20px;
-  border-radius: 5px;
-  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  box-shadow: 0 7px 25px #222;
   overflow: scroll;
 `;
 const FAQ = styled.div`
@@ -106,9 +107,11 @@ const Log = styled.div``;
 const Credits = styled.div``;
 const Title = styled.div`
   font-size: 25px;
-  margin-left: 20px;
   margin-top: 20px;
+  margin-left: 20px;
   margin-bottom: 20px;
+  color: #faebd7;
+  width: 100%;
 `;
 const Content = styled.div`
   font-size: 15px;
@@ -226,7 +229,7 @@ function About() {
             <Box>
               <QNA>
                 <Title>QNA</Title>
-                질문 할 수 있는 게시판 (게시판 만들기)
+                <div>질문 할 수 있는 게시판 (게시판 만들기)</div>
               </QNA>
             </Box>
             <Box>

@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { useRecoilValue } from "recoil";
 import styled from "styled-components";
+//import { isLikedAtom, namesAtom } from "../atoms";
 import { UI } from "../components/UI";
 import "./pages.css";
 
@@ -8,7 +10,7 @@ const Main = styled.div`
   width: calc(100% - 300px);
   left: 300px;
   min-height: 100vh;
-  background: ${(props) =>props.theme.bgColor};
+  background: ${(props) => props.theme.bgColor};
   color: white;
   transition: 0.3s;
   &.active {
@@ -31,15 +33,22 @@ const Main = styled.div`
 `;
 const Head = styled.div``;
 
+interface IHolo {
+  name: "string";
+}
+
 function Favorites() {
   const [main, setMain] = useState("main");
+  // const names = useRecoilValue(namesAtom);
+  // console.log(names)
   return (
     <>
       <div className="wrapper">
         <UI setMain={setMain} />
         <Main className={main}>
           <Head>Favorites</Head>
-          <h1>로그인안된상태: 로그인하세요 창/로그인완료: 좋아하는 채널 미리보기</h1>
+          {/* <h1>{names}</h1> */}
+          <h1> 좋아하는 채널 미리보기</h1>
         </Main>
       </div>
     </>

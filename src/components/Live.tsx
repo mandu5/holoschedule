@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { fetchLive } from "../routes/api";
 
 const Length = styled.div`
   background-color: #222;
@@ -83,24 +84,44 @@ interface IHoloLive {
 }
 
 export function Live() {
-  const [live, setLive] = useState<IHoloLive[]>([]);
-  //const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    (async () => {
-      const response = await fetch(
-        "https://api.holotools.app/v1/live?max_upcoming_hours=48"
-      );
-      const json = await response.json();
-      //setLoading(false);
-      setLive(json.live);
-    })();
-  }, []);
+  const { data } = useQuery<IHoloLive[]>("allLive", fetchLive);
+
+  // 검색
+  // const [search, setSearch] = useState("");
+  // const searchSpace = (event: ChangeEvent<HTMLInputElement>) => {
+  //   let keyword = event.target.value;
+  //   setSearch(keyword);
+  // };
+  // const names = live
+  //   .filter((item) => {
+  //     if (search === null) return item;
+  //     else if (item.channel.name.toLowerCase().includes(search)) {
+  //       return item;
+  //     }
+  //   })
+  //   .map((item) => {
+  //     return (
+  //       <div>
+  //         <span>{item.channel.name}</span>
+  //       </div>
+  //     );
+  //   });
+
   return (
     <>
       <Length>
-        <span>Live:</span> {live.length}
+        <span>Live:</span> {data?.length}
       </Length>
-      {live?.map((item) => (
+      {/* <div>
+        <input
+          type="text"
+          placeholder="Search here"
+          onChange={(e) => searchSpace(e)}
+        />
+        {names}
+      </div> */}
+
+      {data?.map((item) => (
         <Box key={item.yt_video_key}>
           <Link to={`/video/${item.yt_video_key}`}>
             <div>
@@ -111,12 +132,12 @@ export function Live() {
                 />
               </div>
               <div>
-                <Link to={`/video/${item.yt_video_key}`}>
+                <Link to={`/channel/${item.channel.yt_channel_id}`}>
                   <Profile src={`${item.channel.photo}`} />
                 </Link>
                 <Details>
                   <div className="title">{item.title}</div>
-                  <Link to={`/video/${item.yt_video_key}`}>
+                  <Link to={`/channel/${item.channel.yt_channel_id}`}>
                     <div className="channelName">{item.channel.name}</div>
                   </Link>
                   <div>

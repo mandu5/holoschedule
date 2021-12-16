@@ -1,10 +1,18 @@
 import { atom } from "recoil";
 
 export const isLoggedInAtom = atom({
-    key:"loggedIn",
-    default: false,
+  key: "loggedIn",
+  default: false,
 });
 export const isDarkAtom = atom({
-    key:"isDark",
-    default:true,
-})
+  key: "isDark",
+  default: true,
+});
+// export const isLikedAtom = atom({
+//   key: "isLiked",
+//   default: false,
+// });
+export const namesAtom = atom({
+  key: "names",
+  default: {},
+});
