@@ -4,7 +4,8 @@ import styled from "styled-components";
 import { fetchLive } from "../routes/api";
 
 const Length = styled.div`
-  background-color: #222;
+  background: ${(props) => props.theme.lengthbarColor};
+  color: ${(props) => props.theme.textColor};
   padding: 8px;
   margin-bottom: 20px;
   span {
@@ -17,11 +18,11 @@ const Box = styled.div`
   float: left;
   display: flex;
   color: white;
-  background-color: #000;
+  background-color: #151516;
   margin-bottom: 20px;
   margin-left: 20px;
   border-radius: 5px;
-  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.01);
   img {
     max-height: 250px;
     max-width: 315px;
@@ -85,42 +86,11 @@ interface IHoloLive {
 
 export function Live() {
   const { data } = useQuery<IHoloLive[]>("allLive", fetchLive);
-
-  // 검색
-  // const [search, setSearch] = useState("");
-  // const searchSpace = (event: ChangeEvent<HTMLInputElement>) => {
-  //   let keyword = event.target.value;
-  //   setSearch(keyword);
-  // };
-  // const names = live
-  //   .filter((item) => {
-  //     if (search === null) return item;
-  //     else if (item.channel.name.toLowerCase().includes(search)) {
-  //       return item;
-  //     }
-  //   })
-  //   .map((item) => {
-  //     return (
-  //       <div>
-  //         <span>{item.channel.name}</span>
-  //       </div>
-  //     );
-  //   });
-
   return (
     <>
       <Length>
         <span>Live:</span> {data?.length}
       </Length>
-      {/* <div>
-        <input
-          type="text"
-          placeholder="Search here"
-          onChange={(e) => searchSpace(e)}
-        />
-        {names}
-      </div> */}
-
       {data?.map((item) => (
         <Box key={item.yt_video_key}>
           <Link to={`/video/${item.yt_video_key}`}>

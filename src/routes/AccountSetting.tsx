@@ -51,11 +51,10 @@ const Main = styled.div`
     }
     form {
       .a {
-
         background-color: #000;
         position: relative;
         padding: 10px 20px;
-        color: #03e9f4;
+        color: #bccbde;
         font-size: 16px;
         text-decoration: none;
         text-transform: uppercase;
@@ -66,11 +65,11 @@ const Main = styled.div`
         border: 0;
         border-radius: 4px;
         &:hover {
-          background: #03e9f4;
+          background: #bccbde;
           color: #fff;
           border-radius: 5px;
-          box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,
-            0 0 100px #03e9f4;
+          box-shadow: 0 0 5px #bccbde, 0 0 25px #bccbde, 0 0 50px #bccbde,
+            0 0 100px #bccbde;
         }
       }
     }

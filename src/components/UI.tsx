@@ -9,7 +9,7 @@ const Navigation = styled.div`
   position: fixed;
   width: 300px;
   height: 100%;
-  background: #83d0e7;
+  background: linear-gradient(#83d0e7, #cce0e6);
   border-left: 10px solid #83d0e7;
   transition: 0.3s;
   overflow: hidden;
@@ -85,7 +85,7 @@ const Topbar = styled.div`
   justify-content: center;
   align-items: center;
   padding: 0 10px;
-  background-color: #49c8f0;
+  background: linear-gradient(#49c8f0, #98dbf0);
   color: #fff;
   width: calc(100% - 300px);
   left: 300px;

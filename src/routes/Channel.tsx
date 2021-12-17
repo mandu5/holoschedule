@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useSetRecoilState } from "recoil";
-//import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import styled from "styled-components";
-import { namesAtom } from "../atoms";
-//import { isLikedAtom, namesAtom } from "../atoms";
+import Cubes from "../components/Cubes";
+import { isLikedAtom } from "../atoms";
 import { UI } from "../components/UI";
 import "./pages.css";
 
@@ -53,15 +52,6 @@ const Main = styled.div`
     &:hover {
       transform: scale(1.2);
       background: rgba(255, 255, 255, 0.2);
-    }
-    &::before {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 30px;
-      background: #83d0e7;
     }
     .content {
       position: relative;
@@ -119,96 +109,69 @@ const Description = styled.div`
   margin-top: 180px;
   margin-left: 10px;
 `;
-interface IHolo {
-  name: "string";
-  description: "string";
-  photo: "string";
-  published_at: "string";
-  twitter_link: "string";
-  view_count: number;
-  subscriber_count: number;
-  video_count: number;
-}
 
 function Channel() {
   const [main, setMain] = useState("main");
   const { yt_channel_id } = useParams();
-  const [name, setName] = useState<IHolo[]>([]);
-  const [description, setDescription] = useState<IHolo[]>([]);
-  const [photo, setPhoto] = useState<IHolo[]>([]);
-  const [published_at, setPublished_at] = useState<IHolo[]>([]);
-  const [view_count, setView_count] = useState<IHolo[]>([]);
-  const [subscriber_count, setSubscriber_count] = useState<IHolo[]>([]);
-  const [video_count, setVideo_count] = useState<IHolo[]>([]);
-  const [twitter_link, setTwitter_link] = useState<IHolo[]>([]);
-  // const setIsLiked = useSetRecoilState(isLikedAtom);
-  // const setNames = useSetRecoilState(namesAtom);
-  // const isLiked = useRecoilValue(isLikedAtom);
-  // const names = useRecoilValue(namesAtom);
-  // const [array, setArray] = useState<any>([]);
-  // const onLiked = () => {
-  //   if (isLiked) {
-  //     setIsLiked(false);
-  //     setArray([]);
-  //     setNames(array);
-  //   } else {
-  //     setIsLiked(true);
-  //     setArray(array.concat(name));
-  //     setNames(array);
-  //   }
-  // };
+  const [channel, setChannel] = useState<any>([]);
+  const setIsLiked = useSetRecoilState(isLikedAtom);
+  const isLiked = useRecoilValue(isLikedAtom);
+  const onLiked = () => {
+    if (isLiked) {
+      setIsLiked(false);
+      localStorage.removeItem(`${yt_channel_id}`);
+    } else {
+      setIsLiked(true);
+      localStorage.setItem(`${yt_channel_id}`, channel.name);
+    }
+  };
   useEffect(() => {
     (async () => {
       const response = await fetch(
         `https://api.holotools.app/v1/channels/youtube/${yt_channel_id}`
       );
       const json = await response.json();
-      setName(json.name);
-      setDescription(json.description);
-      setPhoto(json.photo);
-      setPublished_at(json.published_at);
-      setTwitter_link(json.twitter_link);
-      setView_count(json.view_count);
-      setSubscriber_count(json.subscriber_count);
-      setVideo_count(json.video_count);
+      setChannel(json);
+      isLiked ? setIsLiked(true) : setIsLiked(false)
     })();
-  }, [yt_channel_id]);
+  }, [yt_channel_id, setIsLiked, isLiked]);
   return (
     <>
       <div className="wrapper">
         <UI setMain={setMain} />
         <Main className={main}>
+          <Cubes />
           <div className="card">
             <div className="content">
               <div className="imgBx">
-                <img src={`${photo}`} alt="proImg" />
+                <img src={`${channel.photo}`} alt="proImg" />
               </div>
               <div className="details">
-                <h1 className="name">{name}</h1>
-                {/* <Heart onClick={onLiked}>♥︎</Heart> */}
+                <h1 className="name">{channel.name}</h1>
+                <Heart onClick={onLiked}>{isLiked ? "❤️" : '🖤'}</Heart>
                 <br />
                 <h1>
-                  <span>View Count:</span> {view_count}
+                  <span>View Count:</span> {channel.view_count}
                 </h1>
                 <h1>
-                  <span>Subscriber Count:</span> {subscriber_count}
+                  <span>Subscriber Count:</span> {channel.subscriber_count}
                 </h1>
                 <h1>
-                  <span>Video Count:</span> {video_count}
+                  <span>Video Count:</span> {channel.video_count}
                 </h1>
                 <h1>
-                  <span>Debut:</span> {published_at}
+                  <span>Debut:</span> {channel.published_at}
                 </h1>
                 <br />
                 <a
                   className="link"
-                  href={`https://twitter.com/${twitter_link}`}
+                  href={`https://twitter.com/${channel.twitter_link}`}
                 >
-                  Twitter: {twitter_link}
+                  Twitter: {channel.twitter_link}
                 </a>
               </div>
             </div>
-            <Description>{description}</Description>
+            <Description>{channel.description}</Description>
           </div>
         </Main>
       </div>

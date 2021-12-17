@@ -9,16 +9,9 @@ const Main = styled.div`
   width: calc(100% - 300px);
   left: 300px;
   min-height: 100vh;
-  color: ${(props) =>props.theme.textColor};
+  color: ${(props) => props.theme.textColor};
   transition: 0.3s;
-  background: ${(props) =>props.theme.bgColor};
-  h1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    font-size: 20px;
-  }
+  background: ${(props) => props.theme.bgColor};
   &.active {
     width: calc(100% - 80px);
     left: 80px;
@@ -46,7 +39,7 @@ const Main = styled.div`
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
     border-radius: 10px;
-    background: ${(props) =>props.theme.tabColor};
+    background: ${(props) => props.theme.tabColor};
     h2 {
       margin: 0 0 30px;
       padding: 0;
@@ -88,17 +81,17 @@ const Main = styled.div`
     }
     form {
       #google {
-        background-color: #EA4335;
+        background-color: #ea4335;
       }
       #facebook {
-        background-color: #3B5998;
+        background-color: #3b5998;
       }
       .a {
         background-color: #000;
         position: relative;
         display: inline-block;
         padding: 10px 20px;
-        color: #03e9f4;
+        color: #bccbde;
         font-size: 16px;
         text-decoration: none;
         text-transform: uppercase;
@@ -113,18 +106,18 @@ const Main = styled.div`
           display: block;
         }
         &:hover {
-          background: #03e9f4;
+          background: #bccbde;
           color: #fff;
           border-radius: 5px;
-          box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,
-            0 0 100px #03e9f4;
+          box-shadow: 0 0 5px #bccbde, 0 0 25px #bccbde, 0 0 50px #bccbde,
+            0 0 100px #bccbde;
         }
       }
     }
   }
 `;
 
-function LoginPage() {
+function LoginPage() { 
   const [main, setMain] = useState("main");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -170,7 +163,6 @@ function LoginPage() {
       <div className="wrapper">
         <UI setMain={setMain} />
         <Main className={main}>
-          <h1>Create a list of favorite vtubers and see their lives on this page.</h1>
           <div class="login-box">
             <h2>Login</h2>
             <form onSubmit={onSubmit}>
@@ -200,10 +192,20 @@ function LoginPage() {
                 type="submit"
                 value={newAccount ? "Create Account" : "Log In"}
               />
-              <button id="google" className="a" onClick={onSocialClick} name="google">
+              <button
+                id="google"
+                className="a"
+                onClick={onSocialClick}
+                name="google"
+              >
                 Continue with Google
               </button>
-              <button id="facebook" className="a" onClick={onSocialClick} name="facebook">
+              <button
+                id="facebook"
+                className="a"
+                onClick={onSocialClick}
+                name="facebook"
+              >
                 Continue with Facebook
               </button>
               <button className="a" onClick={toggleAccount}>

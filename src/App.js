@@ -67,11 +67,13 @@ a {
 function App() {
   const isLoggedIn = useRecoilValue(isLoggedInAtom);
   const setIsLoggedIn = useSetRecoilState(isLoggedInAtom);
+  const [userObj, setUserObj] = useState(null);
   const [init, setInit] = useState(false);
   useEffect(() => {
     authService.onAuthStateChanged((user) => {
       if (user) {
         setIsLoggedIn(true);
+        setUserObj(user);
       } else {
         setIsLoggedIn(false);
       }
@@ -83,7 +85,11 @@ function App() {
     <>
       <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
         <GlobalStyle />
-        {init ? <Routers isLoggedIn={isLoggedIn} /> : "Loading..."}
+        {init ? (
+          <Routers isLoggedIn={isLoggedIn} userObj={userObj} />
+        ) : (
+          "Loading..."
+        )}
       </ThemeProvider>
     </>
   );

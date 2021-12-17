@@ -9,7 +9,8 @@ const Upcomings = styled.div`
   background: 000;
 `;
 const Length = styled.div`
-  background-color: #222;
+  background: ${(props) => props.theme.lengthbarColor};
+  color: ${(props) => props.theme.textColor};
   padding: 8px;
   margin-bottom: 20px;
   span {
@@ -22,11 +23,11 @@ const Box = styled.div`
   float: left;
   display: flex;
   color: white;
-  background-color: #000;
+  background-color: #151516;
   margin-bottom: 20px;
   margin-left: 20px;
   border-radius: 5px;
-  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.01);
   img {
     max-height: 250px;
     max-width: 315px;

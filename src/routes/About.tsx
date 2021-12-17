@@ -1,25 +1,24 @@
 import { useState } from "react";
 import styled from "styled-components";
+import QNA from "../components/QNA";
 import { UI } from "../components/UI";
 import "./pages.css";
 
 const Main = styled.div`
   position: absolute;
-  width: calc(100%);
+  width: calc(100% - 300px);
   left: 300px;
   min-height: 100vh;
   background: ${(props) => props.theme.bgColor};
-  color: rgb(255, 255, 255);
   transition: 0.3s;
   &.active {
     width: calc(100% - 80px);
     left: 80px;
-    background-color: black;
-    transition: 0.3s;
+    background: ${(props) => props.theme.bgColor};
     .boxes {
-      margin-left: 110px;
-      margin-right: 40px;
-      transition: 0.3s;
+      position: absolute;
+      transition: 0.00001s;
+      transform: translate(10%, 0%);
     }
     @media (max-width: 991px) {
       left: 300px;
@@ -39,15 +38,16 @@ const Head = styled.div`
 `;
 const Box = styled.div`
   position: relative;
-  height: 250px;
-  width: 540px;
+  height: 215px;
+  width: 530px;
   float: left;
   color: ${(props) => props.theme.textColor};
   background: ${(props) => props.theme.tabColor};
-  margin-bottom: 20px;
-  margin-left: 20px;
+  margin-bottom: 15px;
+  margin-top: 30px;
+  margin-left: 25px;
   border-radius: 20px;
-  box-shadow: 0 7px 25px #222;
+  box-shadow: 0 5px 8px 5px #555;
   overflow: scroll;
 `;
 const FAQ = styled.div`
@@ -55,6 +55,7 @@ const FAQ = styled.div`
   align-items: center;
   .accordion {
     width: 540px;
+    color: #fff;
     a {
       color: #83d0e7;
       text-decoration: underline;
@@ -65,7 +66,7 @@ const ContentBx = styled.div`
   position: relative;
   margin: 10px 20px;
   &:hover {
-    background: #555;
+    opacity: 0.8;
   }
   &.active {
     .content {
@@ -79,11 +80,12 @@ const ContentBx = styled.div`
   .label {
     position: relative;
     padding: 10px;
-    background: #333;
-    color: #fff;
+    background: ${(props) => props.theme.toggleColor};
+    color: ${(props) => props.theme.textColor};
+    border-radius: 5px;
     cursor: pointer;
     &:hover {
-      background: #555;
+      opacity: 0.8;
     }
     &::before {
       content: "+";
@@ -102,15 +104,12 @@ const ContentBx = styled.div`
     overflow-y: auto;
   }
 `;
-const QNA = styled.div``;
-const Log = styled.div``;
-const Credits = styled.div``;
 const Title = styled.div`
   font-size: 25px;
   margin-top: 20px;
   margin-left: 20px;
   margin-bottom: 20px;
-  color: #faebd7;
+  color: ${(props) => props.theme.textColor};
   width: 100%;
 `;
 const Content = styled.div`
@@ -119,20 +118,23 @@ const Content = styled.div`
   margin-right: 20px;
   span {
     font-size: 18px;
-    color: #49c8f0;
+    color: ${(props) => props.theme.hyperlinkColor};
     line-height: 24px;
   }
   div {
     margin-top: 30px;
     margin-bottom: 30px;
     a {
-      color: #83d0e7;
+      color: ${(props) => props.theme.hyperlinkColor};
       text-decoration: underline;
     }
   }
 `;
+interface Iuser {
+  userObj: null;
+}
 
-function About() {
+const About = ({ userObj }: Iuser) => {
   const [main, setMain] = useState("main");
   const [accordion, setAccordion] = useState("contentBx");
   const [accordion1, setAccordion1] = useState("contentBx");
@@ -163,7 +165,7 @@ function About() {
         <Main className={main}>
           <Head>About</Head>
           <div className="boxes">
-            <Box className="box">
+            <Box>
               <FAQ>
                 <Title>FAQ</Title>
                 <div className="accordion">
@@ -202,9 +204,7 @@ function About() {
                       I have feedback/want to contribute to this project
                     </div>
                     <div className="content">
-                      All help and ideas are welcome! The UI and Backend are
-                      both available for contribution, although only the UI is
-                      open source currently. Please contact us on discord to
+                      All help and ideas are welcome! Please contact us with QNA section to
                       gain access to backend source, or simply chat about your
                       ideas.
                     </div>
@@ -227,13 +227,11 @@ function About() {
               </FAQ>
             </Box>
             <Box>
-              <QNA>
-                <Title>QNA</Title>
-                <div>질문 할 수 있는 게시판 (게시판 만들기)</div>
-              </QNA>
+              <Title>QNA</Title>
+              <QNA userObj={userObj} />
             </Box>
             <Box>
-              <Log>
+              <div>
                 <Title>Channel log</Title>
                 <Content>
                   <span>1.0.1 Holo Schedules [December 11, 2021]</span>
@@ -244,10 +242,10 @@ function About() {
                     <li>Added loading screen and errors to all the pages</li>
                   </ul>
                 </Content>
-              </Log>
+              </div>
             </Box>
             <Box>
-              <Credits>
+              <div>
                 <Title>Credits</Title>
                 <Content>
                   <div>
@@ -262,12 +260,12 @@ function About() {
                     </a>
                   </div>
                 </Content>
-              </Credits>
+              </div>
             </Box>
           </div>
         </Main>
       </div>
     </>
   );
-}
+};
 export default About;

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { useRecoilValue } from "recoil";
+import { useSetRecoilState } from "recoil";
 import styled from "styled-components";
-//import { isLikedAtom, namesAtom } from "../atoms";
+import { isDarkAtom } from "../atoms";
 import { UI } from "../components/UI";
 import "./pages.css";
 
@@ -11,7 +11,7 @@ const Main = styled.div`
   left: 300px;
   min-height: 100vh;
   background: ${(props) => props.theme.bgColor};
-  color: white;
+  color: ${(props) => props.theme.textColor};
   transition: 0.3s;
   &.active {
     width: calc(100% - 80px);
@@ -33,25 +33,23 @@ const Main = styled.div`
 `;
 const Head = styled.div``;
 
-interface IHolo {
-  name: "string";
-}
-
-function Favorites() {
+function Setting() {
   const [main, setMain] = useState("main");
-  // const names = useRecoilValue(namesAtom);
-  // console.log(names)
+  const setIsDark = useSetRecoilState(isDarkAtom);
+  const themeChange = () => {
+    setIsDark((curr) => !curr);
+  };
   return (
     <>
       <div className="wrapper">
         <UI setMain={setMain} />
         <Main className={main}>
-          <Head>Favorites</Head>
-          {/* <h1>{names}</h1> */}
-          <h1> 좋아하는 채널 미리보기</h1>
+          <Head>Setting</Head>
+          <h1>1.언어번역 3.캐릭터별 색상 헤더 theme.ts 4.전체 세팅 리셋버튼</h1>
+          <button onClick={themeChange}>Dark Mode</button>
         </Main>
       </div>
     </>
   );
 }
-export default Favorites;
+export default Setting;

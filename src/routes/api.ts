@@ -10,3 +10,8 @@ export async function fetchUpcoming() {
   const json = await response.json();
   return json.upcoming;
 }
+export async function fetchChannels() {
+  const response = await fetch(`${BASE_URL}/channels?limit=50`);
+  const json = await response.json();
+  return json.channels;
+}

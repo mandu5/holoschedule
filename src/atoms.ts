@@ -8,11 +8,7 @@ export const isDarkAtom = atom({
   key: "isDark",
   default: true,
 });
-// export const isLikedAtom = atom({
-//   key: "isLiked",
-//   default: false,
-// });
-export const namesAtom = atom({
-  key: "names",
-  default: {},
+export const isLikedAtom = atom({
+  key: "isLiked",
+  default: false,
 });

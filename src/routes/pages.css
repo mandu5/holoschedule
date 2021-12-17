@@ -2,9 +2,17 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
   min-height: 100vh;
   overflow-x: hidden;
   position: relative;
   width: 100%;
+}
+:root {
+  --i: 0;
+  --i: 1;
+  --i: 2;
+  --i: 3;
+}
+bb {
+  color: #e1dab2;
 }

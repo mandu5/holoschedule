@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Helmet } from "react-helmet";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import styled from "styled-components";
 import { Upcoming } from "../components/Upcoming";
 import { Live } from "../components/Live";
@@ -11,7 +11,7 @@ const Main = styled.div`
   width: calc(100% - 300px);
   left: 300px;
   min-height: 100vh;
-  background: ${(props) =>props.theme.bgColor};
+  background: ${(props) => props.theme.bgColor};
   color: white;
   transition: 0.3s;
   &.active {
@@ -37,10 +37,12 @@ function Homepage() {
   const [main, setMain] = useState("main");
   return (
     <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Holo Schedules</title>
-      </Helmet>
+      <HelmetProvider>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Holo Schedules</title>
+        </Helmet>
+      </HelmetProvider>
       <div className="wrapper">
         <UI setMain={setMain} />
         <Main className={main}>

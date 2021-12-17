@@ -1,7 +1,5 @@
 import { useState } from "react";
-import { useSetRecoilState } from "recoil";
 import styled from "styled-components";
-import { isDarkAtom } from "../atoms";
 import { UI } from "../components/UI";
 import "./pages.css";
 
@@ -11,7 +9,7 @@ const Main = styled.div`
   left: 300px;
   min-height: 100vh;
   background: ${(props) => props.theme.bgColor};
-  color: ${(props) =>props.theme.textColor};
+  color: white;
   transition: 0.3s;
   &.active {
     width: calc(100% - 80px);
@@ -32,26 +30,27 @@ const Main = styled.div`
   }
 `;
 const Head = styled.div``;
-function Setting() {
+
+function Favorites() {
   const [main, setMain] = useState("main");
-  const setIsDark = useSetRecoilState(isDarkAtom);
-  const themeChange = () => {
-    setIsDark((curr) => !curr);
-  };
+  let b = [];
+  for (let i = 0; i < localStorage.length; i++) {
+    b.push(`${localStorage.getItem(localStorage.key(i))}`);
+  }
+  // 배열형태말고 따로따로 가져와서 각자 이름에 맞춰서 정보 호출.
   return (
     <>
       <div className="wrapper">
         <UI setMain={setMain} />
         <Main className={main}>
-          <Head>Setting</Head>
-          <h1>
-            1.언어번역 3.캐릭터별 색상 헤더 theme.ts 4.전체 세팅
-            리셋버튼
-          </h1>
-          <button onClick={themeChange}>Dark Mode</button>
+          <Head>Favorites</Head>
+          {b?.map((item) => item)}
+            
+          {b}
+          <h1>각자 이름에 맞는 탐색+링크</h1>
         </Main>
       </div>
     </>
   );
 }
-export default Setting;
+export default Favorites;

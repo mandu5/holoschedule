@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AiOutlineSetting } from "react-icons/ai";
-import { CgProfile } from "react-icons/cg";
+// import { CgProfile } from "react-icons/cg";
 import { HiOutlineHome } from "react-icons/hi";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
 import { FcAbout } from "react-icons/fc";
@@ -17,7 +17,7 @@ const Icon = styled.span`
   right: 7px;
   text-align: center;
   font-size: 1.75em;
-  color: ${(props) =>props.theme.textColor};
+  color: ${(props) => props.theme.textColor};
 `;
 const Title = styled.span`
   position: relative;
@@ -34,39 +34,46 @@ const Title = styled.span`
 export function NavLi() {
   const [hover1, setHover1] = useState(false);
   const [hover2, setHover2] = useState(false);
-  const [hover3, setHover3] = useState(false);
+  // const [hover3, setHover3] = useState(false);
   const [hover4, setHover4] = useState(false);
   const [hover5, setHover5] = useState(false);
+  // const [hover6, setHover6] = useState(false);
   const onMouseOver1 = () => {
     setHover1(true);
   };
   const onMouseOver2 = () => {
     setHover2(true);
   };
-  const onMouseOver3 = () => {
-    setHover3(true);
-  };
+  // const onMouseOver3 = () => {
+  //   setHover3(true);
+  // };
   const onMouseOver4 = () => {
     setHover4(true);
   };
   const onMouseOver5 = () => {
     setHover5(true);
   };
+  // const onMouseOver6 = () => {
+  //   setHover5(true);
+  // };
   const onMouseOut1 = () => {
     setHover1(false);
   };
   const onMouseOut2 = () => {
     setHover2(false);
   };
-  const onMouseOut3 = () => {
-    setHover3(false);
-  };
+  // const onMouseOut3 = () => {
+  //   setHover3(false);
+  // };
   const onMouseOut4 = () => {
     setHover4(false);
   };
   const onMouseOut5 = () => {
     setHover5(false);
   };
+  // const onMouseOut6 = () => {
+  //   setHover5(false);
+  // };
   return (
     <>
       <li
@@ -89,15 +96,15 @@ export function NavLi() {
         onMouseOut={onMouseOut2}
       >
         <Button className="buttons">
-            <Link to="/favorites">
-              <Icon>
-                <MdOutlineFavoriteBorder />
-              </Icon>
-              <Title>Favorites</Title>
-            </Link>
+          <Link to="/favorites">
+            <Icon>
+              <MdOutlineFavoriteBorder />
+            </Icon>
+            <Title>Favorites</Title>
+          </Link>
         </Button>
       </li>
-      <li
+      {/* <li
         className={hover3 ? "hovered" : ""}
         onMouseOver={onMouseOver3}
         onMouseOut={onMouseOut3}
@@ -110,7 +117,21 @@ export function NavLi() {
             <Title>Multiview</Title>
           </Link>
         </Button>
-      </li>
+      </li> */}
+      {/* <li
+        className={hover6 ? "hovered" : ""}
+        onMouseOver={onMouseOver6}
+        onMouseOut={onMouseOut6}
+      >
+        <Button className="buttons">
+          <Link to={"/multiview"}>
+            <Icon>
+              <CgProfile />
+            </Icon>
+            <Title>TimeLine</Title>
+          </Link>
+        </Button>
+      </li> */}
       <li
         className={hover4 ? "hovered" : ""}
         onMouseOver={onMouseOver4}
