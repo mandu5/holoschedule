@@ -8,7 +8,7 @@ const Main = styled.div`
   position: absolute;
   width: calc(100% - 300px);
   left: 300px;
-  min-height: 100vh;
+  min-height: 92.5vh;
   background: ${(props) => props.theme.bgColor};
   transition: 0.3s;
   &.active {
@@ -142,7 +142,7 @@ const About = ({ userObj }: Iuser) => {
   const [accordion3, setAccordion3] = useState("contentBx");
   const changeClass = () => {
     setAccordion(accordion === "contentBx" ? "contentBx active" : "contentBx");
-  };
+  }; 
   const changeClass1 = () => {
     setAccordion1(
       accordion1 === "contentBx" ? "contentBx active" : "contentBx"
@@ -204,9 +204,9 @@ const About = ({ userObj }: Iuser) => {
                       I have feedback/want to contribute to this project
                     </div>
                     <div className="content">
-                      All help and ideas are welcome! Please contact us with QNA section to
-                      gain access to backend source, or simply chat about your
-                      ideas.
+                      All help and ideas are welcome! Please contact us with QNA
+                      section to gain access to backend source, or simply chat
+                      about your ideas.
                     </div>
                   </ContentBx>
                   <ContentBx

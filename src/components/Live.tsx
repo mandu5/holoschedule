@@ -1,6 +1,8 @@
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
+import { useRecoilValue } from "recoil";
 import styled from "styled-components";
+import { searchTypedAtom } from "../atoms";
 import { fetchLive } from "../routes/api";
 
 const Length = styled.div`
@@ -12,7 +14,18 @@ const Length = styled.div`
     color: red;
   }
 `;
+const LengthTwo = styled.div`
+  background: ${(props) => props.theme.lengthbarColor};
+  color: ${(props) => props.theme.textColor};
+  padding: 8px;
+  margin-bottom: 20px;
+  position: absolute;
+  span {
+    color: red;
+  }
+`;
 const Box = styled.div`
+  margin-top: 20px;
   height: 250px;
   width: 315px;
   float: left;
@@ -49,6 +62,7 @@ const Details = styled.div`
   font-size: 15px;
   .title {
     font-size: 13px;
+    max-lines: inherit;
   }
   .channelName {
     color: #49c8f0;
@@ -83,24 +97,31 @@ interface IHoloLive {
     twitter_link: string;
   };
 }
-
 export function Live() {
   const { data } = useQuery<IHoloLive[]>("allLive", fetchLive);
-  return (
-    <>
-      <Length>
-        <span>Live:</span> {data?.length}
-      </Length>
-      {data?.map((item) => (
-        <Box key={item.yt_video_key}>
-          <Link to={`/video/${item.yt_video_key}`}>
+  const search = useRecoilValue(searchTypedAtom);
+  const names = data
+    // eslint-disable-next-line array-callback-return
+    ?.filter((item) => {
+      if (search === "") return item;
+      else if (item.channel.name.toLowerCase().includes(search)) {
+        return item;
+      }
+    })
+    .map((item) => {
+      return (
+        <>
+          <LengthTwo>
+            <span>Live: </span> {data?.length}
+          </LengthTwo>
+          <Box key={item.yt_video_key}>
             <div>
-              <div className="thumbnail">
+              <Link to={`/video/${item.yt_video_key}`} className="thumbnail">
                 <img
                   src={`http://img.youtube.com/vi/${item.yt_video_key}/maxresdefault.jpg`}
                   alt="thumbnail"
                 />
-              </div>
+              </Link>
               <div>
                 <Link to={`/channel/${item.channel.yt_channel_id}`}>
                   <Profile src={`${item.channel.photo}`} />
@@ -111,18 +132,56 @@ export function Live() {
                     <div className="channelName">{item.channel.name}</div>
                   </Link>
                   <div>
-                    <span>
-                      <br />
-                      Live Now
-                    </span>{" "}
-                    {item.live_viewers} Watching
+                    <Link to={`/video/${item.yt_video_key}`}>
+                      <span>Live Now</span> {item.live_viewers} Watching
+                    </Link>
                   </div>
                 </Details>
               </div>
             </div>
-          </Link>
-        </Box>
-      ))}
+          </Box>
+        </>
+      );
+    });
+  return (
+    <>
+      {search === "" ? (
+        <>
+          <Length>
+            <span>Live: </span> {data?.length}
+          </Length>
+          {data?.map((item) => (
+            <Box key={item.yt_video_key}>
+              <div>
+                <Link to={`/video/${item.yt_video_key}`} className="thumbnail">
+                  <img
+                    src={`http://img.youtube.com/vi/${item.yt_video_key}/maxresdefault.jpg`}
+                    alt="thumbnail"
+                  />
+                </Link>
+                <div>
+                  <Link to={`/channel/${item.channel.yt_channel_id}`}>
+                    <Profile src={`${item.channel.photo}`} />
+                  </Link>
+                  <Details>
+                    <div className="title">{item.title}</div>
+                    <Link to={`/channel/${item.channel.yt_channel_id}`}>
+                      <div className="channelName">{item.channel.name}</div>
+                    </Link>
+                    <div>
+                      <Link to={`/video/${item.yt_video_key}`}>
+                        <span>Live Now</span> {item.live_viewers} Watching
+                      </Link>
+                    </div>
+                  </Details>
+                </div>
+              </div>
+            </Box>
+          ))}
+        </>
+      ) : (
+        <>{names}</>
+      )}
     </>
   );
 }

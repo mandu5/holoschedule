@@ -60,7 +60,7 @@ const QNA = ({ userObj }) => {
     await dbService.collection("questions").add({
       text: question,
       createdAt: Date.now(),
-      // creatorId: userObj.uid,
+      creatorId: userObj.uid,
     });
     setQuestion("");
   };
@@ -92,7 +92,7 @@ const QNA = ({ userObj }) => {
           <AskBox
             key={question.id}
             askObj={question}
-            // isOwner={question.creatorId === userObj.uid}
+            isOwner={question.creatorId === userObj.uid}
           />
         ))}
       </List>

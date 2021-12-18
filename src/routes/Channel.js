@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useRecoilValue, useSetRecoilState } from "recoil";
+// import { useRecoilValue, useSetRecoilState } from "recoil";
 import styled from "styled-components";
 import Cubes from "../components/Cubes";
-import { isLikedAtom } from "../atoms";
+// import { isLikedAtom } from "../atoms";
 import { UI } from "../components/UI";
 import "./pages.css";
 
@@ -91,17 +91,17 @@ const Main = styled.div`
     }
   }
 `;
-const Heart = styled.div`
-  color: red;
-  font-size: 25px;
-  width: 15px;
-  height: 20px;
-  cursor: pointer;
-  &:hover {
-    transform: scale(1.5);
-    opacity: 0.5;
-  }
-`;
+// const Heart = styled.div`
+//   color: red;
+//   font-size: 25px;
+//   width: 15px;
+//   height: 20px;
+//   cursor: pointer;
+//   &:hover {
+//     transform: scale(1.5);
+//     opacity: 0.5;
+//   }
+// `;
 const Description = styled.div`
   font-size: 5px;
   font-weight: 0;
@@ -113,18 +113,28 @@ const Description = styled.div`
 function Channel() {
   const [main, setMain] = useState("main");
   const { yt_channel_id } = useParams();
-  const [channel, setChannel] = useState<any>([]);
-  const setIsLiked = useSetRecoilState(isLikedAtom);
-  const isLiked = useRecoilValue(isLikedAtom);
-  const onLiked = () => {
-    if (isLiked) {
-      setIsLiked(false);
-      localStorage.removeItem(`${yt_channel_id}`);
-    } else {
-      setIsLiked(true);
-      localStorage.setItem(`${yt_channel_id}`, channel.name);
-    }
-  };
+  const [channel, setChannel] = useState([]);
+  // const isLiked = useRecoilValue(isLikedAtom);
+  // const setIsLiked = useSetRecoilState(isLikedAtom);
+  // const [heart, setHeart] = useState("🖤");
+
+  // for (let i = 0; i < localStorage.length; i++) {
+  //   n = [(`${localStorage.getItem(localStorage.key(i))}`)];
+  // }
+  // let n = [channel.name];
+  // let local = [(localStorage.getItem("liked"))] || [];
+  // let a = local.push(n);
+  // const onLiked = () => {
+  //   if (isLiked) {
+  //     setIsLiked(false);
+  //     // localStorage.removeItem(`liked`);
+  //     setHeart("🖤");
+  //   } else {
+  //     setIsLiked(true);
+  //     localStorage.setItem("liked", a);
+  //     setHeart("❤️");
+  //   }
+  // };
   useEffect(() => {
     (async () => {
       const response = await fetch(
@@ -132,9 +142,8 @@ function Channel() {
       );
       const json = await response.json();
       setChannel(json);
-      isLiked ? setIsLiked(true) : setIsLiked(false)
     })();
-  }, [yt_channel_id, setIsLiked, isLiked]);
+  }, [yt_channel_id]);
   return (
     <>
       <div className="wrapper">
@@ -148,7 +157,7 @@ function Channel() {
               </div>
               <div className="details">
                 <h1 className="name">{channel.name}</h1>
-                <Heart onClick={onLiked}>{isLiked ? "❤️" : '🖤'}</Heart>
+                {/* <Heart onClick={onLiked}>{heart}</Heart> */}
                 <br />
                 <h1>
                   <span>View Count:</span> {channel.view_count}

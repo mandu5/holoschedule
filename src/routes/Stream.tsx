@@ -7,12 +7,12 @@ import "./pages.css";
 const Main = styled.div`
   position: relative;
   width: calc(100% - 300px);
+  min-height: 92.5vh;
   left: 300px;
   height: 0;
-  background: ${(props) =>props.theme.bgColor};
+  background: ${(props) => props.theme.bgColor};
   color: white;
   transition: 0.3s;
-  display: flex;
   &.active {
     width: calc(100% - 80px);
     left: 80px;
@@ -27,20 +27,15 @@ const Main = styled.div`
     }
   }
   .video {
-    width: 500px;
-    height: 400px;
+    width: calc(100% - 350px);
+    height: 706px;
     @media (max-width: 991px) {
       height: 400px;
       width: 100%;
     }
   }
-  h1 {
-    color: red;
-    height: 306px;
-    float: left;
-  }
   .chat {
-    width: 300px;
+    width: 350px;
     height: 706px;
     @media (max-width: 991px) {
       float: left;
@@ -53,15 +48,15 @@ const Main = styled.div`
     left: 0;
   }
 `;
-document.cookie = "safeCookie1=foo; SameSite=Lax";
-document.cookie = "safeCookie2=foo";
-document.cookie = "crossCookie=bar; SameSite=None; Secure"
+// document.cookie = "safeCookie1=foo; SameSite=Lax";
+// document.cookie = "safeCookie2=foo";
+// document.cookie = "crossCookie=bar; SameSite=None; Secure"
 
 function Stream() {
   const [main, setMain] = useState("main");
   const { yt_video } = useParams();
-  return ( 
-    <> 
+  return (
+    <>
       <div className="wrapper">
         <UI setMain={setMain} />
         <Main className={main}>
@@ -73,7 +68,6 @@ function Stream() {
             allowFullScreen
             title="Embedded youtube"
           />
-          <h1>title</h1>
           <iframe
             className="chat"
             src={`https://www.youtube.com/live_chat?v=${yt_video}&embed_domain=localhost`}

@@ -12,3 +12,7 @@ export const isLikedAtom = atom({
   key: "isLiked",
   default: false,
 });
+export const searchTypedAtom = atom({
+  key: "typed",
+  default: "",
+})

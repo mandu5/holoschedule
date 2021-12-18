@@ -10,7 +10,7 @@ const Main = styled.div`
   position: absolute;
   width: calc(100% - 300px);
   left: 300px;
-  min-height: 100vh;
+  min-height: 92.5vh;
   background: ${(props) => props.theme.bgColor};
   color: white;
   transition: 0.3s;

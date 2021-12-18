@@ -4,9 +4,9 @@ import { BiSearchAlt2 } from "react-icons/bi";
 import { FiLogIn } from "react-icons/fi";
 import { MdScheduleSend } from "react-icons/md";
 import { Link } from "react-router-dom";
-import { useRecoilValue } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import styled from "styled-components";
-import { isLoggedInAtom } from "../atoms";
+import { isLoggedInAtom, searchTypedAtom } from "../atoms";
 import { authService } from "../myBase";
 import img from "./img.jpg";
 
@@ -17,7 +17,7 @@ const Logo = styled.div`
   position: relative;
   text-align: start;
   white-space: nowrap;
-  color: ${(props) =>props.theme.textColor};
+  color: ${(props) => props.theme.textColor};
 `;
 const Search = styled.div`
   position: relative;
@@ -51,8 +51,8 @@ const Toggle = styled.div`
   border-radius: 50%;
   .profile {
     position: relative;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     overflow: hidden;
     cursor: pointer;
@@ -105,8 +105,8 @@ const Menu = styled.div`
       justify-content: center;
       align-items: center;
       line-height: 24px;
-      border:0;
-      outline:0;
+      border: 0;
+      outline: 0;
       span {
         margin-left: 15px;
       }
@@ -125,23 +125,30 @@ export function HeaderDetails() {
   let useClickOutside = (handler) => {
     let domNode = useRef();
 
-    useEffect(()=> {
-      let aHandler = (event)=> {
+    useEffect(() => {
+      let aHandler = (event) => {
         if (domNode.current && !domNode.current.contains(event.target)) {
           handler();
         }
-      }
+      };
       document.addEventListener("mousedown", aHandler);
       return () => {
         document.addEventListener("mousedown", aHandler);
       };
     });
     return domNode;
-  }
+  };
   let domNode = useClickOutside(() => {
-    setMenu("menu"); 
-  })
+    setMenu("menu");
+  });
   const onLogOutClick = () => authService.signOut();
+
+  // 검색
+  const setSearch = useSetRecoilState(searchTypedAtom);
+  const searchSpace = (event) => {
+    let keyword = event.target.value;
+    setSearch(keyword);
+  };
   return (
     <>
       <Logo>
@@ -154,7 +161,11 @@ export function HeaderDetails() {
       </Logo>
       <Search>
         <label>
-          <input type="text" placeholder="Search here" />
+          <input
+            type="text"
+            placeholder="Search here"
+            onChange={(e) => searchSpace(e)}
+          />
           <Icon3>
             <BiSearchAlt2 />
           </Icon3>

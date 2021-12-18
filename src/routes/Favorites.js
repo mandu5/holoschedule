@@ -7,7 +7,7 @@ const Main = styled.div`
   position: absolute;
   width: calc(100% - 300px);
   left: 300px;
-  min-height: 100vh;
+  min-height: 92.5vh;
   background: ${(props) => props.theme.bgColor};
   color: white;
   transition: 0.3s;
@@ -29,13 +29,13 @@ const Main = styled.div`
     left: 0;
   }
 `;
-const Head = styled.div``;
+// const Head = styled.div``;
 
 function Favorites() {
   const [main, setMain] = useState("main");
-  let b = [];
+  // let b = [];
   for (let i = 0; i < localStorage.length; i++) {
-    b.push(`${localStorage.getItem(localStorage.key(i))}`);
+    console.log(`${localStorage.getItem(localStorage.key(i))}`);
   }
   // 배열형태말고 따로따로 가져와서 각자 이름에 맞춰서 정보 호출.
   return (
@@ -43,10 +43,10 @@ function Favorites() {
       <div className="wrapper">
         <UI setMain={setMain} />
         <Main className={main}>
-          <Head>Favorites</Head>
+          {/* <Head>Favorites</Head>
           {b?.map((item) => item)}
             
-          {b}
+          {b} */}
           <h1>각자 이름에 맞는 탐색+링크</h1>
         </Main>
       </div>

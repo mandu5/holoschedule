@@ -8,7 +8,7 @@ const Main = styled.div`
   position: absolute;
   width: calc(100% - 300px);
   left: 300px;
-  min-height: 100vh;
+  min-height: 92.5vh;
   color: ${(props) => props.theme.textColor};
   transition: 0.3s;
   background: ${(props) => props.theme.bgColor};
