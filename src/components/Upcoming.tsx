@@ -16,11 +16,22 @@ const Length = styled.div`
   padding: 8px;
   margin-top: 30px;
   margin-bottom: 20px;
+  width: 100%;
   .searchLength {
     position: absolute;
   }
   span {
     color: red;
+  }
+`;
+const LengthTwo = styled.div`
+  background: ${(props) => props.theme.lengthbarColor};
+  color: ${(props) => props.theme.textColor};
+  padding: 8px;
+  margin-bottom: 20px;
+  position: absolute;
+  .searchLength {
+    position: absolute;
   }
 `;
 const Box = styled.div`
@@ -98,6 +109,9 @@ interface IHoloLive {
 export function Upcoming() {
   const { data } = useQuery<IHoloLive[]>("allUpcoming", fetchUpcoming);
   const search = useRecoilValue(searchTypedAtom);
+  let style = {
+    marginTop: "20px",
+  };
   const names = data
     // eslint-disable-next-line array-callback-return
     ?.filter((item) => {
@@ -109,7 +123,11 @@ export function Upcoming() {
     .map((item) => {
       return (
         <>
-          <Box key={item.id}>
+          <LengthTwo>
+            <span>Upcoming: </span>
+            {data?.length}
+          </LengthTwo>
+          <Box style={style} key={item.id}>
             <div>
               <Link to={`/video/${item.yt_video_key}`} className="thumbnail">
                 <img

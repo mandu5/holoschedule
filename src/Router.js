@@ -14,7 +14,7 @@ import { isLoggedInAtom } from "./atoms";
 function Routers({ userObj }) {
   const isLoggedIn = useRecoilValue(isLoggedInAtom);
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/video/:yt_video" element={<Stream />} />
