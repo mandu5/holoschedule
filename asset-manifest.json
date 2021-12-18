@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/holoSchedule/static/css/main.320c4783.chunk.css",
-    "main.js": "/holoSchedule/static/js/main.aa306c9f.chunk.js",
-    "main.js.map": "/holoSchedule/static/js/main.aa306c9f.chunk.js.map",
-    "runtime-main.js": "/holoSchedule/static/js/runtime-main.1e6b9489.js",
-    "runtime-main.js.map": "/holoSchedule/static/js/runtime-main.1e6b9489.js.map",
-    "static/js/2.292adacc.chunk.js": "/holoSchedule/static/js/2.292adacc.chunk.js",
-    "static/js/2.292adacc.chunk.js.map": "/holoSchedule/static/js/2.292adacc.chunk.js.map",
-    "index.html": "/holoSchedule/index.html",
-    "static/css/main.320c4783.chunk.css.map": "/holoSchedule/static/css/main.320c4783.chunk.css.map",
-    "static/js/2.292adacc.chunk.js.LICENSE.txt": "/holoSchedule/static/js/2.292adacc.chunk.js.LICENSE.txt"
+    "main.css": "/aaa/static/css/main.320c4783.chunk.css",
+    "main.js": "/aaa/static/js/main.ccb47b5d.chunk.js",
+    "main.js.map": "/aaa/static/js/main.ccb47b5d.chunk.js.map",
+    "runtime-main.js": "/aaa/static/js/runtime-main.19e9a375.js",
+    "runtime-main.js.map": "/aaa/static/js/runtime-main.19e9a375.js.map",
+    "static/js/2.8c09cca8.chunk.js": "/aaa/static/js/2.8c09cca8.chunk.js",
+    "static/js/2.8c09cca8.chunk.js.map": "/aaa/static/js/2.8c09cca8.chunk.js.map",
+    "index.html": "/aaa/index.html",
+    "static/css/main.320c4783.chunk.css.map": "/aaa/static/css/main.320c4783.chunk.css.map",
+    "static/js/2.8c09cca8.chunk.js.LICENSE.txt": "/aaa/static/js/2.8c09cca8.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.1e6b9489.js",
-    "static/js/2.292adacc.chunk.js",
+    "static/js/runtime-main.19e9a375.js",
+    "static/js/2.8c09cca8.chunk.js",
     "static/css/main.320c4783.chunk.css",
-    "static/js/main.aa306c9f.chunk.js"
+    "static/js/main.ccb47b5d.chunk.js"
   ]
 }
