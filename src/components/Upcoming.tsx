@@ -17,6 +17,9 @@ const Length = styled.div`
   margin-top: 30px;
   margin-bottom: 20px;
   width: 100%;
+  .searchLength {
+    position: absolute;
+  }
   span {
     color: red;
   }
@@ -27,8 +30,8 @@ const LengthTwo = styled.div`
   padding: 8px;
   margin-bottom: 20px;
   position: absolute;
-  span {
-    color: red;
+  .searchLength {
+    position: absolute;
   }
 `;
 const Box = styled.div`

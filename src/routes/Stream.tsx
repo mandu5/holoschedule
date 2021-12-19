@@ -49,6 +49,7 @@ const Main = styled.div`
   }
 `;
 
+
 function Stream() {
   const [main, setMain] = useState("main");
   const { yt_video } = useParams();
@@ -67,7 +68,7 @@ function Stream() {
           />
           <iframe
             className="chat"
-            src={`https://www.youtube.com/live_chat?v=${yt_video}&embed_domain=mandu0505.github.io`}
+            src={`https://www.youtube.com/live_chat?v=${yt_video}&embed_domain=localhost`}
             frameBorder="0"
             title="Embeded chat"
           />

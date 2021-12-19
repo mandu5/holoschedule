@@ -92,6 +92,7 @@ function Setting() {
             </button>
           </div>
         </Main>
+        {/* <h1>1.언어번역 3.캐릭터별 색상 헤더 theme.ts 4.전체 세팅 리셋버튼 </h1> */}
       </div>
     </>
   );

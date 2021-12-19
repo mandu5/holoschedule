@@ -163,7 +163,7 @@ function LoginPage() {
       <div className="wrapper">
         <UI setMain={setMain} />
         <Main className={main}>
-          <div className="login-box">
+          <div class="login-box">
             <h2>Login</h2>
             <form onSubmit={onSubmit}>
               <div className="user-box">

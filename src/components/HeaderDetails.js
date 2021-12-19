@@ -191,7 +191,7 @@ export function HeaderDetails() {
                     <span>Setting</span>
                   </li>
                 </Link>
-                <Link to="">
+                <Link to="/">
                   <li>
                     <AiOutlineSetting />
                     <span onClick={onLogOutClick}>Log Out</span>

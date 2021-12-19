@@ -2,7 +2,7 @@ import { useState } from "react";
 import { AiOutlineSetting } from "react-icons/ai";
 // import { CgProfile } from "react-icons/cg";
 import { HiOutlineHome } from "react-icons/hi";
-import { MdOutlineFavoriteBorder } from "react-icons/md";
+// import { MdOutlineFavoriteBorder } from "react-icons/md";
 import { FcAbout } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -33,7 +33,7 @@ const Title = styled.span`
 
 export function NavLi() {
   const [hover1, setHover1] = useState(false);
-  const [hover2, setHover2] = useState(false);
+  // const [hover2, setHover2] = useState(false);
   // const [hover3, setHover3] = useState(false);
   const [hover4, setHover4] = useState(false);
   const [hover5, setHover5] = useState(false);
@@ -41,9 +41,9 @@ export function NavLi() {
   const onMouseOver1 = () => {
     setHover1(true);
   };
-  const onMouseOver2 = () => {
-    setHover2(true);
-  };
+  // const onMouseOver2 = () => {
+  //   setHover2(true);
+  // };
   // const onMouseOver3 = () => {
   //   setHover3(true);
   // };
@@ -59,9 +59,9 @@ export function NavLi() {
   const onMouseOut1 = () => {
     setHover1(false);
   };
-  const onMouseOut2 = () => {
-    setHover2(false);
-  };
+  // const onMouseOut2 = () => {
+  //   setHover2(false);
+  // };
   // const onMouseOut3 = () => {
   //   setHover3(false);
   // };
@@ -90,7 +90,7 @@ export function NavLi() {
           </Link>
         </Button>
       </li>
-      <li
+      {/* <li
         className={hover2 ? "hovered" : ""}
         onMouseOver={onMouseOver2}
         onMouseOut={onMouseOut2}
@@ -103,7 +103,7 @@ export function NavLi() {
             <Title>Favorites</Title>
           </Link>
         </Button>
-      </li>
+      </li> */}
       {/* <li
         className={hover3 ? "hovered" : ""}
         onMouseOver={onMouseOver3}
