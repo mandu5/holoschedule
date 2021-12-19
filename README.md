@@ -21,8 +21,8 @@
 
 - [x] Make repo public
 - [x] Add user logins
-- [ ] Expand vtuber list
 - [ ] Loading Screen
+- [ ] Set up a custom domain
 - [ ] Fetch YouTube Api
 - [ ] Add multi language support
 - [ ] save favorites to database
@@ -30,3 +30,4 @@
 - [ ] Add Reset Button - Setting
 - [ ] public API / API key for user account
 - [ ] live chat features / TL transcript
+- [ ] Expand vtuber list
