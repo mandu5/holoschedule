@@ -1,4 +1,4 @@
-## Roadmap
+## Skills
 
 ### Front
 
@@ -15,6 +15,7 @@
 ![Firebase](https://img.shields.io/badge/firebase-%23039BE5.svg?style=flat-square&logo=firebase)
 [![TypeScript Badge](https://img.shields.io/badge/Typescript-235A97?style=flat-square&logo=Typescript&logoColor=white)]()
 
+--- 
 
 ## Roadmap
 
