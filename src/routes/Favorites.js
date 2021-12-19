@@ -34,9 +34,9 @@ const Main = styled.div`
 function Favorites() {
   const [main, setMain] = useState("main");
   // let b = [];
-  for (let i = 0; i < localStorage.length; i++) {
-    console.log(`${localStorage.getItem(localStorage.key(i))}`);
-  }
+  // for (let i = 0; i < localStorage.length; i++) {
+  //   console.log(`${localStorage.getItem(localStorage.key(i))}`);
+  // }
   // 배열형태말고 따로따로 가져와서 각자 이름에 맞춰서 정보 호출.
   return (
     <>
@@ -47,7 +47,7 @@ function Favorites() {
           {b?.map((item) => item)}
             
           {b} */}
-          <h1>각자 이름에 맞는 탐색+링크</h1>
+          <h1>...준비중</h1>
         </Main>
       </div>
     </>
