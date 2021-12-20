@@ -1,4 +1,4 @@
-## Roadmap
+## Skills
 
 ### Front
 
@@ -15,13 +15,14 @@
 ![Firebase](https://img.shields.io/badge/firebase-%23039BE5.svg?style=flat-square&logo=firebase)
 [![TypeScript Badge](https://img.shields.io/badge/Typescript-235A97?style=flat-square&logo=Typescript&logoColor=white)]()
 
+--- 
 
 ## Roadmap
 
 - [x] Make repo public
 - [x] Add user logins
-- [ ] Expand vtuber list
 - [ ] Loading Screen
+- [ ] Set up a custom domain
 - [ ] Fetch YouTube Api
 - [ ] Add multi language support
 - [ ] save favorites to database
@@ -29,3 +30,4 @@
 - [ ] Add Reset Button - Setting
 - [ ] public API / API key for user account
 - [ ] live chat features / TL transcript
+- [ ] Expand vtuber list
