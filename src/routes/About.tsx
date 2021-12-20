@@ -1,5 +1,8 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useRecoilValue } from "recoil";
 import styled from "styled-components";
+import { isLoggedInAtom } from "../atoms";
 import QNA from "../components/QNA";
 import { UI } from "../components/UI";
 import "./pages.css";
@@ -17,8 +20,8 @@ const Main = styled.div`
     background: ${(props) => props.theme.bgColor};
     .boxes {
       position: absolute;
-      transition: 0.00001s;
-      transform: translate(10%, 0%);
+      transition: 0.3s;
+      transform: translate(-10%, 0%);
     }
     @media (max-width: 991px) {
       left: 300px;
@@ -40,15 +43,19 @@ const Box = styled.div`
   position: relative;
   height: 215px;
   width: 530px;
-  float: left;
+  float: right;
   color: ${(props) => props.theme.textColor};
   background: ${(props) => props.theme.tabColor};
   margin-bottom: 15px;
   margin-top: 30px;
-  margin-left: 25px;
+  margin-left: 20px;
+  margin-right: 20px;
   border-radius: 20px;
   box-shadow: 0 5px 8px 5px #555;
   overflow: scroll;
+  .login {
+    margin-top: 60px;
+  }
 `;
 const FAQ = styled.div`
   justify-content: center;
@@ -64,7 +71,8 @@ const FAQ = styled.div`
 `;
 const ContentBx = styled.div`
   position: relative;
-  margin: 10px 20px;
+  margin: 10px;
+  margin-right: 25px;
   &:hover {
     opacity: 0.8;
   }
@@ -76,6 +84,9 @@ const ContentBx = styled.div`
     .label::before {
       content: "-";
     }
+  }
+  .login {
+    margin-top: 50px;
   }
   .label {
     position: relative;
@@ -130,19 +141,40 @@ const Content = styled.div`
     }
   }
 `;
+const Login = styled.div`
+  position: relative;
+  margin-top: 100px;
+  margin-left: 230px;
+  color: #a665b7;
+  background: ${(props) => props.theme.toggleColor};
+  padding: 10px 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: 0.5s;
+  border: none;
+  border-radius: 5px;
+  &:hover {
+    background: #bccbde;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #bccbde, 0 0 25px #bccbde, 0 0 50px #bccbde,
+      0 0 100px #bccbde;
+  }
+`;
 interface Iuser {
   userObj: null;
 }
 
 const About = ({ userObj }: Iuser) => {
   const [main, setMain] = useState("main");
+  const isLoggedIn = useRecoilValue(isLoggedInAtom);
   const [accordion, setAccordion] = useState("contentBx");
   const [accordion1, setAccordion1] = useState("contentBx");
   const [accordion2, setAccordion2] = useState("contentBx");
   const [accordion3, setAccordion3] = useState("contentBx");
   const changeClass = () => {
     setAccordion(accordion === "contentBx" ? "contentBx active" : "contentBx");
-  }; 
+  };
   const changeClass1 = () => {
     setAccordion1(
       accordion1 === "contentBx" ? "contentBx active" : "contentBx"
@@ -227,8 +259,21 @@ const About = ({ userObj }: Iuser) => {
               </FAQ>
             </Box>
             <Box>
-              <Title>QNA</Title>
-              <QNA userObj={userObj} />
+              {isLoggedIn ? (
+                <>
+                  <Title>Dashboard</Title>
+                  <QNA userObj={userObj} />
+                </>
+              ) : (
+                <>
+                  <Title>Dashboard</Title>
+                  <div className="login">
+                    <Login as={Link} to={"/login"}>
+                      Login
+                    </Login>
+                  </div>
+                </>
+              )}
             </Box>
             <Box>
               <div>

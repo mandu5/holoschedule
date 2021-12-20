@@ -41,6 +41,7 @@ function Homepage() {
         <Helmet>
           <meta charSet="utf-8" />
           <title>Holo Schedules</title>
+          <link rel="icon" type="image/png" href="baseline_schedule_send_white_24dp.ico" sizes="16x16" />
         </Helmet>
       </HelmetProvider>
       <div className="wrapper">
