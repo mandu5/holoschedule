@@ -31,3 +31,4 @@
 - [ ] public API / API key for user account
 - [ ] live chat features / TL transcript
 - [ ] Expand vtuber list
+* 🛠 Refactoring
