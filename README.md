@@ -21,7 +21,7 @@
 
 - [x] Make repo public
 - [x] Add user logins
-- [ ] Loading Screen
+- [x] Loading Screen
 - [ ] Set up a custom domain
 - [ ] Fetch YouTube Api
 - [ ] Add multi language support
@@ -29,5 +29,5 @@
 - [ ] Add Character Themes Layout
 - [ ] Add Reset Button - Setting
 - [ ] public API / API key for user account
-- [ ] live chat features / TL transcript
+- [ ] live chat features
 - [ ] Expand vtuber list

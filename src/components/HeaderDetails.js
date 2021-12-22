@@ -13,6 +13,7 @@ import img from "./img.jpg";
 const Logo = styled.div`
   font-size: 25px;
   margin-top: 5px;
+  left: 5px;
   display: flex;
   position: relative;
   text-align: start;
@@ -116,6 +117,7 @@ const Menu = styled.div`
     }
   }
 `;
+
 export function HeaderDetails() {
   const isLoggedIn = useRecoilValue(isLoggedInAtom);
   const [menu, setMenu] = useState("menu");
@@ -191,7 +193,7 @@ export function HeaderDetails() {
                     <span>Setting</span>
                   </li>
                 </Link>
-                <Link to="">
+                <Link to="/">
                   <li>
                     <AiOutlineSetting />
                     <span onClick={onLogOutClick}>Log Out</span>

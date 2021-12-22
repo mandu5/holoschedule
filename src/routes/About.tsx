@@ -12,12 +12,12 @@ const Main = styled.div`
   width: calc(100% - 300px);
   left: 300px;
   min-height: 92.5vh;
-  background: ${(props) => props.theme.bgColor};
+  color: ${(props) => props.theme.textColor};
   transition: 0.3s;
+  background: ${(props) => props.theme.bgColor};
   &.active {
     width: calc(100% - 80px);
     left: 80px;
-    background: ${(props) => props.theme.bgColor};
     .boxes {
       position: absolute;
       transition: 0.3s;
@@ -31,37 +31,59 @@ const Main = styled.div`
     width: 100%;
     left: 0;
   }
-`;
-const Head = styled.div`
-  font-size: 35px;
-  margin-left: 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  color: ${(props) => props.theme.textColor};
+  .boxes {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 90%;
+    height: 90%;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    box-shadow: 0 0px 10px ${(props) => props.theme.shadowColor};
+    border-radius: 10px;
+    background: ${(props) => props.theme.tabColor};
+    h2 {
+      margin: 0 0 30px;
+      padding: 0;
+      font-size: 30px;
+      font-weight: 500;
+      color: #fff;
+      text-align: center;
+    }
+  }
+  @media (max-width: 1083px) {
+    .media {
+      visibility: hidden;
+    }
+    .boards {
+      width: 50%;
+    }
+  }
 `;
 const Box = styled.div`
   position: relative;
-  height: 215px;
-  width: 530px;
-  float: right;
-  color: ${(props) => props.theme.textColor};
+  float: left;
+  top: 20%;
+  left: 27%;
+  width: 42%;
+  margin-bottom: 30px;
+  margin-right: 50px;
+  height: 40%;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  box-shadow: 0 0px 10px ${(props) => props.theme.shadowColor};
+  border-radius: 10px;
   background: ${(props) => props.theme.tabColor};
-  margin-bottom: 15px;
-  margin-top: 30px;
-  margin-left: 20px;
-  margin-right: 20px;
-  border-radius: 20px;
-  box-shadow: 0 5px 8px 5px #555;
   overflow: scroll;
   .login {
     margin-top: 60px;
   }
 `;
 const FAQ = styled.div`
-  justify-content: center;
-  align-items: center;
   .accordion {
-    width: 540px;
+    width: 100%auto;
     color: #fff;
     a {
       color: #83d0e7;
@@ -117,24 +139,21 @@ const ContentBx = styled.div`
 `;
 const Title = styled.div`
   font-size: 25px;
-  margin-top: 20px;
-  margin-left: 20px;
-  margin-bottom: 20px;
+  margin-top: -15px;
   color: ${(props) => props.theme.textColor};
   width: 100%;
 `;
 const Content = styled.div`
   font-size: 15px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-top: 10px;
   span {
     font-size: 18px;
     color: ${(props) => props.theme.hyperlinkColor};
     line-height: 24px;
   }
   div {
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     a {
       color: ${(props) => props.theme.hyperlinkColor};
       text-decoration: underline;
@@ -142,17 +161,19 @@ const Content = styled.div`
   }
 `;
 const Login = styled.div`
-  position: relative;
-  margin-top: 100px;
-  margin-left: 230px;
-  color: #a665b7;
-  background: ${(props) => props.theme.toggleColor};
-  padding: 10px 12px;
-  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  color: #bccbde;
+  background-color: #151617;
+  font-size: 16px;
+  text-decoration: none;
   text-transform: uppercase;
+  letter-spacing: 4px;
+  border-radius: 4px;
   transition: 0.5s;
-  border: none;
-  border-radius: 5px;
+  border: 0;
   &:hover {
     background: #bccbde;
     color: #fff;
@@ -195,9 +216,9 @@ const About = ({ userObj }: Iuser) => {
       <div className="wrapper">
         <UI setMain={setMain} />
         <Main className={main}>
-          <Head>About</Head>
           <div className="boxes">
-            <Box>
+            <h2>About</h2>
+            <Box className="boards">
               <FAQ>
                 <Title>FAQ</Title>
                 <div className="accordion">
@@ -258,7 +279,7 @@ const About = ({ userObj }: Iuser) => {
                 </div>
               </FAQ>
             </Box>
-            <Box>
+            <Box className="boards">
               {isLoggedIn ? (
                 <>
                   <Title>Dashboard</Title>
@@ -275,7 +296,7 @@ const About = ({ userObj }: Iuser) => {
                 </>
               )}
             </Box>
-            <Box>
+            <Box className="media">
               <div>
                 <Title>Channel log</Title>
                 <Content>
@@ -289,7 +310,7 @@ const About = ({ userObj }: Iuser) => {
                 </Content>
               </div>
             </Box>
-            <Box>
+            <Box className="media">
               <div>
                 <Title>Credits</Title>
                 <Content>

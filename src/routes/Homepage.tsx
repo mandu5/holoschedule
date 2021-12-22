@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Helmet, HelmetProvider } from "react-helmet-async";
 import styled from "styled-components";
 import { Upcoming } from "../components/Upcoming";
 import { Live } from "../components/Live";
@@ -37,13 +36,6 @@ function Homepage() {
   const [main, setMain] = useState("main");
   return (
     <>
-      <HelmetProvider>
-        <Helmet>
-          <meta charSet="utf-8" />
-          <title>Holo Schedules</title>
-          <link rel="icon" type="image/png" href="baseline_schedule_send_white_24dp.ico" sizes="16x16" />
-        </Helmet>
-      </HelmetProvider>
       <div className="wrapper">
         <UI setMain={setMain} />
         <Main className={main}>

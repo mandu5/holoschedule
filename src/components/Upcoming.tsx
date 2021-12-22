@@ -17,6 +17,7 @@ const Length = styled.div`
   margin-top: 30px;
   margin-bottom: 20px;
   width: 100%;
+  font-weight: 400;
   span {
     color: red;
   }
@@ -26,6 +27,7 @@ const LengthTwo = styled.div`
   color: ${(props) => props.theme.textColor};
   padding: 8px;
   margin-bottom: 20px;
+  font-weight: 400;
   position: absolute;
   span {
     color: red;
@@ -36,12 +38,10 @@ const Box = styled.div`
   width: 315px;
   float: left;
   display: flex;
-  color: white;
-  background-color: #151516;
+  color: ${(props) => props.theme.textColor};
   margin-bottom: 20px;
   margin-left: 20px;
   border-radius: 5px;
-  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.01);
   img {
     max-height: 250px;
     max-width: 315px;
@@ -52,7 +52,7 @@ const Box = styled.div`
   }
   &:hover {
     a {
-      color: #a2d8e6;
+      color: #bccbde;
     }
   }
 `;
@@ -61,18 +61,22 @@ const Profile = styled.img`
   height: 45px;
   margin-right: 5px;
   margin-left: 5px;
-  margin-top: 15px;
   border-radius: 30px;
 `;
 const Details = styled.div`
   font-size: 15px;
   .title {
-    font-size: 13px;
+    margin-top: 20px;
+    width: 250px; 
+    text-overflow: ellipsis; 
+    white-space: nowrap; 
+    overflow: hidden;
+    display: block; 
   }
   .channelName {
-    color: #49c8f0;
+    color: #a665b7;
     &:hover {
-      color: #0585ac;
+      color: #555;
     }
   }
   span {

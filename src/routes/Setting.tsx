@@ -38,7 +38,7 @@ const Main = styled.div`
     padding: 40px;
     transform: translate(-50%, -50%);
     box-sizing: border-box;
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0px 10px ${(props) => props.theme.shadowColor};
     border-radius: 10px;
     background: ${(props) => props.theme.tabColor};
     h2 {

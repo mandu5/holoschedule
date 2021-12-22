@@ -49,19 +49,23 @@ const List = styled.div`
   margin-bottom: 5px;
   margin-right: 5px;
 `;
+interface IProps {
+  askObj: any;
+  isOwner: boolean;
+}
 
-const AskBox = ({ askObj, isOwner }) => {
+const AskBox = ({ askObj, isOwner }: IProps) => {
   const [editing, setEditing] = useState(false);
   const [newAsk, setNewAsk] = useState(askObj.text);
   const toggleEditing = () => setEditing((prev) => !prev);
-  const onSubmit = async (event) => {
+  const onSubmit = async (event: any) => {
     event.preventDefault();
     await dbService.doc(`questions/${askObj.id}`).update({
       text: newAsk,
     });
     setEditing(false);
   };
-  const onChange = (event) => {
+  const onChange = (event: any) => {
     const {
       target: { value },
     } = event;

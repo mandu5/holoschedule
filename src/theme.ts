@@ -2,11 +2,12 @@ import { DefaultTheme } from "styled-components";
 
 export const lightTheme: DefaultTheme = {
   bgColor: "#99D3DF",
-  textColor: "#000",
+  textColor: "#151617",
   tabColor: "#c2dde6",
   hyperlinkColor: "#A665B7",
   toggleColor: "#bccbde",
   lengthbarColor: "#c2dde6",
+  shadowColor: "rgba(0, 0, 0, 0.6)",
 };
 
 export const darkTheme: DefaultTheme = {
@@ -16,4 +17,5 @@ export const darkTheme: DefaultTheme = {
   hyperlinkColor: "#49c8f0",
   toggleColor: "#555",
   lengthbarColor: "#090A0A",
+  shadowColor: "#fff",
 };
