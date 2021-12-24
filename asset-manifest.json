@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/holoschedule/static/css/main.db0283b6.chunk.css",
-    "main.js": "/holoschedule/static/js/main.cb908c3c.chunk.js",
-    "main.js.map": "/holoschedule/static/js/main.cb908c3c.chunk.js.map",
+    "main.js": "/holoschedule/static/js/main.9b61d657.chunk.js",
+    "main.js.map": "/holoschedule/static/js/main.9b61d657.chunk.js.map",
     "runtime-main.js": "/holoschedule/static/js/runtime-main.8d146785.js",
     "runtime-main.js.map": "/holoschedule/static/js/runtime-main.8d146785.js.map",
     "static/js/2.f3bd6be4.chunk.js": "/holoschedule/static/js/2.f3bd6be4.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.8d146785.js",
     "static/js/2.f3bd6be4.chunk.js",
     "static/css/main.db0283b6.chunk.css",
-    "static/js/main.cb908c3c.chunk.js"
+    "static/js/main.9b61d657.chunk.js"
   ]
 }
