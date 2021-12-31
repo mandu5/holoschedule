@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack://src/routes/pages.css"],"names":[],"mappings":"AAAA,SACE,QAAS,CACT,SAAU,CACV,qBAAsB,CACtB,gBAAiB,CACjB,iBAAkB,CAClB,iBAAkB,CAClB,UACF","file":"main.db0283b6.chunk.css","sourcesContent":[".wrapper {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n  min-height: 100vh;\n  overflow-x: hidden;\n  position: relative;\n  width: 100%;\n}\n"]}
