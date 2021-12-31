@@ -7,7 +7,8 @@ export const lightTheme: DefaultTheme = {
   hyperlinkColor: "#A665B7",
   toggleColor: "#bccbde",
   lengthbarColor: "#c2dde6",
-  shadowColor: "rgba(0, 0, 0, 0.6)",
+  shadowColor: "#fff",
+  uiColor: "linear-gradient(#83d0e7, #cce0e6)",
 };
 
 export const darkTheme: DefaultTheme = {
@@ -17,5 +18,6 @@ export const darkTheme: DefaultTheme = {
   hyperlinkColor: "#49c8f0",
   toggleColor: "#555",
   lengthbarColor: "#090A0A",
-  shadowColor: "#fff",
+  shadowColor: "#181818",
+  uiColor: "#212121",
 };

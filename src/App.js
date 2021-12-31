@@ -15,8 +15,10 @@ const GlobalStyle = createGlobalStyle`
     border: 0;
     font: inherit;
     vertical-align: baseline;
+    background: ${(props) => props.theme.uiColor};
   }
   * {
+  font-family: 'Roboto', Arial, sans-serif;
     box-sizing: border-box;
   }
   a {

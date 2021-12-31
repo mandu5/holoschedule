@@ -13,7 +13,7 @@ const Upcomings = styled.div`
 const Length = styled.div`
   background: ${(props) => props.theme.lengthbarColor};
   color: ${(props) => props.theme.textColor};
-  padding: 8px;
+  padding: 10px;
   margin-top: 30px;
   margin-bottom: 20px;
   width: 100%;
@@ -25,7 +25,7 @@ const Length = styled.div`
 const LengthTwo = styled.div`
   background: ${(props) => props.theme.lengthbarColor};
   color: ${(props) => props.theme.textColor};
-  padding: 8px;
+  padding: 10px;
   margin-bottom: 20px;
   font-weight: 400;
   position: absolute;
@@ -66,12 +66,11 @@ const Profile = styled.img`
 const Details = styled.div`
   font-size: 15px;
   .title {
-    margin-top: 20px;
-    width: 250px; 
-    text-overflow: ellipsis; 
-    white-space: nowrap; 
+    width: 250px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     overflow: hidden;
-    display: block; 
+    display: block;
   }
   .channelName {
     color: #a665b7;
@@ -106,7 +105,6 @@ interface IHoloLive {
     twitter_link: string;
   };
 }
-
 export function Upcoming() {
   const { data } = useQuery<IHoloLive[]>("allUpcoming", fetchUpcoming);
   const search = useRecoilValue(searchTypedAtom);
@@ -141,7 +139,9 @@ export function Upcoming() {
                   <Profile src={`${item.channel.photo}`} />
                 </Link>
                 <Details>
-                  <div className="title">{item.title}</div>
+                  <Link to={`/video/${item.yt_video_key}`}>
+                    <div className="title">{item.title}</div>
+                  </Link>
                   <Link to={`/channel/${item.channel.yt_channel_id}`}>
                     <div className="channelName">{item.channel.name}</div>
                   </Link>
@@ -181,7 +181,9 @@ export function Upcoming() {
                     <Profile src={`${item.channel.photo}`} />
                   </Link>
                   <Details>
-                    <div className="title">{item.title}</div>
+                    <Link to={`/video/${item.yt_video_key}`}>
+                      <div className="title">{item.title}</div>
+                    </Link>
                     <Link to={`/channel/${item.channel.yt_channel_id}`}>
                       <div className="channelName">{item.channel.name}</div>
                     </Link>

@@ -5,27 +5,9 @@ import { UI } from "../components/UI";
 import "./pages.css";
 
 const Main = styled.div`
-  position: relative;
-  width: calc(100% - 300px);
-  min-height: 92.5vh;
-  left: 300px;
   height: 0;
   background: ${(props) => props.theme.bgColor};
-  color: white;
-  transition: 0.3s;
-  &.active {
-    width: calc(100% - 80px);
-    left: 80px;
-    .toggle {
-      @media (max-width: 991px) {
-        visibility: hidden;
-        transition: 0.01s;
-      }
-    }
-    @media (max-width: 991px) {
-      left: 300px;
-    }
-  }
+  color: #fff;
   .video {
     width: calc(100% - 350px);
     height: 706px;
@@ -56,7 +38,7 @@ function Stream() {
     <>
       <div className="wrapper">
         <UI setMain={setMain} />
-        <Main className={main}>
+        <Main className={main} id="main">
           <iframe
             className="video"
             src={`https://www.youtube.com/embed/${yt_video}`}

@@ -6,30 +6,8 @@ import { authService } from "../myBase";
 import "./pages.css";
 
 const Main = styled.div`
-  position: absolute;
-  width: calc(100% - 300px);
-  left: 300px;
-  min-height: 92.5vh;
   color: ${(props) => props.theme.textColor};
-  transition: 0.3s;
   background: ${(props) => props.theme.bgColor};
-  &.active {
-    width: calc(100% - 80px);
-    left: 80px;
-    .toggle {
-      @media (max-width: 991px) {
-        visibility: hidden;
-        transition: 0.01s;
-      }
-    }
-    @media (max-width: 991px) {
-      left: 300px;
-    }
-  }
-  @media (max-width: 991px) {
-    width: 100%;
-    left: 0;
-  }
   .login-box {
     position: absolute;
     top: 50%;
@@ -83,7 +61,7 @@ function AccountSetting() {
     <>
       <div className="wrapper">
         <UI setMain={setMain} />
-        <Main className={main}>
+        <Main className={main} id="main">
           <div className="login-box">
             <h2>Account Setting</h2>
             <form>

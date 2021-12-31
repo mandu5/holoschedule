@@ -7,10 +7,12 @@ const Header = styled.div`
   form {
     .input {
       width: 90%;
+      height: 100px;
       display: flex;
       justify-content: center;
       align-items: center;
       margin-left: 5%;
+      margin-top: 10px;
       border-radius: 5px;
       resize: none;
       border: none;

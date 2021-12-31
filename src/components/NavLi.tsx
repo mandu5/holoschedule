@@ -25,8 +25,8 @@ const Title = styled.span`
   padding: 0 auto;
   height: 40px;
   line-height: 45px;
-  font-size: 20px;
-  margin-left: 10px;
+  font-size: 15px;
+  margin-left: 3px;
   text-align: start;
   white-space: nowrap;
 `;

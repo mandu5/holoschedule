@@ -7,10 +7,10 @@ import { NavLi } from "./NavLi";
 
 const Navigation = styled.div`
   position: fixed;
-  width: 300px;
+  width: 80px;
   height: 100%;
-  background: linear-gradient(#83d0e7, #cce0e6);
-  border-left: 10px solid #83d0e7;
+  background: ${(props) => props.theme.uiColor};
+  border-left: 10px solid ${(props) => props.theme.uiColor};
   transition: 0.3s;
   overflow: hidden;
   .button {
@@ -29,7 +29,7 @@ const Navigation = styled.div`
     width: 100%;
   }
   @media (max-width: 991px) {
-    left: -300px;
+    width: 80px;
   }
   @media (max-width: 480px) {
     width: 100%;
@@ -37,11 +37,8 @@ const Navigation = styled.div`
     z-index: 1000;
   }
   &.active {
-    width: 80px;
-    @media (max-width: 991px) {
-      width: 300px;
-      left: 0;
-    }
+    width: 190px;
+
     @media (max-width: 480px) {
       width: 100%;
       left: 0;
@@ -59,10 +56,7 @@ const Navigation = styled.div`
       border-top-left-radius: 30px;
       border-bottom-left-radius: 30px;
       &:hover {
-        background: #dfe5e8;
-        a {
-          color: #83d0e7;
-        }
+        background: ${(props) => props.theme.toggleColor};
       }
       &:nth-child(1) {
         pointer-events: none;
@@ -85,29 +79,27 @@ const Topbar = styled.div`
   justify-content: center;
   align-items: center;
   padding: 0 10px;
-  background: linear-gradient(#49c8f0, #98dbf0);
+  /* background: linear-gradient(#49c8f0, #98dbf0); */
+  background: ${(props) => props.theme.uiColor};
   color: #fff;
-  width: calc(100% - 300px);
-  left: 300px;
+  width: calc(100% - 80px);
+  left: 80px;
   transition: 0.3s;
   &.active {
-    width: calc(100% - 80px);
-    left: 80px;
+    width: calc(100% - 190px);
+    left: 190px;
     .toggle {
       @media (max-width: 991px) {
         visibility: hidden;
         transition: 0.001s;
       }
     }
-    @media (max-width: 991px) {
-      left: 300px;
-    }
   }
   @media (max-width: 991px) {
     width: 100%;
     left: 0;
   }
-  @media (max-width: 650px) {
+  @media (max-width: 745px) {
     display: fixed;
   }
   .button {
@@ -126,9 +118,8 @@ const Topbar = styled.div`
     visibility: hidden;
     @media (max-width: 991px) {
       visibility: visible;
-      background-color: #49c8f0;
       &:hover {
-        background-color: #72cde9;
+        opacity: 0.5;
       }
     }
   }
@@ -143,16 +134,14 @@ const Toggle = styled.div`
   align-items: center;
   font-size: 2em;
   border-radius: 50%;
-  background-color: #83d0e7;
   cursor: pointer;
   &:hover {
-    background-color: #abd9e7;
+    opacity: 0.5;
   }
 `;
 const Icon2 = styled.span`
   position: absolute;
-  top: 7px;
-  margin-right: 1px;
+  top: 6px;
   justify-content: center;
   align-items: center;
   font-size: 1em;

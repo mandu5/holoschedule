@@ -3,17 +3,17 @@ import { AiOutlineSetting } from "react-icons/ai";
 import { BiSearchAlt2 } from "react-icons/bi";
 import { FiLogIn } from "react-icons/fi";
 import { MdScheduleSend } from "react-icons/md";
+import { CgProfile } from "react-icons/cg";
 import { Link } from "react-router-dom";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import styled from "styled-components";
 import { isLoggedInAtom, searchTypedAtom } from "../atoms";
 import { authService } from "../myBase";
-import img from "./img.jpg";
 
 const Logo = styled.div`
-  font-size: 25px;
+  font-size: 23px;
   margin-top: 5px;
-  left: 5px;
+  margin-left: 150px;
   display: flex;
   position: relative;
   text-align: start;
@@ -24,7 +24,7 @@ const Search = styled.div`
   position: relative;
   width: 400px;
   margin: 0 10px;
-  margin-right: 250px;
+  margin-left: 50px;
   label {
     position: relative;
     width: 100%;
@@ -49,33 +49,26 @@ const Icon3 = styled.span`
 `;
 const Toggle = styled.div`
   position: relative;
-  border-radius: 50%;
+  margin-left: 200px;
   .profile {
     position: relative;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     overflow: hidden;
     cursor: pointer;
     &:hover {
-      opacity: 0.8;
-    }
-    img {
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      opacity: 0.7;
     }
   }
 `;
 const Menu = styled.div`
   position: absolute;
   top: 100px;
-  right: -5px;
+  right: -15px;
   width: 250px;
   padding: 10px 20px;
-  background: #333;
+  background: ${(props) => props.theme.uiColor};
   box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   transition: 0.5s;
@@ -92,7 +85,7 @@ const Menu = styled.div`
     right: 20px;
     width: 20px;
     height: 20px;
-    background: #333;
+    background: ${(props) => props.theme.uiColor};
     transform: rotate(45deg);
   }
   ul {
@@ -144,8 +137,6 @@ export function HeaderDetails() {
     setMenu("menu");
   });
   const onLogOutClick = () => authService.signOut();
-
-  // 검색
   const setSearch = useSetRecoilState(searchTypedAtom);
   const searchSpace = (event) => {
     let keyword = event.target.value;
@@ -173,10 +164,8 @@ export function HeaderDetails() {
           </Icon3>
         </label>
       </Search>
-      <Toggle className="action">
-        <div ref={domNode} className="profile" onClick={menuToggle}>
-          <img src={img} alt="img" />
-        </div>
+      <Toggle>
+        <CgProfile ref={domNode} className="profile" onClick={menuToggle} />
         <Menu className={menu}>
           {isLoggedIn ? (
             <>

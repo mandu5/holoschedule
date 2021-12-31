@@ -8,30 +8,16 @@ import { UI } from "../components/UI";
 import "./pages.css";
 
 const Main = styled.div`
-  position: absolute;
-  width: calc(100% - 300px);
-  left: 300px;
-  min-height: 92.5vh;
   color: ${(props) => props.theme.textColor};
-  transition: 0.3s;
   background: ${(props) => props.theme.bgColor};
   &.active {
-    width: calc(100% - 80px);
-    left: 80px;
     .boxes {
       position: absolute;
       transition: 0.3s;
       transform: translate(-10%, 0%);
     }
-    @media (max-width: 991px) {
-      left: 300px;
-    }
   }
-  @media (max-width: 991px) {
-    width: 100%;
-    left: 0;
-  }
-  .boxes {
+  .tabs {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -55,9 +41,12 @@ const Main = styled.div`
   @media (max-width: 1083px) {
     .media {
       visibility: hidden;
+      position: absolute;
     }
     .boards {
-      width: 50%;
+      position: relative;
+      margin-left: 25%;
+      width: 80%;
     }
   }
 `;
@@ -69,11 +58,11 @@ const Box = styled.div`
   width: 42%;
   margin-bottom: 30px;
   margin-right: 50px;
-  height: 40%;
+  height: 44%;
   padding: 40px;
   transform: translate(-50%, -50%);
   box-sizing: border-box;
-  box-shadow: 0 0px 10px ${(props) => props.theme.shadowColor};
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.6);
   border-radius: 10px;
   background: ${(props) => props.theme.tabColor};
   overflow: scroll;
@@ -94,7 +83,7 @@ const FAQ = styled.div`
 const ContentBx = styled.div`
   position: relative;
   margin: 10px;
-  margin-right: 25px;
+  margin-right: 10px;
   &:hover {
     opacity: 0.8;
   }
@@ -215,8 +204,8 @@ const About = ({ userObj }: Iuser) => {
     <>
       <div className="wrapper">
         <UI setMain={setMain} />
-        <Main className={main}>
-          <div className="boxes">
+        <Main className={main} id="main">
+          <div className="tabs">
             <h2>About</h2>
             <Box className="boards">
               <FAQ>

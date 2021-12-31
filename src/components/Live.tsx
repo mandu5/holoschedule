@@ -8,8 +8,7 @@ import { fetchLive } from "../routes/api";
 const Length = styled.div`
   background: ${(props) => props.theme.lengthbarColor};
   color: ${(props) => props.theme.textColor};
-  padding: 8px;
-  margin-bottom: 20px;
+  padding: 10px;
   font-weight: 400;
   span {
     color: red;
@@ -60,12 +59,11 @@ const Profile = styled.img`
 const Details = styled.div`
   font-size: 15px;
   .title {
-    margin-top: 20px;
-    width: 250px; 
-    text-overflow: ellipsis; 
-    white-space: nowrap; 
+    width: 250px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     overflow: hidden;
-    display: block; 
+    display: block;
   }
   .channelName {
     color: #a665b7;
@@ -130,7 +128,9 @@ export function Live() {
                   <Profile src={`${item.channel.photo}`} />
                 </Link>
                 <Details>
-                  <div className="title">{item.title}</div>
+                  <Link to={`/video/${item.yt_video_key}`}>
+                    <div className="title">{item.title}</div>
+                  </Link>
                   <Link to={`/channel/${item.channel.yt_channel_id}`}>
                     <div className="channelName">{item.channel.name}</div>
                   </Link>
@@ -154,7 +154,7 @@ export function Live() {
             <span>Live: </span> {data?.length}
           </Length>
           {data?.map((item) => (
-            <Box key={item.yt_video_key}>
+            <Box key={item.yt_video_key} className="box">
               <div>
                 <Link to={`/video/${item.yt_video_key}`} className="thumbnail">
                   <img
@@ -167,7 +167,9 @@ export function Live() {
                     <Profile src={`${item.channel.photo}`} />
                   </Link>
                   <Details>
+                  <Link to={`/video/${item.yt_video_key}`}>
                     <div className="title">{item.title}</div>
+                    </Link>
                     <Link to={`/channel/${item.channel.yt_channel_id}`}>
                       <div className="channelName">{item.channel.name}</div>
                     </Link>

@@ -27,7 +27,11 @@
 - [ ] save favorites to database
 - [ ] Add Character Themes Layout
 - [ ] Add Reset Button - Setting
-- [ ] public API / API key for user account
-- [ ] live chat features
+- [x] live chat features
 - [ ] Expand vtuber list
+- [ ] SSR - next.js
+
 * 🛠 Refactoring
+
+
+로그인/로그아웃 매끄러움
