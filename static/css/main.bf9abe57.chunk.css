@@ -1,2 +1,0 @@
-.wrapper{margin:0;padding:0;box-sizing:border-box;min-height:100vh;overflow-x:hidden;position:relative;width:100%}#main{position:absolute;width:calc(100% - 80px);min-height:92.5vh;left:80px;transition:.3s}#main.active{width:calc(100% - 190px);left:190px}@media (max-width:991px){#main{width:100%;left:0}}
-/*# sourceMappingURL=main.bf9abe57.chunk.css.map */
