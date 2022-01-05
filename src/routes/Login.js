@@ -5,30 +5,8 @@ import "./pages.css";
 import { authService, firebaseInstance } from "../myBase";
 
 const Main = styled.div`
-  position: absolute;
-  width: calc(100% - 300px);
-  left: 300px;
-  min-height: 92.5vh;
   color: ${(props) => props.theme.textColor};
-  transition: 0.3s;
   background: ${(props) => props.theme.bgColor};
-  &.active {
-    width: calc(100% - 80px);
-    left: 80px;
-    .toggle {
-      @media (max-width: 991px) {
-        visibility: hidden;
-        transition: 0.01s;
-      }
-    }
-    @media (max-width: 991px) {
-      left: 300px;
-    }
-  }
-  @media (max-width: 991px) {
-    width: 100%;
-    left: 0;
-  }
   .login-box {
     position: absolute;
     top: 50%;
@@ -40,14 +18,6 @@ const Main = styled.div`
     box-shadow: 0 0px 10px ${(props) => props.theme.shadowColor};
     border-radius: 10px;
     background: ${(props) => props.theme.tabColor};
-    h2 {
-      margin: 0 0 30px;
-      padding: 0;
-      font-size: 30px;
-      font-weight: 500;
-      color: #fff;
-      text-align: center;
-    }
     .user-box {
       position: relative;
       input {
@@ -79,45 +49,19 @@ const Main = styled.div`
         transition: 0.5s;
       }
     }
-    form {
-      #google {
-        background-color: #ea4335;
-      }
-      #facebook {
-        background-color: #3b5998;
-      }
-      .a {
-        background-color: #000;
-        position: relative;
-        display: inline-block;
-        padding: 10px 20px;
-        color: #bccbde;
-        font-size: 16px;
-        text-decoration: none;
-        text-transform: uppercase;
-        overflow: hidden;
-        transition: 0.5s;
-        margin-top: 40px;
-        letter-spacing: 4px;
-        border: 0;
-        border-radius: 4px;
-        span {
-          position: absolute;
-          display: block;
-        }
-        &:hover {
-          background: #bccbde;
-          color: #fff;
-          border-radius: 5px;
-          box-shadow: 0 0 5px #bccbde, 0 0 25px #bccbde, 0 0 50px #bccbde,
-            0 0 100px #bccbde;
-        }
-      }
+    #google {
+      background-color: #ea4335;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    #facebook {
+      background-color: #3b5998;
+      margin-bottom: 10px;
     }
   }
 `;
 
-function LoginPage() { 
+function LoginPage() {
   const [main, setMain] = useState("main");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -162,9 +106,9 @@ function LoginPage() {
     <>
       <div className="wrapper">
         <UI setMain={setMain} />
-        <Main className={main}>
+        <Main className={main} id="main">
           <div className="login-box">
-            <h2>Login</h2>
+            <h2 className="title">Login</h2>
             <form onSubmit={onSubmit}>
               <div className="user-box">
                 <input
@@ -188,30 +132,30 @@ function LoginPage() {
               </div>
               {error}
               <input
-                className="a"
+                className="button"
                 type="submit"
                 value={newAccount ? "Create Account" : "Log In"}
               />
-              <button
-                id="google"
-                className="a"
-                onClick={onSocialClick}
-                name="google"
-              >
-                Continue with Google
-              </button>
-              <button
-                id="facebook"
-                className="a"
-                onClick={onSocialClick}
-                name="facebook"
-              >
-                Continue with Facebook
-              </button>
-              <button className="a" onClick={toggleAccount}>
-                {newAccount ? "Sign In" : "Create Account"}
-              </button>
             </form>
+            <button
+              id="google"
+              className="button"
+              onClick={onSocialClick}
+              name="google"
+            >
+              Continue with Google
+            </button>
+            <button
+              id="facebook"
+              className="button"
+              onClick={onSocialClick}
+              name="facebook"
+            >
+              Continue with Facebook
+            </button>
+            <button className="button" onClick={toggleAccount}>
+              {newAccount ? "Sign In" : "Create Account"}
+            </button>
           </div>
         </Main>
       </div>

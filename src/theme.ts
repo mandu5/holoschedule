@@ -8,7 +8,7 @@ export const lightTheme: DefaultTheme = {
   toggleColor: "#bccbde",
   lengthbarColor: "#c2dde6",
   shadowColor: "#fff",
-  uiColor: "linear-gradient(#83d0e7, #cce0e6)",
+  uiColor: "#83d0e7",
 };
 
 export const darkTheme: DefaultTheme = {

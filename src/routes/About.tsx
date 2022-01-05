@@ -10,13 +10,6 @@ import "./pages.css";
 const Main = styled.div`
   color: ${(props) => props.theme.textColor};
   background: ${(props) => props.theme.bgColor};
-  &.active {
-    .boxes {
-      position: absolute;
-      transition: 0.3s;
-      transform: translate(-10%, 0%);
-    }
-  }
   .tabs {
     position: absolute;
     top: 50%;
@@ -26,46 +19,12 @@ const Main = styled.div`
     padding: 40px;
     transform: translate(-50%, -50%);
     box-sizing: border-box;
-    box-shadow: 0 0px 10px ${(props) => props.theme.shadowColor};
     border-radius: 10px;
-    background: ${(props) => props.theme.tabColor};
-    h2 {
-      margin: 0 0 30px;
-      padding: 0;
-      font-size: 30px;
-      font-weight: 500;
-      color: #fff;
-      text-align: center;
-    }
-  }
-  @media (max-width: 1083px) {
-    .media {
-      visibility: hidden;
-      position: absolute;
-    }
-    .boards {
-      position: relative;
-      margin-left: 25%;
-      width: 80%;
-    }
   }
 `;
 const Box = styled.div`
-  position: relative;
-  float: left;
-  top: 20%;
-  left: 27%;
-  width: 42%;
-  margin-bottom: 30px;
-  margin-right: 50px;
-  height: 44%;
-  padding: 40px;
-  transform: translate(-50%, -50%);
-  box-sizing: border-box;
-  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.6);
-  border-radius: 10px;
+  box-shadow: 0 0px 10px ${(props) => props.theme.shadowColor};
   background: ${(props) => props.theme.tabColor};
-  overflow: scroll;
   .login {
     margin-top: 60px;
   }
@@ -79,6 +38,12 @@ const FAQ = styled.div`
       text-decoration: underline;
     }
   }
+`;
+const Title = styled.div`
+  font-size: 25px;
+  margin-top: -15px;
+  color: ${(props) => props.theme.textColor};
+  width: 100%;
 `;
 const ContentBx = styled.div`
   position: relative;
@@ -126,12 +91,6 @@ const ContentBx = styled.div`
     overflow-y: auto;
   }
 `;
-const Title = styled.div`
-  font-size: 25px;
-  margin-top: -15px;
-  color: ${(props) => props.theme.textColor};
-  width: 100%;
-`;
 const Content = styled.div`
   font-size: 15px;
   margin-top: 10px;
@@ -149,28 +108,8 @@ const Content = styled.div`
     }
   }
 `;
-const Login = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 20px;
-  color: #bccbde;
-  background-color: #151617;
-  font-size: 16px;
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  border-radius: 4px;
-  transition: 0.5s;
-  border: 0;
-  &:hover {
-    background: #bccbde;
-    color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 5px #bccbde, 0 0 25px #bccbde, 0 0 50px #bccbde,
-      0 0 100px #bccbde;
-  }
-`;
+const Login = styled.div``;
+
 interface Iuser {
   userObj: null;
 }
@@ -206,8 +145,8 @@ const About = ({ userObj }: Iuser) => {
         <UI setMain={setMain} />
         <Main className={main} id="main">
           <div className="tabs">
-            <h2>About</h2>
-            <Box className="boards">
+            <h2 className="title">About</h2>
+            <Box className="boards" id="scroll">
               <FAQ>
                 <Title>FAQ</Title>
                 <div className="accordion">
@@ -278,7 +217,7 @@ const About = ({ userObj }: Iuser) => {
                 <>
                   <Title>Dashboard</Title>
                   <div className="login">
-                    <Login as={Link} to={"/login"}>
+                    <Login className="button" as={Link} to={"/login"}>
                       Login
                     </Login>
                   </div>

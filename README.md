@@ -26,12 +26,8 @@
 - [ ] Add multi language support
 - [ ] save favorites to database
 - [ ] Add Character Themes Layout
-- [ ] Add Reset Button - Setting
 - [x] live chat features
 - [ ] Expand vtuber list
 - [ ] SSR - next.js
 
 * 🛠 Refactoring
-
-
-로그인/로그아웃 매끄러움

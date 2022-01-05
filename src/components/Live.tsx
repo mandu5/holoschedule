@@ -10,6 +10,7 @@ const Length = styled.div`
   color: ${(props) => props.theme.textColor};
   padding: 10px;
   font-weight: 400;
+  margin-bottom: 20px;
   span {
     color: red;
   }
@@ -26,18 +27,17 @@ const LengthTwo = styled.div`
   }
 `;
 const Box = styled.div`
-  margin-top: 20px;
-  height: 250px;
-  width: 315px;
   float: left;
   display: flex;
+  height: 250px;
+  width: 315px;
   color: ${(props) => props.theme.textColor};
   margin-bottom: 20px;
   margin-left: 20px;
   border-radius: 5px;
-  img {
+  .thumbnail {
     max-height: 250px;
-    max-width: 315px;
+    width: 315px;
   }
   a {
     float: left;
@@ -58,7 +58,7 @@ const Profile = styled.img`
 `;
 const Details = styled.div`
   font-size: 15px;
-  .title {
+  .intro {
     width: 250px;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -115,10 +115,11 @@ export function Live() {
           <LengthTwo>
             <span>Live: </span> {data?.length}
           </LengthTwo>
-          <Box key={item.yt_video_key}>
+          <Box key={item.yt_video_key} className="box">
             <div>
               <Link to={`/video/${item.yt_video_key}`} className="thumbnail">
                 <img
+                  className="thumbnail"
                   src={`http://img.youtube.com/vi/${item.yt_video_key}/maxresdefault.jpg`}
                   alt="thumbnail"
                 />
@@ -129,7 +130,7 @@ export function Live() {
                 </Link>
                 <Details>
                   <Link to={`/video/${item.yt_video_key}`}>
-                    <div className="title">{item.title}</div>
+                    <div className="intro">{item.title}</div>
                   </Link>
                   <Link to={`/channel/${item.channel.yt_channel_id}`}>
                     <div className="channelName">{item.channel.name}</div>
@@ -158,6 +159,7 @@ export function Live() {
               <div>
                 <Link to={`/video/${item.yt_video_key}`} className="thumbnail">
                   <img
+                    className="thumbnail"
                     src={`http://img.youtube.com/vi/${item.yt_video_key}/maxresdefault.jpg`}
                     alt="thumbnail"
                   />
@@ -167,8 +169,8 @@ export function Live() {
                     <Profile src={`${item.channel.photo}`} />
                   </Link>
                   <Details>
-                  <Link to={`/video/${item.yt_video_key}`}>
-                    <div className="title">{item.title}</div>
+                    <Link to={`/video/${item.yt_video_key}`}>
+                      <div className="intro">{item.title}</div>
                     </Link>
                     <Link to={`/channel/${item.channel.yt_channel_id}`}>
                       <div className="channelName">{item.channel.name}</div>

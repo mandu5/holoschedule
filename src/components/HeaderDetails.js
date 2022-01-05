@@ -64,7 +64,7 @@ const Toggle = styled.div`
 `;
 const Menu = styled.div`
   position: absolute;
-  top: 100px;
+  top: 45px;
   right: -15px;
   width: 250px;
   padding: 10px 20px;
@@ -75,7 +75,7 @@ const Menu = styled.div`
   visibility: hidden;
   z-index: 1;
   &.active {
-    top: 80px;
+    top: 60px;
     visibility: visible;
   }
   &::before {

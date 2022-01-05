@@ -13,7 +13,7 @@ const Navigation = styled.div`
   border-left: 10px solid ${(props) => props.theme.uiColor};
   transition: 0.3s;
   overflow: hidden;
-  .button {
+  .dropdown {
     border-radius: 50%;
     width: 50px;
     height: 50px;
@@ -38,7 +38,6 @@ const Navigation = styled.div`
   }
   &.active {
     width: 190px;
-
     @media (max-width: 480px) {
       width: 100%;
       left: 0;
@@ -102,7 +101,7 @@ const Topbar = styled.div`
   @media (max-width: 745px) {
     display: fixed;
   }
-  .button {
+  .dropdown {
     border-radius: 50%;
     width: 55px;
     height: 55px;
@@ -162,7 +161,7 @@ export function UI(props: { setMain: (arg0: string) => void; }) {
     <>
       <Navigation className={navigation}>
         <ul>
-          <Button className="button">
+          <Button className="dropdown">
             <Toggle className="toggle" onClick={changeToggle}>
               <Icon2>
                 <BiMenu />
@@ -173,7 +172,7 @@ export function UI(props: { setMain: (arg0: string) => void; }) {
         </ul>
       </Navigation>
       <Topbar className={main}>
-        <Button className="button">
+        <Button className="dropdown">
           <Toggle className="toggle" onClick={changeToggle}>
             <Icon2>
               <BiMenu />

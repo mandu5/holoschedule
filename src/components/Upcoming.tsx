@@ -34,17 +34,17 @@ const LengthTwo = styled.div`
   }
 `;
 const Box = styled.div`
-  height: 250px;
-  width: 315px;
   float: left;
   display: flex;
+  height: 250px;
+  width: 315px;
   color: ${(props) => props.theme.textColor};
   margin-bottom: 20px;
   margin-left: 20px;
   border-radius: 5px;
-  img {
+  .thumbnail {
     max-height: 250px;
-    max-width: 315px;
+    width: 315px;
   }
   a {
     float: left;
@@ -65,7 +65,7 @@ const Profile = styled.img`
 `;
 const Details = styled.div`
   font-size: 15px;
-  .title {
+  .intro {
     width: 250px;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -126,10 +126,11 @@ export function Upcoming() {
             <span>Upcoming: </span>
             {data?.length}
           </LengthTwo>
-          <Box style={style} key={item.id}>
+          <Box style={style} key={item.id} className="box">
             <div>
               <Link to={`/video/${item.yt_video_key}`} className="thumbnail">
                 <img
+                  className="thumbnail"
                   src={`http://img.youtube.com/vi/${item.yt_video_key}/maxresdefault.jpg`}
                   alt="thumbnail"
                 />
@@ -140,7 +141,7 @@ export function Upcoming() {
                 </Link>
                 <Details>
                   <Link to={`/video/${item.yt_video_key}`}>
-                    <div className="title">{item.title}</div>
+                    <div className="intro">{item.title}</div>
                   </Link>
                   <Link to={`/channel/${item.channel.yt_channel_id}`}>
                     <div className="channelName">{item.channel.name}</div>
@@ -168,10 +169,11 @@ export function Upcoming() {
             {data?.length}
           </Length>
           {data?.map((item) => (
-            <Box key={item.id}>
+            <Box key={item.id} className="box">
               <div>
                 <Link to={`/video/${item.yt_video_key}`} className="thumbnail">
                   <img
+                    className="thumbnail"
                     src={`http://img.youtube.com/vi/${item.yt_video_key}/maxresdefault.jpg`}
                     alt="thumbnail"
                   />
@@ -182,7 +184,7 @@ export function Upcoming() {
                   </Link>
                   <Details>
                     <Link to={`/video/${item.yt_video_key}`}>
-                      <div className="title">{item.title}</div>
+                      <div className="intro">{item.title}</div>
                     </Link>
                     <Link to={`/channel/${item.channel.yt_channel_id}`}>
                       <div className="channelName">{item.channel.name}</div>
