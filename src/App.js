@@ -54,7 +54,7 @@ function App() {
             <link
               rel="icon"
               type="image/png"
-              href="baseline_schedule_send_white_24dp.ico"
+              href="icon.ico"
               sizes="16x16"
             />
           </Helmet>

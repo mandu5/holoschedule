@@ -164,9 +164,9 @@ export function HeaderDetails() {
           </Icon3>
         </label>
       </Search>
-      <Toggle>
-        <CgProfile ref={domNode} className="profile" onClick={menuToggle} />
-        <Menu className={menu}>
+      <Toggle ref={domNode}>
+        <CgProfile className="profile" onClick={menuToggle} />
+        <Menu  className={menu}>
           {isLoggedIn ? (
             <>
               <ul>
