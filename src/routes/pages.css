@@ -9,15 +9,15 @@
 }
 #main {
   position: absolute;
-  width: calc(100% - 80px);
+  width: 100%;
   min-height: 92.5vh;
-  left: 80px;
-  transition: 0s;
+  left: 0px;
 }
 #main.active {
   width: calc(100% - 190px);
   left: 190px;
   transition: 0.3s;
+  
 }
 #main.active .box {
   margin-left: 45px;

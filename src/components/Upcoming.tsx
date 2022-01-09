@@ -8,25 +8,22 @@ import { fetchUpcoming } from "../routes/api";
 
 const Upcomings = styled.div`
   float: left;
-  background: 000;
 `;
 const Length = styled.div`
   background: ${(props) => props.theme.lengthbarColor};
   color: ${(props) => props.theme.textColor};
-  padding: 10px;
-  margin-top: 30px;
-  margin-bottom: 20px;
-  width: 100%;
+  padding: 5px;
   font-weight: 400;
+  margin-bottom: 20px;
   span {
     color: red;
+    margin-left: 15px;
   }
 `;
 const LengthTwo = styled.div`
   background: ${(props) => props.theme.lengthbarColor};
   color: ${(props) => props.theme.textColor};
-  padding: 10px;
-  margin-bottom: 20px;
+  padding: 5px;
   font-weight: 400;
   position: absolute;
   span {
@@ -37,14 +34,14 @@ const Box = styled.div`
   float: left;
   display: flex;
   height: 250px;
-  width: 315px;
+  width: 335px;
   color: ${(props) => props.theme.textColor};
   margin-bottom: 20px;
   margin-left: 20px;
   border-radius: 5px;
   .thumbnail {
-    max-height: 250px;
-    width: 315px;
+    max-height: 178px;
+    width: 335px;
   }
   a {
     float: left;

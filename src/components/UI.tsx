@@ -7,12 +7,10 @@ import { NavLi } from "./NavLi";
 
 const Navigation = styled.div`
   position: fixed;
-  width: 80px;
   height: 100%;
   background: ${(props) => props.theme.uiColor};
-  border-left: 10px solid ${(props) => props.theme.uiColor};
   transition: 0.3s;
-  overflow: hidden;
+  border-right: 1px solid ${(props) => props.theme.borderColor};  
   .dropdown {
     border-radius: 50%;
     width: 50px;
@@ -28,6 +26,10 @@ const Navigation = styled.div`
     border-bottom-left-radius: 30px;
     width: 100%;
   }
+  #hiddenToggle {
+    margin-top: 1px;
+    margin-left: 12px;
+  }
   @media (max-width: 991px) {
     width: 80px;
   }
@@ -38,6 +40,7 @@ const Navigation = styled.div`
   }
   &.active {
     width: 190px;
+    z-index: 1;
     @media (max-width: 480px) {
       width: 100%;
       left: 0;
@@ -45,7 +48,6 @@ const Navigation = styled.div`
   }
   ul {
     position: absolute;
-    top: 3px;
     left: 0;
     width: 100%;
     li {
@@ -55,7 +57,7 @@ const Navigation = styled.div`
       border-top-left-radius: 30px;
       border-bottom-left-radius: 30px;
       &:hover {
-        background: ${(props) => props.theme.toggleColor};
+        background: ${(props) => props.theme.bgColor};
       }
       &:nth-child(1) {
         pointer-events: none;
@@ -72,27 +74,22 @@ const Navigation = styled.div`
   }
 `;
 const Topbar = styled.div`
-  height: 58px;
   position: relative;
   display: flex;
-  justify-content: center;
+  height: 58px;
   align-items: center;
   padding: 0 10px;
-  /* background: linear-gradient(#49c8f0, #98dbf0); */
   background: ${(props) => props.theme.uiColor};
+  border-bottom: 1px solid ${(props) => props.theme.borderColor};  
   color: #fff;
-  width: calc(100% - 80px);
-  left: 80px;
   transition: 0.3s;
+  top: 0;
+  left: 0;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
   &.active {
-    width: calc(100% - 190px);
-    left: 190px;
-    .toggle {
-      @media (max-width: 991px) {
-        visibility: hidden;
-        transition: 0.001s;
-      }
-    }
+    position: relative;
   }
   @media (max-width: 991px) {
     width: 100%;
@@ -108,19 +105,6 @@ const Topbar = styled.div`
     min-width: 55px;
     left: 4px;
     color: #fff;
-    visibility: hidden;
-    @media (max-width: 991px) {
-      visibility: hidden;
-    }
-  }
-  .toggle {
-    visibility: hidden;
-    @media (max-width: 991px) {
-      visibility: visible;
-      &:hover {
-        opacity: 0.5;
-      }
-    }
   }
 `;
 const Toggle = styled.div`
@@ -144,10 +128,10 @@ const Icon2 = styled.span`
   justify-content: center;
   align-items: center;
   font-size: 1em;
-  color: ${(props) =>props.theme.textColor};
+  color: ${(props) => props.theme.textColor};
 `;
 
-export function UI(props: { setMain: (arg0: string) => void; }) {
+export function UI(props: { setMain: (arg0: string) => void }) {
   const [navigation, setNavigation] = useState("navigation");
   const [main, setMain] = useState("main");
   const changeToggle = () => {
@@ -161,7 +145,7 @@ export function UI(props: { setMain: (arg0: string) => void; }) {
     <>
       <Navigation className={navigation}>
         <ul>
-          <Button className="dropdown">
+          <Button id="hiddenToggle" className="dropdown">
             <Toggle className="toggle" onClick={changeToggle}>
               <Icon2>
                 <BiMenu />
@@ -173,7 +157,7 @@ export function UI(props: { setMain: (arg0: string) => void; }) {
       </Navigation>
       <Topbar className={main}>
         <Button className="dropdown">
-          <Toggle className="toggle" onClick={changeToggle}>
+          <Toggle id = "hiddenToggleTwo" className="toggle" onClick={changeToggle}>
             <Icon2>
               <BiMenu />
             </Icon2>

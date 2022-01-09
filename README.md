@@ -24,10 +24,12 @@
 - [ ] Set up a custom domain
 - [ ] Fetch YouTube Api
 - [ ] Add multi language support
+- [ ] Add multi view
 - [ ] save favorites to database
 - [ ] Add Character Themes Layout
 - [x] live chat features
 - [ ] Expand vtuber list
-- [ ] SSR - next.js
+- [ ] SSR - SEO
+- [ ] Type
 
 * 🛠 Refactoring

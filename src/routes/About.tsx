@@ -21,10 +21,13 @@ const Main = styled.div`
     box-sizing: border-box;
     border-radius: 10px;
   }
+  .title {
+    color: ${(props) => props.theme.textColor};
+  }
 `;
 const Box = styled.div`
-  box-shadow: 0 0px 10px ${(props) => props.theme.shadowColor};
   background: ${(props) => props.theme.tabColor};
+  box-shadow: ${(props) => props.theme.shadowColor} 0px 8px 20px 0px;
   .login {
     margin-top: 60px;
   }
@@ -99,9 +102,11 @@ const Content = styled.div`
     color: ${(props) => props.theme.hyperlinkColor};
     line-height: 24px;
   }
+  ul {
+    margin-top: 5px;
+  }
   div {
     margin-top: 20px;
-    margin-bottom: 20px;
     a {
       color: ${(props) => props.theme.hyperlinkColor};
       text-decoration: underline;
@@ -117,27 +122,23 @@ interface Iuser {
 const About = ({ userObj }: Iuser) => {
   const [main, setMain] = useState("main");
   const isLoggedIn = useRecoilValue(isLoggedInAtom);
-  const [accordion, setAccordion] = useState("contentBx");
-  const [accordion1, setAccordion1] = useState("contentBx");
-  const [accordion2, setAccordion2] = useState("contentBx");
-  const [accordion3, setAccordion3] = useState("contentBx");
+  const [accordion, setAccordion] = useState(["tab", "tab", "tab", "tab"]);
+  let tabs = [...accordion];
   const changeClass = () => {
-    setAccordion(accordion === "contentBx" ? "contentBx active" : "contentBx");
+    tabs[0] === "tab" ? (tabs[0] = "tab active") : (tabs[0] = "tab");
+    setAccordion(tabs);
   };
   const changeClass1 = () => {
-    setAccordion1(
-      accordion1 === "contentBx" ? "contentBx active" : "contentBx"
-    );
+    tabs[1] === "tab" ? (tabs[1] = "tab active") : (tabs[1] = "tab");
+    setAccordion(tabs);
   };
   const changeClass2 = () => {
-    setAccordion2(
-      accordion2 === "contentBx" ? "contentBx active" : "contentBx"
-    );
+    tabs[2] === "tab" ? (tabs[2] = "tab active") : (tabs[2] = "tab");
+    setAccordion(tabs);
   };
   const changeClass3 = () => {
-    setAccordion3(
-      accordion3 === "contentBx" ? "contentBx active" : "contentBx"
-    );
+    tabs[3] === "tab" ? (tabs[3] = "tab active") : (tabs[3] = "tab");
+    setAccordion(tabs);
   };
   return (
     <>
@@ -150,7 +151,7 @@ const About = ({ userObj }: Iuser) => {
               <FAQ>
                 <Title>FAQ</Title>
                 <div className="accordion">
-                  <ContentBx id="1" className={accordion} onClick={changeClass}>
+                  <ContentBx className={accordion[0]} onClick={changeClass}>
                     <div className="label">
                       My Youtube chat isn't logged in!
                     </div>
@@ -163,11 +164,7 @@ const About = ({ userObj }: Iuser) => {
                       </a>
                     </div>
                   </ContentBx>
-                  <ContentBx
-                    id="2"
-                    className={accordion1}
-                    onClick={changeClass1}
-                  >
+                  <ContentBx className={accordion[1]} onClick={changeClass1}>
                     <div className="label">
                       My favorites list disappeared / I cannot favorite
                     </div>
@@ -176,11 +173,7 @@ const About = ({ userObj }: Iuser) => {
                       favorites tab to force a refresh.
                     </div>
                   </ContentBx>
-                  <ContentBx
-                    id="3"
-                    className={accordion2}
-                    onClick={changeClass2}
-                  >
+                  <ContentBx className={accordion[2]} onClick={changeClass2}>
                     <div className="label">
                       I have feedback/want to contribute to this project
                     </div>
@@ -190,11 +183,7 @@ const About = ({ userObj }: Iuser) => {
                       about your ideas.
                     </div>
                   </ContentBx>
-                  <ContentBx
-                    id="4"
-                    className={accordion3}
-                    onClick={changeClass3}
-                  >
+                  <ContentBx className={accordion[3]} onClick={changeClass3}>
                     <div className="label">
                       I'm a subber and I would like to have my channel removed
                       from Holo Schedule
@@ -230,10 +219,12 @@ const About = ({ userObj }: Iuser) => {
                 <Content>
                   <span>1.0.1 Holo Schedules [December 11, 2021]</span>
                   <ul>
-                    <li>
-                      Added sorting options and card view to Channels page
-                    </li>
+                    <li>Added search bar and card view to Channel page</li>
                     <li>Added loading screen and errors to all the pages</li>
+                  </ul>
+                  <span>1.0.2 Holo Schedules [January 10, 2022]</span>
+                  <ul>
+                    <li>Added Dashboard and Themes</li>
                   </ul>
                 </Content>
               </div>

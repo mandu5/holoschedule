@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-// import { useRecoilValue, useSetRecoilState } from "recoil";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
 import Cubes from "../components/Cubes";
-// import { isLikedAtom } from "../atoms";
 import { UI } from "../components/UI";
 import "./pages.css";
+import { useQuery } from "react-query";
 
 const Main = styled.div`
   display: flex;
@@ -23,7 +24,7 @@ const Main = styled.div`
     backdrop-filter: blur(10px);
     border-radius: 20px;
     overflow: hidden;
-    transition: 0.5s;
+    transition: 0.3s;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -69,17 +70,6 @@ const Main = styled.div`
     }
   }
 `;
-// const Heart = styled.div`
-//   color: red;
-//   font-size: 25px;
-//   width: 15px;
-//   height: 20px;
-//   cursor: pointer;
-//   &:hover {
-//     transform: scale(1.5);
-//     opacity: 0.5;
-//   }
-// `;
 const Description = styled.div`
   font-size: 5px;
   font-weight: 0;
@@ -87,32 +77,27 @@ const Description = styled.div`
   margin-top: 180px;
   margin-left: 10px;
 `;
-
+const Likes = styled.div`
+  display: block;
+`;
+// interface IChannel {
+//   name: string;
+//   photo: string;
+//   view_count: number;
+//   video_count: number;
+//   subscriber_count: number;
+//   published_at: string;
+//   twitter_link: string;
+//   description: string;
+// }
 function Channel() {
   const [main, setMain] = useState("main");
   const { yt_channel_id } = useParams();
   const [channel, setChannel] = useState([]);
-  // const isLiked = useRecoilValue(isLikedAtom);
-  // const setIsLiked = useSetRecoilState(isLikedAtom);
-  // const [heart, setHeart] = useState("🖤");
-
-  // for (let i = 0; i < localStorage.length; i++) {
-  //   n = [(`${localStorage.getItem(localStorage.key(i))}`)];
+  // const [channelLikes, setChannelLikes] = useState(0);
+  // const isLiked = () => {
+  //   setChannelLikes(channelLikes === 0 ? 1 : 0);
   // }
-  // let n = [channel.name];
-  // let local = [(localStorage.getItem("liked"))] || [];
-  // let a = local.push(n);
-  // const onLiked = () => {
-  //   if (isLiked) {
-  //     setIsLiked(false);
-  //     // localStorage.removeItem(`liked`);
-  //     setHeart("🖤");
-  //   } else {
-  //     setIsLiked(true);
-  //     localStorage.setItem("liked", a);
-  //     setHeart("❤️");
-  //   }
-  // };
   useEffect(() => {
     (async () => {
       const response = await fetch(
@@ -124,6 +109,15 @@ function Channel() {
   }, [yt_channel_id]);
   return (
     <>
+      {/* {[channel].map((item) => (
+        <div>
+          <span>Live Now</span> {item.published_at} Watching
+          <FontAwesomeIcon size={"2x"} icon={faHeart} onClick={isLiked} />
+          <Likes>
+            {channelLikes === 1 ? "1 like" : `${channelLikes} likes`}
+          </Likes>
+        </div>
+      ))} */}
       <div className="wrapper">
         <UI setMain={setMain} />
         <Main className={main} id="main">
@@ -135,7 +129,10 @@ function Channel() {
               </div>
               <div className="details">
                 <h1 className="name">{channel.name}</h1>
-                {/* <Heart onClick={onLiked}>{heart}</Heart> */}
+                {/* <FontAwesomeIcon size={"2x"} icon={faHeart} />
+                <Likes>
+                  {channelLikes === 1 ? "1 like" : `${channelLikes} likes`}
+                </Likes> */}
                 <br />
                 <h1>
                   <span>View Count:</span> {channel.view_count}

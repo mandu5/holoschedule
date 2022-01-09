@@ -16,3 +16,7 @@ export const searchTypedAtom = atom({
   key: "typed",
   default: "",
 })
+export const marineAtom = atom({
+  key: "isOn",
+  default: false,
+})

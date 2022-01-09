@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import styled from "styled-components";
 import { isDarkAtom } from "../atoms";
+import { Theme } from "../components/Theme.js";
 import { UI } from "../components/UI";
 import "./pages.css";
 
@@ -19,6 +20,9 @@ const Main = styled.div`
     box-sizing: border-box;
     border-radius: 10px;
   }
+  .title {
+    color: ${(props) => props.theme.textColor};
+  }
   @media (max-width: 1083px) {
     .boards {
       position: relative;
@@ -27,8 +31,8 @@ const Main = styled.div`
   }
 `;
 const Box = styled.div`
-  box-shadow: 0 0px 10px ${(props) => props.theme.shadowColor};
   background: ${(props) => props.theme.tabColor};
+  box-shadow: ${(props) => props.theme.shadowColor} 0px 8px 20px 0px;
   .login {
     margin-top: 60px;
   }
@@ -42,7 +46,7 @@ const Title = styled.div`
 
 function Setting() {
   const [main, setMain] = useState("main");
-  const IsDark = useRecoilValue(isDarkAtom);
+  const isDark = useRecoilValue(isDarkAtom);
   const setIsDark = useSetRecoilState(isDarkAtom);
   const themeChange = () => {
     setIsDark((curr) => !curr);
@@ -57,13 +61,9 @@ function Setting() {
             <Box className="boards" id="square">
               <Title>Site/Navigation</Title>
               <button className="button" onClick={themeChange}>
-                {IsDark ? "Light Mode" : "Dark Mode"}
+                {isDark ? "Light Mode" : "Dark Mode"}
               </button>
-              <select>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-              </select>
+              <Theme />
             </Box>
             <Box className="boards" id="square">
               <Title>Languages</Title>

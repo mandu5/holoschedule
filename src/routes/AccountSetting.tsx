@@ -16,7 +16,6 @@ const Main = styled.div`
     padding: 40px;
     transform: translate(-50%, -50%);
     box-sizing: border-box;
-    box-shadow: 0 0px 10px ${(props) => props.theme.shadowColor};
     border-radius: 10px;
     background: ${(props) => props.theme.tabColor};
     h2 {
@@ -36,7 +35,6 @@ const Main = styled.div`
         font-size: 16px;
         text-decoration: none;
         text-transform: uppercase;
-        transition: 0.5s;
         margin-top: 40px;
         margin-left: 90px;
         letter-spacing: 4px;

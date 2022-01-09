@@ -15,9 +15,9 @@ const Main = styled.div`
     padding: 40px;
     transform: translate(-50%, -50%);
     box-sizing: border-box;
-    box-shadow: 0 0px 10px ${(props) => props.theme.shadowColor};
-    border-radius: 10px;
+    border-radius: 5px;
     background: ${(props) => props.theme.tabColor};
+    box-shadow: ${(props) => props.theme.shadowColor} 0px 8px 20px 0px;
     .user-box {
       position: relative;
       input {
@@ -46,7 +46,6 @@ const Main = styled.div`
         font-size: 16px;
         color: #fff;
         pointer-events: none;
-        transition: 0.5s;
       }
     }
     #google {
@@ -58,6 +57,9 @@ const Main = styled.div`
       background-color: #3b5998;
       margin-bottom: 10px;
     }
+  }
+  .title {
+    color: ${(props) => props.theme.textColor};
   }
 `;
 
@@ -162,4 +164,5 @@ function LoginPage() {
     </>
   );
 }
+
 export default LoginPage;

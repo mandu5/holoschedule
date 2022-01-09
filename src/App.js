@@ -7,6 +7,7 @@ import { authService } from "./myBase";
 import Routers from "./Router";
 import { lightTheme, darkTheme } from "./theme";
 import { ThemeProvider } from "styled-components";
+import icon from "./routes/icon.ico"
 
 const GlobalStyle = createGlobalStyle`
   body, h1, ul{
@@ -54,7 +55,7 @@ function App() {
             <link
               rel="icon"
               type="image/png"
-              href="icon.ico"
+              href={icon}
               sizes="16x16"
             />
           </Helmet>

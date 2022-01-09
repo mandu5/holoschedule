@@ -8,17 +8,17 @@ import { fetchLive } from "../routes/api";
 const Length = styled.div`
   background: ${(props) => props.theme.lengthbarColor};
   color: ${(props) => props.theme.textColor};
-  padding: 10px;
+  padding: 5px;
   font-weight: 400;
-  margin-bottom: 20px;
   span {
     color: red;
+    margin-left: 15px;
   }
 `;
 const LengthTwo = styled.div`
   background: ${(props) => props.theme.lengthbarColor};
   color: ${(props) => props.theme.textColor};
-  padding: 8px;
+  padding: 5px;
   margin-bottom: 20px;
   font-weight: 400;
   position: absolute;
@@ -30,14 +30,15 @@ const Box = styled.div`
   float: left;
   display: flex;
   height: 250px;
-  width: 315px;
+  width: 335px;
   color: ${(props) => props.theme.textColor};
   margin-bottom: 20px;
+  margin-top: 15px;
   margin-left: 20px;
   border-radius: 5px;
   .thumbnail {
-    max-height: 250px;
-    width: 315px;
+    max-height: 178px;
+    width: 335px;
   }
   a {
     float: left;
@@ -98,6 +99,7 @@ interface IHoloLive {
     twitter_link: string;
   };
 }
+
 export function Live() {
   const { data } = useQuery<IHoloLive[]>("allLive", fetchLive);
   const search = useRecoilValue(searchTypedAtom);

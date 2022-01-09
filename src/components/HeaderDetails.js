@@ -12,7 +12,6 @@ import { authService } from "../myBase";
 
 const Logo = styled.div`
   font-size: 23px;
-  margin-top: 5px;
   margin-left: 150px;
   display: flex;
   position: relative;
@@ -31,7 +30,7 @@ const Search = styled.div`
     input {
       width: 100%;
       height: 40px;
-      border-radius: 40px;
+      border-radius: 5px;
       padding: 5px 20px;
       padding-left: 35px;
       font-size: 18px;
@@ -105,7 +104,7 @@ const Menu = styled.div`
         margin-left: 15px;
       }
       &:hover {
-        color: #49c8f0;
+        color: ${(props) => props.theme.hyperlinkColor};
       }
     }
   }
@@ -148,7 +147,7 @@ export function HeaderDetails() {
         <Link to="/">
           <div>
             <MdScheduleSend />
-            <span>Holo Schedule</span>
+            <span> Holo Schedule</span>
           </div>
         </Link>
       </Logo>
@@ -166,7 +165,7 @@ export function HeaderDetails() {
       </Search>
       <Toggle ref={domNode}>
         <CgProfile className="profile" onClick={menuToggle} />
-        <Menu  className={menu}>
+        <Menu className={menu}>
           {isLoggedIn ? (
             <>
               <ul>
