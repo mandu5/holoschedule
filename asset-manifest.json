@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/holoschedule/static/css/main.a4e1fe20.chunk.css",
-    "main.js": "/holoschedule/static/js/main.aa77c862.chunk.js",
-    "main.js.map": "/holoschedule/static/js/main.aa77c862.chunk.js.map",
+    "main.css": "/holoschedule/static/css/main.af0c2d58.chunk.css",
+    "main.js": "/holoschedule/static/js/main.681ab8a0.chunk.js",
+    "main.js.map": "/holoschedule/static/js/main.681ab8a0.chunk.js.map",
     "runtime-main.js": "/holoschedule/static/js/runtime-main.8d146785.js",
     "runtime-main.js.map": "/holoschedule/static/js/runtime-main.8d146785.js.map",
     "static/js/2.c5675aea.chunk.js": "/holoschedule/static/js/2.c5675aea.chunk.js",
     "static/js/2.c5675aea.chunk.js.map": "/holoschedule/static/js/2.c5675aea.chunk.js.map",
     "index.html": "/holoschedule/index.html",
-    "static/css/main.a4e1fe20.chunk.css.map": "/holoschedule/static/css/main.a4e1fe20.chunk.css.map",
+    "static/css/main.af0c2d58.chunk.css.map": "/holoschedule/static/css/main.af0c2d58.chunk.css.map",
     "static/js/2.c5675aea.chunk.js.LICENSE.txt": "/holoschedule/static/js/2.c5675aea.chunk.js.LICENSE.txt",
     "static/media/icon.11a07554.ico": "/holoschedule/static/media/icon.11a07554.ico"
   },
   "entrypoints": [
     "static/js/runtime-main.8d146785.js",
     "static/js/2.c5675aea.chunk.js",
-    "static/css/main.a4e1fe20.chunk.css",
-    "static/js/main.aa77c862.chunk.js"
+    "static/css/main.af0c2d58.chunk.css",
+    "static/js/main.681ab8a0.chunk.js"
   ]
 }
