@@ -13,21 +13,23 @@ const Length = styled.div`
   background: ${(props) => props.theme.lengthbarColor};
   color: ${(props) => props.theme.textColor};
   padding: 5px;
-  font-weight: 400;
-  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: -30px;
+  box-shadow: ${(props) => props.theme.shadowColor} 0px 8px 20px 0px; 
   span {
     color: red;
     margin-left: 15px;
   }
 `;
 const LengthTwo = styled.div`
+  position: absolute;
   background: ${(props) => props.theme.lengthbarColor};
   color: ${(props) => props.theme.textColor};
   padding: 5px;
-  font-weight: 400;
-  position: absolute;
+  width: 100%;
   span {
     color: red;
+    margin-left: 15px;
   }
 `;
 const Box = styled.div`
@@ -36,8 +38,10 @@ const Box = styled.div`
   height: 250px;
   width: 335px;
   color: ${(props) => props.theme.textColor};
-  margin-bottom: 20px;
+  box-shadow: ${(props) => props.theme.shadowColor} 0px 4px 10px 0px; 
+  margin-bottom: 10px;
   margin-left: 20px;
+  margin-top: 50px;
   border-radius: 5px;
   .thumbnail {
     max-height: 178px;
@@ -49,7 +53,7 @@ const Box = styled.div`
   }
   &:hover {
     a {
-      color: #bccbde;
+      color: #9AC5FC;
     }
   }
 `;
@@ -105,9 +109,6 @@ interface IHoloLive {
 export function Upcoming() {
   const { data } = useQuery<IHoloLive[]>("allUpcoming", fetchUpcoming);
   const search = useRecoilValue(searchTypedAtom);
-  let style = {
-    marginTop: "20px",
-  };
   const names = data
     // eslint-disable-next-line array-callback-return
     ?.filter((item) => {
@@ -123,7 +124,7 @@ export function Upcoming() {
             <span>Upcoming: </span>
             {data?.length}
           </LengthTwo>
-          <Box style={style} key={item.id} className="box">
+          <Box key={item.id} className="box">
             <div>
               <Link to={`/video/${item.yt_video_key}`} className="thumbnail">
                 <img

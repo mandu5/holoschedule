@@ -9,21 +9,21 @@ const Length = styled.div`
   background: ${(props) => props.theme.lengthbarColor};
   color: ${(props) => props.theme.textColor};
   padding: 5px;
-  font-weight: 400;
+  margin-bottom: -30px;
   span {
     color: red;
     margin-left: 15px;
   }
 `;
 const LengthTwo = styled.div`
+  position: absolute;
   background: ${(props) => props.theme.lengthbarColor};
   color: ${(props) => props.theme.textColor};
   padding: 5px;
-  margin-bottom: 20px;
-  font-weight: 400;
-  position: absolute;
+  width: 100%;
   span {
     color: red;
+    margin-left: 15px;
   }
 `;
 const Box = styled.div`
@@ -32,8 +32,8 @@ const Box = styled.div`
   height: 250px;
   width: 335px;
   color: ${(props) => props.theme.textColor};
-  margin-bottom: 20px;
-  margin-top: 15px;
+  box-shadow: ${(props) => props.theme.shadowColor} 0px 4px 10px 0px; 
+  margin-top: 50px;
   margin-left: 20px;
   border-radius: 5px;
   .thumbnail {
@@ -46,7 +46,7 @@ const Box = styled.div`
   }
   &:hover {
     a {
-      color: #49c8f0;
+      color: #9AC5FC;
     }
   }
 `;

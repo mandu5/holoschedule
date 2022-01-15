@@ -7,7 +7,7 @@ import { authService } from "./myBase";
 import Routers from "./Router";
 import { lightTheme, darkTheme } from "./theme";
 import { ThemeProvider } from "styled-components";
-import icon from "./routes/icon.ico"
+import icon from "./routes/icon.ico";
 
 const GlobalStyle = createGlobalStyle`
   body, h1, ul{
@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
     vertical-align: baseline;
   }
   * {
-  font-family: 'Roboto', Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
   }
   a {
@@ -52,12 +52,7 @@ function App() {
           <Helmet>
             <meta charSet="utf-8" />
             <title>Holo Schedules</title>
-            <link
-              rel="icon"
-              type="image/png"
-              href={icon}
-              sizes="16x16"
-            />
+            <link rel="icon" type="image/png" href={icon} sizes="16x16" />
           </Helmet>
         </HelmetProvider>
         {init ? <Routers isLoggedIn={isLoggedIn} userObj={userObj} /> : ""}

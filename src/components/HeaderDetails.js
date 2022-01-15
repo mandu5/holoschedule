@@ -12,12 +12,15 @@ import { authService } from "../myBase";
 
 const Logo = styled.div`
   font-size: 23px;
-  margin-left: 150px;
   display: flex;
   position: relative;
   text-align: start;
+  margin-left: 140px;
   white-space: nowrap;
   color: ${(props) => props.theme.textColor};
+  &.active {
+    margin-left: 150px;
+  }
 `;
 const Search = styled.div`
   position: relative;
@@ -30,12 +33,15 @@ const Search = styled.div`
     input {
       width: 100%;
       height: 40px;
-      border-radius: 5px;
+      border-radius: 4px;
       padding: 5px 20px;
       padding-left: 35px;
       font-size: 18px;
       outline: none;
       border: none;
+      background-color: ${(props) => props.theme.searchColor};
+      color: ${(props) => props.theme.textColor};
+      box-shadow: ${(props) => props.theme.shadowColor} 0px 4px 10px 0px; 
     }
   }
 `;
@@ -44,7 +50,7 @@ const Icon3 = styled.span`
   top: -1px;
   left: 10px;
   font-size: 1.2em;
-  color: black;
+  color: #161B22;
 `;
 const Toggle = styled.div`
   position: relative;
@@ -64,10 +70,12 @@ const Toggle = styled.div`
 const Menu = styled.div`
   position: absolute;
   top: 45px;
-  right: -15px;
-  width: 250px;
+  right: 0;
+  width: 200px;
   padding: 10px 20px;
-  background: ${(props) => props.theme.uiColor};
+  color: ${(props) => props.theme.textColor};
+  background: ${(props) => props.theme.tabColor};
+  box-shadow: ${(props) => props.theme.shadowColor} 0px 8px 20px 0px;
   box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   transition: 0.5s;
@@ -81,10 +89,10 @@ const Menu = styled.div`
     content: "";
     position: absolute;
     top: -5px;
-    right: 20px;
+    right: 5px;
     width: 20px;
     height: 20px;
-    background: ${(props) => props.theme.uiColor};
+    background: ${(props) => props.theme.tabColor};
     transform: rotate(45deg);
   }
   ul {
@@ -94,7 +102,7 @@ const Menu = styled.div`
       list-style: none;
       padding: 10px 0;
       border-top: 1px solid rgba(0, 0, 0, 0.05);
-      font-size: 20px;
+      font-size: 18px;
       justify-content: center;
       align-items: center;
       line-height: 24px;

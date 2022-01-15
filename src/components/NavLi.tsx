@@ -28,6 +28,7 @@ const Title = styled.span`
   margin-left: 3px;
   text-align: start;
   white-space: nowrap;
+  color: ${(props) => props.theme.textColor};
 `;
 
 export function NavLi() {

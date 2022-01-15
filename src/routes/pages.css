@@ -6,11 +6,12 @@
   overflow-x: hidden;
   position: relative;
   width: 100%;
+
 }
 #main {
   position: absolute;
   width: 100%;
-  min-height: 92.5vh;
+  min-height: 100%;
   left: 0px;
 }
 #main.active {
@@ -20,7 +21,7 @@
   
 }
 #main.active .box {
-  margin-left: 45px;
+  margin-left: 42px;
   width: 360px;
 }
 #main.active .box .thumbnail {
@@ -89,6 +90,11 @@
   .boards {
     position: relative;
     margin-left: 25%;
-    width: 600px;
+    width: 60%;
+  }
+}
+@media (max-width: 745px) {
+  .boards {
+    width: 354px;
   }
 }

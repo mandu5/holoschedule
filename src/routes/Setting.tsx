@@ -23,12 +23,6 @@ const Main = styled.div`
   .title {
     color: ${(props) => props.theme.textColor};
   }
-  @media (max-width: 1083px) {
-    .boards {
-      position: relative;
-      margin-left: 25%;
-    }
-  }
 `;
 const Box = styled.div`
   background: ${(props) => props.theme.tabColor};

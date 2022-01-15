@@ -8,9 +8,9 @@ import { NavLi } from "./NavLi";
 const Navigation = styled.div`
   position: fixed;
   height: 100%;
-  background: ${(props) => props.theme.uiColor};
+  background: ${(props) => props.theme.navColor};
   transition: 0.3s;
-  border-right: 1px solid ${(props) => props.theme.borderColor};  
+  box-shadow: ${(props) => props.theme.shadowColor} 0px 8px 20px 0px; 
   .dropdown {
     border-radius: 50%;
     width: 50px;
@@ -28,7 +28,8 @@ const Navigation = styled.div`
   }
   #hiddenToggle {
     margin-top: 1px;
-    margin-left: 12px;
+    margin-left: 11px;
+    margin-bottom: 6px;
   }
   @media (max-width: 991px) {
     width: 80px;
@@ -76,24 +77,19 @@ const Navigation = styled.div`
 const Topbar = styled.div`
   position: relative;
   display: flex;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 58px;
-  align-items: center;
   padding: 0 10px;
+  justify-content: space-between;
+  align-items: center;
   background: ${(props) => props.theme.uiColor};
   border-bottom: 1px solid ${(props) => props.theme.borderColor};  
   color: #fff;
   transition: 0.3s;
-  top: 0;
-  left: 0;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
   &.active {
     position: relative;
-  }
-  @media (max-width: 991px) {
-    width: 100%;
-    left: 0;
   }
   @media (max-width: 745px) {
     display: fixed;
@@ -157,7 +153,11 @@ export function UI(props: { setMain: (arg0: string) => void }) {
       </Navigation>
       <Topbar className={main}>
         <Button className="dropdown">
-          <Toggle id = "hiddenToggleTwo" className="toggle" onClick={changeToggle}>
+          <Toggle
+            id="hiddenToggleTwo"
+            className="toggle"
+            onClick={changeToggle}
+          >
             <Icon2>
               <BiMenu />
             </Icon2>
