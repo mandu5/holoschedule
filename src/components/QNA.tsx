@@ -45,9 +45,9 @@ const List = styled.div`
   margin-left: 5%;
 `;
 
-const QNA = ({ userObj }) => {
+const QNA = ({ userObj }:any) => {
   const [question, setQuestion] = useState("");
-  const [questions, setQuestions] = useState([]);
+  const [questions, setQuestions] = useState<any>([]);
   useEffect(() => {
     dbService.collection("questions").onSnapshot((snapshot) => {
       const questionArray = snapshot.docs.map((doc) => ({
@@ -57,7 +57,7 @@ const QNA = ({ userObj }) => {
       setQuestions(questionArray);
     });
   }, []);
-  const onSubmit = async (event) => {
+  const onSubmit = async (event:any) => {
     event.preventDefault();
     await dbService.collection("questions").add({
       text: question,
@@ -66,7 +66,7 @@ const QNA = ({ userObj }) => {
     });
     setQuestion("");
   };
-  const onChange = (event) => {
+  const onChange = (event:any) => {
     const {
       target: { value },
     } = event;
@@ -80,17 +80,13 @@ const QNA = ({ userObj }) => {
             className="input"
             value={question}
             onChange={onChange}
-            type="text"
             placeholder="What's on your mind?"
-            maxLength="300"
-            minLength="5"
-            rows="5"
           />
           <input className="submit" type="submit" value="Upload" />
         </form>
       </Header>
       <List>
-        {questions.map((question) => (
+        {questions.map((question:any) => (
           <AskBox
             key={question.id}
             askObj={question}

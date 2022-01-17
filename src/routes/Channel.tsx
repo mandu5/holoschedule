@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faHeart } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
 import Cubes from "../components/Cubes";
 import { UI } from "../components/UI";
 import "./pages.css";
-import { useQuery } from "react-query";
+// import { useQuery } from "react-query";
 
 const Main = styled.div`
   display: flex;
@@ -77,23 +77,14 @@ const Description = styled.div`
   margin-top: 180px;
   margin-left: 10px;
 `;
-const Likes = styled.div`
-  display: block;
-`;
-// interface IChannel {
-//   name: string;
-//   photo: string;
-//   view_count: number;
-//   video_count: number;
-//   subscriber_count: number;
-//   published_at: string;
-//   twitter_link: string;
-//   description: string;
-// }
+// const Likes = styled.div`
+//   display: block;
+// `;
+
 function Channel() {
   const [main, setMain] = useState("main");
   const { yt_channel_id } = useParams();
-  const [channel, setChannel] = useState([]);
+  const [channel, setChannel] = useState<any>([]);
   // const [channelLikes, setChannelLikes] = useState(0);
   // const isLiked = () => {
   //   setChannelLikes(channelLikes === 0 ? 1 : 0);

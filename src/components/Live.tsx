@@ -8,8 +8,11 @@ import { fetchLive } from "../routes/api";
 const Length = styled.div`
   background: ${(props) => props.theme.lengthbarColor};
   color: ${(props) => props.theme.textColor};
+  border-bottom: 1px solid ${(props) => props.theme.borderColor};
   padding: 5px;
-  margin-bottom: -30px;
+  margin-bottom: 20px;
+  position: absolute;
+  width: 100%;
   span {
     color: red;
     margin-left: 15px;
@@ -19,6 +22,7 @@ const LengthTwo = styled.div`
   position: absolute;
   background: ${(props) => props.theme.lengthbarColor};
   color: ${(props) => props.theme.textColor};
+  border-bottom: 1px solid ${(props) => props.theme.borderColor};
   padding: 5px;
   width: 100%;
   span {
@@ -28,13 +32,12 @@ const LengthTwo = styled.div`
 `;
 const Box = styled.div`
   float: left;
-  display: flex;
   height: 250px;
   width: 335px;
   color: ${(props) => props.theme.textColor};
-  box-shadow: ${(props) => props.theme.shadowColor} 0px 4px 10px 0px; 
-  margin-top: 50px;
   margin-left: 20px;
+  margin-bottom: -10px;
+  margin-top: 50px;
   border-radius: 5px;
   .thumbnail {
     max-height: 178px;
@@ -46,7 +49,7 @@ const Box = styled.div`
   }
   &:hover {
     a {
-      color: #9AC5FC;
+      color: #9ac5fc;
     }
   }
 `;
@@ -55,11 +58,13 @@ const Profile = styled.img`
   height: 45px;
   margin-right: 5px;
   margin-left: 5px;
+  margin-top: 5px;
   border-radius: 30px;
 `;
 const Details = styled.div`
   font-size: 15px;
   .intro {
+    margin-top: 5px;
     width: 250px;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -122,7 +127,7 @@ export function Live() {
               <Link to={`/video/${item.yt_video_key}`} className="thumbnail">
                 <img
                   className="thumbnail"
-                  src={`http://img.youtube.com/vi/${item.yt_video_key}/maxresdefault.jpg`}
+                  src={`http://img.youtube.com/vi/${item.yt_video_key}/mqdefault.jpg`}
                   alt="thumbnail"
                 />
               </Link>
@@ -162,7 +167,7 @@ export function Live() {
                 <Link to={`/video/${item.yt_video_key}`} className="thumbnail">
                   <img
                     className="thumbnail"
-                    src={`http://img.youtube.com/vi/${item.yt_video_key}/maxresdefault.jpg`}
+                    src={`http://img.youtube.com/vi/${item.yt_video_key}/mqdefault.jpg`}
                     alt="thumbnail"
                   />
                 </Link>

@@ -14,8 +14,6 @@ const Length = styled.div`
   color: ${(props) => props.theme.textColor};
   padding: 5px;
   margin-top: 20px;
-  margin-bottom: -30px;
-  box-shadow: ${(props) => props.theme.shadowColor} 0px 8px 20px 0px; 
   span {
     color: red;
     margin-left: 15px;
@@ -38,8 +36,6 @@ const Box = styled.div`
   height: 250px;
   width: 335px;
   color: ${(props) => props.theme.textColor};
-  box-shadow: ${(props) => props.theme.shadowColor} 0px 4px 10px 0px; 
-  margin-bottom: 10px;
   margin-left: 20px;
   margin-top: 50px;
   border-radius: 5px;
@@ -53,7 +49,7 @@ const Box = styled.div`
   }
   &:hover {
     a {
-      color: #9AC5FC;
+      color: #9ac5fc;
     }
   }
 `;
@@ -62,11 +58,13 @@ const Profile = styled.img`
   height: 45px;
   margin-right: 5px;
   margin-left: 5px;
+  margin-top: 5px;
   border-radius: 30px;
 `;
 const Details = styled.div`
   font-size: 15px;
   .intro {
+    margin-top: 5px;
     width: 250px;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -129,7 +127,7 @@ export function Upcoming() {
               <Link to={`/video/${item.yt_video_key}`} className="thumbnail">
                 <img
                   className="thumbnail"
-                  src={`http://img.youtube.com/vi/${item.yt_video_key}/maxresdefault.jpg`}
+                  src={`http://img.youtube.com/vi/${item.yt_video_key}/mqdefault.jpg`}
                   alt="thumbnail"
                 />
               </Link>
@@ -172,7 +170,7 @@ export function Upcoming() {
                 <Link to={`/video/${item.yt_video_key}`} className="thumbnail">
                   <img
                     className="thumbnail"
-                    src={`http://img.youtube.com/vi/${item.yt_video_key}/maxresdefault.jpg`}
+                    src={`http://img.youtube.com/vi/${item.yt_video_key}/mqdefault.jpg`}
                     alt="thumbnail"
                   />
                 </Link>

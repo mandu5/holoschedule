@@ -41,7 +41,7 @@ const Search = styled.div`
       border: none;
       background-color: ${(props) => props.theme.searchColor};
       color: ${(props) => props.theme.textColor};
-      box-shadow: ${(props) => props.theme.shadowColor} 0px 4px 10px 0px; 
+      
     }
   }
 `;
@@ -50,7 +50,7 @@ const Icon3 = styled.span`
   top: -1px;
   left: 10px;
   font-size: 1.2em;
-  color: #161B22;
+  color: ${(props) => props.theme.textColor};
 `;
 const Toggle = styled.div`
   position: relative;
@@ -124,11 +124,11 @@ export function HeaderDetails() {
   const menuToggle = () => {
     setMenu(menu === "menu" ? "menu active" : "menu");
   };
-  let useClickOutside = (handler) => {
-    let domNode = useRef();
+  let useClickOutside = (handler:any) => {
+    let domNode:any = useRef();
 
     useEffect(() => {
-      let aHandler = (event) => {
+      let aHandler = (event:any) => {
         if (domNode.current && !domNode.current.contains(event.target)) {
           handler();
         }
@@ -145,7 +145,7 @@ export function HeaderDetails() {
   });
   const onLogOutClick = () => authService.signOut();
   const setSearch = useSetRecoilState(searchTypedAtom);
-  const searchSpace = (event) => {
+  const searchSpace = (event:any) => {
     let keyword = event.target.value;
     setSearch(keyword);
   };

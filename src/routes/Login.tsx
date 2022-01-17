@@ -69,7 +69,7 @@ function LoginPage() {
   const [password, setPassword] = useState("");
   const [newAccount, setNewAccount] = useState(false);
   const [error, setError] = useState("");
-  const onChange = (event) => {
+  const onChange = (event: any) => {
     const {
       target: { name, value },
     } = event;
@@ -79,7 +79,7 @@ function LoginPage() {
       setPassword(value);
     }
   };
-  const onSubmit = async (event) => {
+  const onSubmit = async (event: any) => {
     event.preventDefault();
     try {
       if (newAccount) {
@@ -87,16 +87,16 @@ function LoginPage() {
       } else {
         await authService.signInWithEmailAndPassword(email, password);
       }
-    } catch (error) {
+    } catch (error: any) {
       setError(error.message);
     }
   };
   const toggleAccount = () => setNewAccount((prev) => !prev);
-  const onSocialClick = async (event) => {
+  const onSocialClick = async (event: any) => {
     const {
       target: { name },
     } = event;
-    let provider;
+    let provider: any;
     if (name === "google") {
       provider = new firebaseInstance.auth.GoogleAuthProvider();
     } else if (name === "facebook") {

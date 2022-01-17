@@ -14,17 +14,17 @@ export const lightTheme: DefaultTheme = {
 };
 
 export const darkTheme: DefaultTheme = {
-  bgColor: "#131417",
-  lengthbarColor: "#161B22",
+  bgColor: "#181818",
+  lengthbarColor: "#27282D",
   textColor: "#FFF",
-  uiColor: "#131417",
-  navColor: "#161B22",
+  uiColor: "#27282D",
+  navColor: "#1E2025",
   tabColor: "#1E1F25",
   toggleColor: "#2C303A",
   hyperlinkColor: "#A665B7",
   shadowColor: "#000000",
-  borderColor: "#161B22",
-  searchColor: "#252830",
+  borderColor: "#373737",
+  searchColor: "#121212",
 };
 // #161B22
 // #1E1E1E, #151617, #090A0A, #181818, #212121, #494949, #4B4B4B #BBBBBB

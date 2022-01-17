@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Homepage from "./routes/Homepage";
 import Stream from "./routes/Stream";
-import Channel from "./routes/Channel.js";
+import Channel from "./routes/Channel";
 import Favorites from "./routes/Favorites";
 import Multiview from "./routes/Multiview";
 import Setting from "./routes/Setting";
