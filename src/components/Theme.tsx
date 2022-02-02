@@ -72,11 +72,11 @@ export function Theme() {
   const menuToggle = () => {
     setMenu(menu === "menu" ? "menu active" : "menu");
   };
-  let useClickOutside = (handler) => {
-    let domNode = useRef();
+  let useClickOutside = (handler: any) => {
+    let domNode: any = useRef();
 
     useEffect(() => {
-      let aHandler = (event) => {
+      let aHandler = (event: any) => {
         if (domNode.current && !domNode.current.contains(event.target)) {
           handler();
         }
@@ -109,8 +109,8 @@ export function Theme() {
       label: "white",
     },
   ];
-  let [bgColor, setBgColor] = useState(colors.label);
-  let ddlhandle = (e) => {
+  let [bgColor, setBgColor] = useState(colors[0].label);
+  let ddlhandle = (e: any) => {
     setBgColor(e.label);
   };
   return (
@@ -123,5 +123,5 @@ export function Theme() {
         </Menu>
       </Toggle>
     </>
-  );
+  ); // theme으로 갈필요 없이 그냥 버튼 누르면 live랑 upcoming의 컬러를 변경하면됨
 }

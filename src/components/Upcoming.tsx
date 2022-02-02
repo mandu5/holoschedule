@@ -41,7 +41,7 @@ const Box = styled.div`
   border-radius: 5px;
   .thumbnail {
     max-height: 178px;
-    width: 335px;
+    width: 100%;
   }
   a {
     float: left;
@@ -127,7 +127,7 @@ export function Upcoming() {
               <Link to={`/video/${item.yt_video_key}`} className="thumbnail">
                 <img
                   className="thumbnail"
-                  src={`http://img.youtube.com/vi/${item.yt_video_key}/mqdefault.jpg`}
+                  src={`http://img.youtube.com/vi/${item.yt_video_key}/maxresdefault.jpg`}
                   alt="thumbnail"
                 />
               </Link>
@@ -170,7 +170,7 @@ export function Upcoming() {
                 <Link to={`/video/${item.yt_video_key}`} className="thumbnail">
                   <img
                     className="thumbnail"
-                    src={`http://img.youtube.com/vi/${item.yt_video_key}/mqdefault.jpg`}
+                    src={`http://img.youtube.com/vi/${item.yt_video_key}/maxresdefault.jpg`}
                     alt="thumbnail"
                   />
                 </Link>

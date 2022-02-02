@@ -27,7 +27,7 @@ const Header = styled.div`
       font-size: 12px;
       text-transform: uppercase;
       transition: 0.5s;
-      border:none;
+      border: none;
       border-radius: 5px;
       &:hover {
         background: #bccbde;
@@ -45,7 +45,7 @@ const List = styled.div`
   margin-left: 5%;
 `;
 
-const QNA = ({ userObj }:any) => {
+const QNA = ({ userObj }: any) => {
   const [question, setQuestion] = useState("");
   const [questions, setQuestions] = useState<any>([]);
   useEffect(() => {
@@ -57,7 +57,7 @@ const QNA = ({ userObj }:any) => {
       setQuestions(questionArray);
     });
   }, []);
-  const onSubmit = async (event:any) => {
+  const onSubmit = async (event: { preventDefault: () => void }) => {
     event.preventDefault();
     await dbService.collection("questions").add({
       text: question,
@@ -66,7 +66,7 @@ const QNA = ({ userObj }:any) => {
     });
     setQuestion("");
   };
-  const onChange = (event:any) => {
+  const onChange = (event: any) => {
     const {
       target: { value },
     } = event;
@@ -86,7 +86,7 @@ const QNA = ({ userObj }:any) => {
         </form>
       </Header>
       <List>
-        {questions.map((question:any) => (
+        {questions.map((question: any) => (
           <AskBox
             key={question.id}
             askObj={question}

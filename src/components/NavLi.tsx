@@ -30,6 +30,15 @@ const Title = styled.span`
   white-space: nowrap;
   color: ${(props) => props.theme.textColor};
 `;
+const Copyright = styled.div`
+  font-size: 13px;
+  margin-left: 30px;
+  margin-top: 480px;
+  color: ${(props) => props.theme.copyColor};
+  a {
+    color: ${(props) => props.theme.hyperlinkColor};
+  }
+`;
 
 export function NavLi() {
   return (
@@ -64,13 +73,23 @@ export function NavLi() {
           </Link>
         </Button>
       </li> */}
-      {/* <li>
-        <Button className="buttons">
-          <Link to={"/multiview"}>
+        {/* <li>
+        <Button onClick={active} className={buttons}>
+          <Link to={"/timeline"}>
             <Icon>
               <CgProfile />
             </Icon>
             <Title>TimeLine</Title>
+          </Link>
+        </Button>
+      </li> */}
+       {/* <li>
+        <Button onClick={active} className={buttons}>
+          <Link to={"/channels"}>
+            <Icon>
+              <CgProfile />
+            </Icon>
+            <Title>Channels</Title>
           </Link>
         </Button>
       </li> */}
@@ -94,6 +113,7 @@ export function NavLi() {
           </Link>
         </Button>
       </li>
+      <Copyright>© 2021 <a href="mailto: mandu0055@gmail.com">Holoschedule</a></Copyright>
     </>
   );
 }

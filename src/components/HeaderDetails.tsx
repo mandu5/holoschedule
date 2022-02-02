@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { AiOutlineSetting } from "react-icons/ai";
 import { BiSearchAlt2 } from "react-icons/bi";
 import { FiLogIn } from "react-icons/fi";
@@ -12,21 +12,18 @@ import { authService } from "../myBase";
 
 const Logo = styled.div`
   font-size: 23px;
-  display: flex;
   position: relative;
-  text-align: start;
-  margin-left: 140px;
+  text-align: center;
   white-space: nowrap;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin: 10px;
   color: ${(props) => props.theme.textColor};
-  &.active {
-    margin-left: 150px;
-  }
 `;
 const Search = styled.div`
   position: relative;
   width: 400px;
-  margin: 0 10px;
-  margin-left: 50px;
+  margin: 10px;
   label {
     position: relative;
     width: 100%;
@@ -41,7 +38,6 @@ const Search = styled.div`
       border: none;
       background-color: ${(props) => props.theme.searchColor};
       color: ${(props) => props.theme.textColor};
-      
     }
   }
 `;
@@ -53,13 +49,12 @@ const Icon3 = styled.span`
   color: ${(props) => props.theme.textColor};
 `;
 const Toggle = styled.div`
-  position: relative;
-  margin-left: 200px;
   .profile {
     position: relative;
     width: 30px;
     height: 30px;
     border-radius: 50%;
+    margin-right: 5px;
     overflow: hidden;
     cursor: pointer;
     &:hover {
@@ -71,6 +66,7 @@ const Menu = styled.div`
   position: absolute;
   top: 45px;
   right: 0;
+  margin-right: 15px;
   width: 200px;
   padding: 10px 20px;
   color: ${(props) => props.theme.textColor};
@@ -124,11 +120,11 @@ export function HeaderDetails() {
   const menuToggle = () => {
     setMenu(menu === "menu" ? "menu active" : "menu");
   };
-  let useClickOutside = (handler:any) => {
-    let domNode:any = useRef();
+  let useClickOutside = (handler: any) => {
+    let domNode: any = useRef();
 
     useEffect(() => {
-      let aHandler = (event:any) => {
+      let aHandler = (event: any) => {
         if (domNode.current && !domNode.current.contains(event.target)) {
           handler();
         }
@@ -145,7 +141,7 @@ export function HeaderDetails() {
   });
   const onLogOutClick = () => authService.signOut();
   const setSearch = useSetRecoilState(searchTypedAtom);
-  const searchSpace = (event:any) => {
+  const searchSpace = (event: ChangeEvent<HTMLInputElement>) => {
     let keyword = event.target.value;
     setSearch(keyword);
   };
@@ -155,7 +151,7 @@ export function HeaderDetails() {
         <Link to="/">
           <div>
             <MdScheduleSend />
-            <span> Holo Schedule</span>
+            <span> Holoschedule</span>
           </div>
         </Link>
       </Logo>

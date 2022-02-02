@@ -10,7 +10,7 @@ const Navigation = styled.div`
   height: 100%;
   background: ${(props) => props.theme.navColor};
   transition: 0.3s;
-  box-shadow: ${(props) => props.theme.shadowColor} 0px 8px 20px 0px; 
+  box-shadow: ${(props) => props.theme.shadowColor} 0px 8px 20px 0px;
   .dropdown {
     border-radius: 50%;
     width: 50px;
@@ -85,14 +85,14 @@ const Topbar = styled.div`
   justify-content: space-between;
   align-items: center;
   background: ${(props) => props.theme.uiColor};
-  border-bottom: 1px solid ${(props) => props.theme.borderColor};  
+  border-bottom: 1px solid ${(props) => props.theme.borderColor};
   color: #fff;
   transition: 0.3s;
   &.active {
     position: relative;
-  }
-  @media (max-width: 745px) {
-    display: fixed;
+    .dropdown {
+      visibility: hidden;
+    }
   }
   .dropdown {
     border-radius: 50%;
@@ -158,12 +158,12 @@ export function UI(props: { setMain: (arg0: string) => void }) {
             className="toggle"
             onClick={changeToggle}
           >
-            <Icon2>
+            <Icon2> 
               <BiMenu />
             </Icon2>
           </Toggle>
         </Button>
-        <HeaderDetails />
+        <HeaderDetails/>
       </Topbar>
     </>
   );
