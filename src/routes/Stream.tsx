@@ -49,7 +49,7 @@ function Stream() {
           />
           <iframe
             className="chat"
-            src={`https://www.youtube.com/live_chat?v=${yt_video}&embed_domain=mandu0505.github.io`}
+            src={`https://www.youtube.com/live_chat?v=${yt_video}&embed_domain=holoschedule.com`}
             frameBorder="0"
             title="Embeded chat"
           />

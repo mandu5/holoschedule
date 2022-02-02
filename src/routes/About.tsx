@@ -48,7 +48,7 @@ const Title = styled.div`
   color: ${(props) => props.theme.textColor};
   width: 100%;
 `;
-const ContentBx = styled.div`
+const ContentBx = styled.details`
   position: relative;
   margin: 10px;
   margin-right: 10px;
@@ -59,9 +59,6 @@ const ContentBx = styled.div`
     .content {
       height: 100px;
       padding: 10px;
-    }
-    .label::before {
-      content: "-";
     }
   }
   .login {
@@ -77,21 +74,11 @@ const ContentBx = styled.div`
     &:hover {
       opacity: 0.8;
     }
-    &::before {
-      content: "+";
-      position: absolute;
-      top: 50%;
-      right: 20px;
-      transform: translateY(-50%);
-      font-size: 1.5em;
-    }
   }
   .content {
     position: relative;
-    background: #000;
     height: 0;
-    overflow: hidden;
-    overflow-y: auto;
+    color: ${(props) => props.theme.textColor};
   }
 `;
 const Content = styled.div`
@@ -104,6 +91,7 @@ const Content = styled.div`
   }
   ul {
     margin-top: 5px;
+    margin-bottom: 10px;
   }
   div {
     margin-top: 20px;
@@ -122,24 +110,7 @@ interface Iuser {
 const About = ({ userObj }: Iuser) => {
   const [main, setMain] = useState("main");
   const isLoggedIn = useRecoilValue(isLoggedInAtom);
-  const [accordion, setAccordion] = useState(["tab", "tab", "tab", "tab"]);
-  let tabs = [...accordion];
-  const changeClass = () => {
-    tabs[0] === "tab" ? (tabs[0] = "tab active") : (tabs[0] = "tab");
-    setAccordion(tabs);
-  };
-  const changeClass1 = () => {
-    tabs[1] === "tab" ? (tabs[1] = "tab active") : (tabs[1] = "tab");
-    setAccordion(tabs);
-  };
-  const changeClass2 = () => {
-    tabs[2] === "tab" ? (tabs[2] = "tab active") : (tabs[2] = "tab");
-    setAccordion(tabs);
-  };
-  const changeClass3 = () => {
-    tabs[3] === "tab" ? (tabs[3] = "tab active") : (tabs[3] = "tab");
-    setAccordion(tabs);
-  };
+
   return (
     <>
       <div className="wrapper">
@@ -150,50 +121,48 @@ const About = ({ userObj }: Iuser) => {
             <Box className="boards" id="scroll">
               <FAQ>
                 <Title>FAQ</Title>
-                <div className="accordion">
-                  <ContentBx className={accordion[0]} onClick={changeClass}>
-                    <div className="label">
-                      My Youtube chat isn't logged in!
-                    </div>
-                    <div className="content">
-                      Please disable the browser security feature known as 3rd
-                      Party Cookies blocking, or whitelist this website and
-                      youtube.com to allow 3rd Party Cookies.
-                      <a href="https://support.mozilla.org/en-US/kb/third-party-cookies-firefox-tracking-protection?redirectslug=disable-third-party-cookies">
-                        Firefox instructions, other browsers may be similar.
-                      </a>
-                    </div>
-                  </ContentBx>
-                  <ContentBx className={accordion[1]} onClick={changeClass1}>
-                    <div className="label">
-                      My favorites list disappeared / I cannot favorite
-                    </div>
-                    <div className="content">
-                      Please make sure you are logged in and visit the channels
-                      favorites tab to force a refresh.
-                    </div>
-                  </ContentBx>
-                  <ContentBx className={accordion[2]} onClick={changeClass2}>
-                    <div className="label">
-                      I have feedback/want to contribute to this project
-                    </div>
-                    <div className="content">
-                      All help and ideas are welcome! Please contact us with QNA
-                      section to gain access to backend source, or simply chat
-                      about your ideas.
-                    </div>
-                  </ContentBx>
-                  <ContentBx className={accordion[3]} onClick={changeClass3}>
-                    <div className="label">
-                      I'm a subber and I would like to have my channel removed
-                      from Holo Schedule
-                    </div>
-                    <div className="content">
-                      Sad to see you go :(, please let me know if there's any
-                      issue I can help you with.
-                    </div>
-                  </ContentBx>
-                </div>
+                <ContentBx className="accordion">
+                  <summary className="label">
+                    My Youtube chat isn't logged in!
+                  </summary>
+                  <span className="content">
+                    Please disable the browser security feature known as 3rd
+                    Party Cookies blocking, or whitelist this website and
+                    youtube.com to allow 3rd Party Cookies.
+                    <a href="https://support.mozilla.org/en-US/kb/third-party-cookies-firefox-tracking-protection?redirectslug=disable-third-party-cookies">
+                      Firefox instructions, other browsers may be similar.
+                    </a>
+                  </span>
+                </ContentBx>
+                <ContentBx className="accordion">
+                  <summary className="label">
+                    My favorites list disappeared / I cannot favorite
+                  </summary>
+                  <span className="content">
+                    Please make sure you are logged in and visit the channels
+                    favorites tab to force a refresh.
+                  </span>
+                </ContentBx>
+                <ContentBx className="accordion">
+                  <summary className="label">
+                    I have feedback/want to contribute to this project
+                  </summary>
+                  <span className="content">
+                    All help and ideas are welcome! Please contact us with QNA
+                    section to gain access to backend source, or simply chat
+                    about your ideas.
+                  </span>
+                </ContentBx>
+                <ContentBx className="accordion">
+                  <summary className="label">
+                    I'm a subber and I would like to have my channel removed
+                    from Holo Schedule
+                  </summary>
+                  <span className="content">
+                    Sad to see you go :(, please let me know if there's any
+                    issue I can help you with.
+                  </span>
+                </ContentBx>
               </FAQ>
             </Box>
             <Box className="boards">

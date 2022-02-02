@@ -56,6 +56,7 @@ const Main = styled.div`
     #facebook {
       background-color: #3b5998;
       margin-bottom: 10px;
+      font-size: 15px;
     }
   }
   .title {
@@ -79,7 +80,7 @@ function LoginPage() {
       setPassword(value);
     }
   };
-  const onSubmit = async (event: any) => {
+  const onSubmit = async (event: { preventDefault: () => void }) => {
     event.preventDefault();
     try {
       if (newAccount) {

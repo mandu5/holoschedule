@@ -6,7 +6,7 @@ export async function fetchLive() {
   return json.live;
 }
 export async function fetchUpcoming() {
-  const response = await fetch(`${BASE_URL}/live`);
+  const response = await fetch(`${BASE_URL}/live?max_upcoming_hours=100`);
   const json = await response.json();
   return json.upcoming;
 }

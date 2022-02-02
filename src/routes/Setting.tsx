@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import styled from "styled-components";
 import { isDarkAtom } from "../atoms";
-import { Theme } from "../components/Theme.js";
+// import { Theme } from "../components/Theme";
 import { UI } from "../components/UI";
 import "./pages.css";
 
@@ -57,10 +57,11 @@ function Setting() {
               <button className="button" onClick={themeChange}>
                 {isDark ? "Light Mode" : "Dark Mode"}
               </button>
-              <Theme />
+              {/* <Theme /> */}
             </Box>
             <Box className="boards" id="square">
               <Title>Languages</Title>
+              <h1>준비중...</h1>
             </Box>
           </div>
         </Main>
