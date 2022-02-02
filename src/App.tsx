@@ -7,8 +7,12 @@ import { authService } from "./myBase";
 import Routers from "./Router";
 import { lightTheme, darkTheme } from "./theme";
 import { ThemeProvider } from "styled-components";
+import favicon from "./image/favicon.png";
 
 const GlobalStyle = createGlobalStyle`
+  html{
+    background-color: #181818;
+  }
   body, h1, ul{
     margin: 0;
     padding: 0;
@@ -27,9 +31,8 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 function App() {
-  const [userObj, setUserObj] = useState(null);
+  const [userObj, setUserObj] = useState<any>(null);
   const [init, setInit] = useState(false);
-  const isLoggedIn = useRecoilValue(isLoggedInAtom);
   const setIsLoggedIn = useSetRecoilState(isLoggedInAtom);
   const isDark = useRecoilValue(isDarkAtom);
   useEffect(() => {
@@ -50,11 +53,21 @@ function App() {
         <HelmetProvider>
           <Helmet>
             <meta charSet="utf-8" />
-            <title>Holo Schedules</title>
-            <link rel="icon" type="image/png" href="favicon.ico" sizes="16x16" />
+            <meta
+              name="viewport"
+              content="width=device-width, initial-scale=1"
+            />
+            <meta name="author" content="mandu0505" />
+            <meta
+              name="description"
+              content={`2021 Holoschedule English · Home Favorites Channels Playlist.
+               Holoschedule. Live Streaming. Archive. `}
+            />
+            <title>Holoschedule</title>
+            <link rel="icon" type="image/png" href={favicon} sizes="16x16" />
           </Helmet>
         </HelmetProvider>
-        {init ? <Routers isLoggedIn={isLoggedIn} userObj={userObj} /> : ""}
+        {init ? <Routers userObj={userObj} /> : ""}
       </ThemeProvider>
     </>
   );

@@ -20,6 +20,7 @@ function Routers({ userObj }) {
         <Route path="/video/:yt_video" element={<Stream />} />
         <Route path="/channel/:yt_channel_id" element={<Channel />} />
         <Route path="/multiview" element={<Multiview />} />
+        <Route path="/timeline" element={<Multiview />} />
         <Route path="/setting" element={<Setting userObj={userObj} />} />
         <Route path="/about" element={<About userObj={userObj} />} />
         <Route path="/login" element={<LoginPage />} />

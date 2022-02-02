@@ -1,7 +1,7 @@
 import { DefaultTheme } from "styled-components";
 
 export const lightTheme: DefaultTheme = {
-  bgColor: "#F7F7F8",
+  bgColor: "#DAECEC",
   textColor: "#151617",
   tabColor: "#FFF",
   uiColor: "#bccbde",
@@ -11,6 +11,7 @@ export const lightTheme: DefaultTheme = {
   lengthbarColor: "#c2dde6",
   shadowColor: "rgba(0,0,0,0.15)",
   borderColor: "#cbd4df",
+  copyColor: "#494949",
 };
 
 export const darkTheme: DefaultTheme = {
@@ -25,6 +26,7 @@ export const darkTheme: DefaultTheme = {
   shadowColor: "#000000",
   borderColor: "#373737",
   searchColor: "#121212",
+  copyColor: "#BBBBBB",
 };
 // #161B22
 // #1E1E1E, #151617, #090A0A, #181818, #212121, #494949, #4B4B4B #BBBBBB
