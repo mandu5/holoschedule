@@ -1,14 +1,14 @@
 # 💡 Topic
 
-- **Real-time streaming information service for VTubers in Holo Live**
+- Real-time streaming information service for VTubers in Hololive
 
 # 📝 Summary
 
-It is a website where people can see real-time streaming information and upcoming streaming information of VTubers from **HoloLive**, which has the largest number of subscribers in the world. People can also participate in real-time chat as well as watching real-time streaming.
+It is a website where people can see real-time streaming information and upcoming streaming information of VTubers from **HoloLive**, which has the largest number of subscribers in the world. People can also participate in real-time chat while watching real-time broadcasts.
 
 # ⭐️ Key Function
 
-- **Real-time streaming information and Upcoming streaming information can be viewed and searched.**
+- **Real-time streaming information and Upcoming streaming information can be viewed and searched**
 
 # 🛠 Tech Stack
 
@@ -16,12 +16,13 @@ It is a website where people can see real-time streaming information and upcomin
 
 # 🤔 Learned
 
-- Learned the operation principle of **Typescript** and learned how to apply it to **React** project.
-- Learned how to use 'React hooks' and how to apply state management through '**Recoil**'.
+- Learned how to use `React hooks` and how to apply state management using `Recoil`.
+- Learned the operation principle of `Typescript` and learned how to apply it to `React` project.
 - Was able to study responsive websites and cross-browsing.
-- Was able to study how to operate 'Routing' and the characteristics of 'Single Page Application'.
-- Was able to study how to handle API data using **React-query`**.
-- Used Authentication and Database from **Firebase** and was able to proceed with the project.
+- Was able to study responsive websites and cross-browsing.
+- Was able to study how to operate `Routing` and the characteristics of `Single Page Application`.
+- Was able to study how to handle API data using `React-query`.
+- Used Authentication and Database from `Firebase` and was able to proceed with the project.
 
 # Roadmap
 
