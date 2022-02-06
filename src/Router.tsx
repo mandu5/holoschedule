@@ -11,7 +11,7 @@ import AccountSetting from "./routes/AccountSetting";
 import { useRecoilValue } from "recoil";
 import { isLoggedInAtom } from "./atoms";
 
-function Routers({ userObj }) {
+function Routers({ userObj }:any) {
   const isLoggedIn = useRecoilValue(isLoggedInAtom);
   return (
     <Router basename={process.env.PUBLIC_URL}>
@@ -21,7 +21,7 @@ function Routers({ userObj }) {
         <Route path="/channel/:yt_channel_id" element={<Channel />} />
         <Route path="/multiview" element={<Multiview />} />
         <Route path="/timeline" element={<Multiview />} />
-        <Route path="/setting" element={<Setting userObj={userObj} />} />
+        <Route path="/setting" element={<Setting />} />
         <Route path="/about" element={<About userObj={userObj} />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/accountsetting" element={<AccountSetting />} />
