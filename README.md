@@ -19,7 +19,6 @@ It is a website where people can see real-time streaming information and upcomin
 - Learned how to use `React hooks` and how to apply state management using `Recoil`.
 - Learned the operation principle of `Typescript` and learned how to apply it to `React` project.
 - Was able to study responsive websites and cross-browsing.
-- Was able to study responsive websites and cross-browsing.
 - Was able to study how to operate `Routing` and the characteristics of `Single Page Application`.
 - Was able to study how to handle API data using `React-query`.
 - Used Authentication and Database from `Firebase` and was able to proceed with the project.
