@@ -4,7 +4,7 @@
 
 # 📝 Summary
 
-It is a website where people can see real-time streaming information and upcoming streaming information of VTubers from **HoloLive**, which has the largest number of subscribers in the world. People can also participate in real-time chat while watching real-time broadcasts.
+Website where people can see real-time streaming information and upcoming streaming information of VTubers from **HoloLive**, which has the largest number of subscribers in the world. People can also participate in real-time chat while watching real-time broadcasts.
 
 # ⭐️ Key Function
 
